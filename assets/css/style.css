@@ -1835,8 +1835,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { flex-direction: column; }
 
-  .avatar-box img { width: 150px; }
-
+  .avatar-box img {
+    border-radius: 10%;
+    width: 150px;
+  }
   .info-content .name {
     white-space: nowrap;
     text-align: center;
