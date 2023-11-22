@@ -74,7 +74,7 @@
    */
 
   /* font-family */
-  --ff-poppins: 'Poppins', sans-serif, 'Brush Script MT';
+  --ff-poppins: 'Brush Script MT', 'Poppins', sans-serif;
 
   /* font-size */
   --fs-1: 24px;
