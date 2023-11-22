@@ -74,7 +74,7 @@
    */
 
   /* font-family */
-  --ff-poppins: 'Brush Script MT', 'Poppins', sans-serif, , cursive, 'Apple Chancery', 'URW Chancery L', cursive;
+  --ff-poppins: 'Poppins', sans-serif, 'Brush Script MT', 'Apple Chancery', 'URW Chancery L', cursive;
 
   /* font-size */
   --fs-1: 24px;
