@@ -21,7 +21,7 @@ const config = {
   scholarAIEndpoint: 'https://api.scholarai.io/api/fast_paper_search',
   scispaceEndpoint: 'https://api.typeset.io/v1/literature/summary', // Verify with SciSpace
   apiKeys: {
-    deepseek: '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',
+    deepseek: 'sk-8ceaf933a4249b2367ed099e77b83ff72a920b869945d6258fd94d9c5d6daa76',
     scholarAI: 'W17GFvnoJ6OdwfXmlK2g2HxffzOHt4bMOVzehSZMVcsipa2bSt13Os3xInZ6kj1Q',
     scispace: 'YOUR_ACTUAL_SCISPACE_API_KEY' // Replace with actual key
   }
