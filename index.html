@@ -1039,57 +1039,18 @@ It has been said that astronomy is a humbling and character-building experience.
         }
         .article-title {
             font-family: 'Brush Script MT';
+            /* Applying the font to the title */
         }
         .about-text {
             font-family: 'Brush Script MT';
             text-align: justify;
             font-size: medium;
         }
-        
-        /* Quantum Terminal Styles */
-        #quantum-terminal {
-            margin: 20px 0;
-            padding: 20px;
-            background-color: #000;
-            color: #00FF00;
-            font-family: 'Courier New', monospace;
-            line-height: 1.4;
-            border-radius: 5px;
-        }
-        
-        #quantum-terminal #terminal {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        #quantum-terminal .prompt {
-            color: #00FF00;
-        }
-        
-        #quantum-terminal .input-line {
-            display: flex;
-        }
-        
-        #quantum-terminal #command-input {
-            background-color: transparent;
-            border: none;
-            color: #00FF00;
-            font-family: 'Courier New', monospace;
-            width: 80%;
-            outline: none;
-            flex-grow: 1;
-        }
-        
-        #quantum-terminal .output {
-            margin-bottom: 10px;
-            white-space: pre-wrap;
-        }
     </style>
 </head>
 <body>
     <header>
-        <h2 class="h2 article-title">My Academic Genealogy</h2>
+        <h2 class="h2 article-title">My Academic Genealogy </h2>
     </header>
 
     <section class="about-text">
@@ -1127,7 +1088,232 @@ It has been said that astronomy is a humbling and character-building experience.
 </ul>
         </p>
     </section>
+</body>
+</html>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin-left: .2in;
+            margin-right: .2in;
+        }
+        .article-title {
+            font-family: 'Brush Script MT';
+        }
+        .about-text {
+            font-family: 'Brush Script MT';
+            text-align: justify;
+            font-size: medium;
+        }
+        /* Quantum Terminal Styles */
+        .quantum-terminal {
+            background-color: #000;
+            color: #00FF00;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        #terminal-container {
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+            overflow: hidden;
+        }
+        #output-container {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 10px;
+        }
+        .input-line {
+            display: flex;
+            padding: 10px 0;
+            position: sticky;
+            bottom: 0;
+            background: #000;
+            border-top: 1px solid #00FF00;
+        }
+        .prompt {
+            color: #00FF00;
+        }
+        #command-input {
+            background-color: transparent;
+            border: none;
+            color: #00FF00;
+            font-family: 'Courier New', monospace;
+            flex: 1;
+            outline: none;
+            padding-left: 5px;
+        }
+        .output {
+            margin-bottom: 15px;
+        }
+        .welcome-title {
+            color: #00FFFF;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .highlight {
+            color: #FFFF00;
+            font-weight: bold;
+        }
+        .command {
+            color: #FF00FF;
+            font-weight: bold;
+        }
+        .copyright {
+            color: #FFFFFF;
+            font-size: 0.9em;
+        }
+        .circled {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            border: 1px solid #FFFFFF;
+            text-align: center;
+            line-height: 1em;
+            font-size: 0.8em;
+            margin-right: 0.2em;
+        }
+        .error {
+            color: #FF5555;
+        }
+        .success {
+            color: #55FF55;
+        }
+        .arxiv-title {
+            color: #00FFFF;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .arxiv-authors {
+            color: #FFAA00;
+            font-style: italic;
+        }
+        .arxiv-abstract {
+            color: #00FF88;
+        }
+        .arxiv-link {
+            color: #00BFFF;
+            text-decoration: none;
+        }
+        .arxiv-doi {
+            color: #FF55FF;
+            text-decoration: none;
+        }
+        .arxiv-divider {
+            color: #555555;
+            margin: 10px 0;
+            border-top: 1px dashed #555555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 class="h2 article-title">Quantum Terminal</h2>
+    </header>
 
+    <section class="about-text">
+        <div class="quantum-terminal">
+            <div id="terminal-container">
+                <div id="output-container">
+                    <div class="output">
+                        <pre style="color:#00FFFF; font-weight:bold;">
+________                       __                             __  .__ __                 __          __                
+\_____  \  __ _______    _____/  |_              ____ _______/  |_|__|  | __           _/  |_ __ ___/  |_  ___________ 
+ /  / \  \|  |  \__  \  /    \   __\   ______   /  _ \\____ \   __\  |  |/ /   ______  \   __\  |  \   __\/  _ \_  __ \
+/   \_/.  \  |  // __ \|   |  \  |    /_____/  (  <_> )  |_> >  | |  |    <   /_____/   |  | |  |  /|  | (  <_> )  | \/
+\_____\ \_/____/(____  /___|  /__|              \____/|   __/|__| |__|__|_ \            |__| |____/ |__|  \____/|__|   
+       \__>          \/     \/                        |__|                \/                                           
+                        </pre>
+                        <p class="welcome-title">🌟 Welcome to <span class="highlight">Quantum Terminal</span> - Your Portal to the Quantum Frontier! 🌟</p>
+                        <p>Step into the <span class="highlight">fascinating world of quantum optics</span>, where <span style="color:#FF00FF;">light and matter interact in extraordinary ways. Explore:</p>
+                        <ul>
+                            <li><span class="highlight">Experimental & theoretical quantum optics</span></li>
+                            <li><span style="color:#00FFAA;">Optoelectronics</span> and quantum technologies</li>
+                            <li><span style="color:#FFAA00;">Quantum gases</span> and ultracold atoms</li>
+                            <li><span style="color:#AA00FF;">Optical cavities</span> and precision lasers</li>
+                        </ul>
+                        <p><span class="highlight">Ready to begin your quantum journey? Type 'help' to see available commands</p>
+                        <p>Search research papers with: <span class="command">arxiv</span>, <span class="command">latest_K</span>, <span class="command">K = atomic, optics, quantum_gases, </span></p>
+                        <p>Get latest papers using:</p>
+                        <ul>
+                            <li><span class="command">latest_atomic</span> - Atomic Physics</li>
+                            <li><span class="command">latest_optics</span> - Quantum Optics</li>
+                            <li><span class="command">latest_quantum_gases</span> - Quantum Gases</li>
+                            <li><span class="command">latest_molecular</span> - Molecules & Clusters</li>
+                        </ul>
+                        <p style="color:#00FFFF; font-style: italic;">The quantum universe awaits - dive in and discover!</p>
+                        <p class="copyright"><span class="circled">c</span> All rights reserved | Tripathi Om Sarveshwarpati | University of Warsaw</p>
+                    </div>
+                </div>
+                <div class="input-line">
+                    <span class="prompt">user@quantum-terminal:~$ </span>
+                    <input type="text" id="command-input" aria-label="Enter terminal command" autofocus>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <script src="./assets/js/quant-optik.js"></script>
+    <script>
+        // Basic terminal functionality
+        const commandInput = document.getElementById('command-input');
+        const outputContainer = document.getElementById('output-container');
+        
+        commandInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const command = commandInput.value.trim();
+                commandInput.value = '';
+                
+                // Add the command to output
+                const commandElement = document.createElement('div');
+                commandElement.innerHTML = `<span class="prompt">user@quantum-terminal:~$ </span>${command}`;
+                outputContainer.appendChild(commandElement);
+                
+                // Process command
+                const outputElement = document.createElement('div');
+                outputElement.className = 'output';
+                
+                if (command === 'help') {
+                    outputElement.innerHTML = `
+                        <p>Available commands:</p>
+                        <ul>
+                            <li><span class="command">help</span> - Show this help message</li>
+                            <li><span class="command">clear</span> - Clear the terminal</li>
+                            <li><span class="command">about</span> - Show about information</li>
+                            <li><span class="command">research</span> - Show research interests</li>
+                        </ul>
+                    `;
+                } else if (command === 'clear') {
+                    outputContainer.innerHTML = '';
+                    return;
+                } else if (command === 'about') {
+                    outputElement.innerHTML = `
+                        <p>Tripathi Om Sarveshwarpati - Quantum Physics Researcher</p>
+                        <p>PhD Candidate at University of Warsaw</p>
+                        <p>Specializing in ultracold quantum gases and precision spectroscopy</p>
+                    `;
+                } else if (command === 'research') {
+                    outputElement.innerHTML = `
+                        <p>Current research focuses on:</p>
+                        <ul>
+                            <li>Production of ultracold CsAg molecules</li>
+                            <li>Precision spectroscopy techniques</li>
+                            <li>Quantum optics and atom-light interactions</li>
+                        </ul>
+                    `;
+                } else if (command) {
+                    outputElement.innerHTML = `<p class="error">Command not found: ${command}. Type <span class="command">help</span> for available commands.</p>`;
+                }
+                
+                outputContainer.appendChild(outputElement);
+                outputContainer.scrollTop = outputContainer.scrollHeight;
+            }
+        });
+    </script>
+</body>
 </html>
