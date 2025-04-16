@@ -1130,10 +1130,13 @@ It has been said that astronomy is a humbling and character-building experience.
 
     <!-- Quantum Terminal Section -->
     <section id="quantum-terminal">
-    <div id="terminal-container">
-        <div id="output-container">
+        <header>
+            <h2 class="h2 article-title">Quantum Optics Terminal</h2>
+        </header>
+        
+        <div id="terminal">
             <div class="output">
-                <pre style="color:#00FFFF; font-weight:bold;">
+                <pre>
 ________                       __                             __  .__ __                 __          __                
 \_____  \  __ _______    _____/  |_              ____ _______/  |_|__|  | __           _/  |_ __ ___/  |_  ___________ 
  /  / \  \|  |  \__  \  /    \   __\   ______   /  _ \\____ \   __\  |  |/ /   ______  \   __\  |  \   __\/  _ \_  __ \
@@ -1141,37 +1144,23 @@ ________                       __                             __  .__ __        
 \_____\ \_/____/(____  /___|  /__|              \____/|   __/|__| |__|__|_ \            |__| |____/ |__|  \____/|__|   
        \__>          \/     \/                        |__|                \/                                           
                 </pre>
-                <p class="welcome-title">🌟 Welcome to <span class="highlight">Quantum Terminal</span> - Your Portal to the Quantum Frontier! 🌟</p>
-                <p>Step into the <span class="highlight">fascinating world of quantum optics</span>, where <span style="color:#FF00FF;">light and matter</span> interact in extraordinary ways. Explore:</p>
-                <ul>
-                    <li><span class="highlight">Experimental & theoretical quantum optics</span></li>
-                    <li><span style="color:#00FFAA;">Optoelectronics</span> and quantum technologies</li>
-                    <li><span style="color:#FFAA00;">Quantum gases</span> and ultracold atoms</li>
-                    <li><span style="color:#AA00FF;">Optical cavities</span> and precision lasers</li>
-                </ul>
-                <p><span class="highlight">Ready to begin your quantum journey?</span></p>
-                <p>Type <span class="command">help</span> to see available commands</p>
-                <p>Search research papers with: <span class="command">arxiv</span>, <span class="command">scholar</span>, <span class="command">scispace</span></p>
-                <p>Get latest papers using:</p>
-                <ul>
-                    <li><span class="command">latest_atomic</span> - Atomic Physics</li>
-                    <li><span class="command">latest_optics</span> - Quantum Optics</li>
-                    <li><span class="command">latest_quantum_gases</span> - Quantum Gases</li>
-                    <li><span class="command">latest_molecular</span> - Molecules & Clusters</li>
-                </ul>
-                <p style="color:#00FFFF; font-style: italic;">The quantum universe awaits - dive in and discover!</p>
-                <p class="copyright"><span class="circled">c</span> All rights reserved | Tripathi Om Sarveshwarpati | University of Warsaw</p>
+                <p>Welcome to Quantum Terminal.</p>
+                <p>This is the place to learn about quantum optics, experimental and theoretical, optoelectronics, quantum gases, cold atoms, cavities, lasers and much more.</p>
+                <p>Type <span class="prompt">help</span> to begin your quantum optics journey. Search papers with 'arxiv', 'scholar', 'scispace'.</p>
+            </div>
+            <div class="input-line">
+                <span class="prompt">user@quantum-terminal:~$ </span>
+                <input type="text" id="command-input" aria-label="Enter terminal command" autofocus>
             </div>
         </div>
-        <div class="input-line">
-            <span class="prompt">user@quantum-terminal:~$ </span>
-            <input type="text" id="command-input" aria-label="Enter terminal command" autofocus>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script src="quant-optik.js"></script>
     </section>
+
+    <!-- Include KaTeX and your JS file -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="./assets/js/quant-optik.js"></script>
+</body>
+</html>
+
 
 
 </html>
