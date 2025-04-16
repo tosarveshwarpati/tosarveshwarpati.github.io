@@ -17,7 +17,7 @@ const config = {
     blue: '#00BFFF',
     white: '#FFFFFF'
   },
-  arxivEndpoint: 'http://export.arxiv.org/api/query',
+  arxivEndpoint: 'https://export.arxiv.org/api/query',
   scholarAIEndpoint: 'https://api.scholarai.io/api/fast_paper_search',
   scispaceEndpoint: 'https://api.typeset.io/v1/literature/summary', // Verify with SciSpace
   apiKeys: {
