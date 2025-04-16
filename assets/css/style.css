@@ -1323,6 +1323,119 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
 
+/* Quantum Terminal Styles */
+	
+#quantum-terminal {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #000;
+    color: #00FF00;
+    font-family: 'Courier New', monospace;
+    line-height: 1.4;
+    border-radius: 5px;
+}
+
+#quantum-terminal #terminal {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#quantum-terminal .prompt {
+    color: #00FF00;
+}
+
+#quantum-terminal .input-line {
+    display: flex;
+}
+
+#quantum-terminal #command-input {
+    background-color: transparent;
+    border: none;
+    color: #00FF00;
+    font-family: 'Courier New', monospace;
+    width: 80%;
+    outline: none;
+    flex-grow: 1;
+}
+
+#quantum-terminal .output {
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+}
+
+#quantum-terminal .welcome-title {
+    color: #00FFFF;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#quantum-terminal .highlight {
+    color: #FFFF00;
+    font-weight: bold;
+}
+
+#quantum-terminal .command {
+    color: #FF00FF;
+    font-weight: bold;
+}
+
+#quantum-terminal .copyright {
+    color: #FFFFFF;
+    font-size: 0.9em;
+}
+
+#quantum-terminal .circled {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    border: 1px solid #FFFFFF;
+    text-align: center;
+    line-height: 1em;
+    font-size: 0.8em;
+    margin-right: 0.2em;
+}
+
+#quantum-terminal .error {
+    color: #FF5555;
+}
+
+#quantum-terminal .success {
+    color: #55FF55;
+}
+
+#quantum-terminal .arxiv-title {
+    color: #00FFFF;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+#quantum-terminal .arxiv-authors {
+    color: #FFAA00;
+    font-style: italic;
+}
+
+#quantum-terminal .arxiv-abstract {
+    color: #00FF88;
+}
+
+#quantum-terminal .arxiv-link {
+    color: #00BFFF;
+    text-decoration: none;
+}
+
+#quantum-terminal .arxiv-doi {
+    color: #FF55FF;
+    text-decoration: none;
+}
+
+#quantum-terminal .arxiv-divider {
+    color: #555555;
+    margin: 10px 0;
+    border-top: 1px dashed #555555;
+}
+	
 
   /**
    * #SIDEBAR
