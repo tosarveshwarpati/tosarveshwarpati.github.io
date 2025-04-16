@@ -38,20 +38,28 @@ async function handleAICommand(prompt, context = "") {
       },
       body: JSON.stringify({
         model: "deepseek-chat",
-        messages: [{
-          role: "system",
-          content: `${config.aiContext}\n${context}`
-        }, {
-          role: "user",
-          content: prompt
-        }],
+        messages: [
+          { role: "system", content: `${config.aiContext}\n${context}` },
+          { role: "user", content: prompt }
+        ],
         temperature: 0.7,
         max_tokens: 2000
       })
     });
-    
+
     const data = await response.json();
-    return data.choices[0]?.message?.content || "No response from AI";
+    
+    // Improved error handling
+    if (!response.ok) {
+      return `AI Error: ${data.error?.message || response.statusText}`;
+    }
+    
+    if (!data.choices || !data.choices.length) {
+      return "AI Response Error: No choices in response";
+    }
+    
+    return data.choices[0]?.message?.content || "No response content from AI";
+    
   } catch (error) {
     console.error("AI Error:", error);
     return `AI Service Error: ${error.message}`;
