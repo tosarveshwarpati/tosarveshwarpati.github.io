@@ -7,1109 +7,625 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tripathi Om Sarveshwarpati - Personal</title>
 
-  <!--
-    - favicon
-  -->
+  <!-- favicon -->
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
 
-  <!--
-    - custom css link
-  -->
+  <!-- custom css link -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!--
-    - google font link
-  -->
+  <!-- google font link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- KaTeX for mathematical rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
 </head>
 
 <body>
-
-  <!--
-    - #MAIN
-  -->
-
   <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
+    <!-- Sidebar -->
     <aside class="sidebar" data-sidebar>
-
       <div class="sidebar-info">
-
         <figure class="avatar-box">
           <img src="./assets/images/pic_self.jpg" alt="Tripathi Om Sarveshwarpati" width="130">
         </figure>
-
         <div class="info-content">
           <h1 class="name" title="Tripathi Om">Tripathi Om</h1>
-
           <p class="title">Cold Atom Physics Guy</p>
         </div>
-
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
-
           <ion-icon name="chevron-down"></ion-icon>
         </button>
-
       </div>
 
       <div class="sidebar-info_more">
-
         <div class="separator"></div>
-
         <ul class="contacts-list">
-
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="mail-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Email</p>
-
               <a href="mailto:omsarveshwarpatitripathi@gmail.com" class="contact-link">omsarveshwarpatitripathi@gmail.com</a>
             </div>
-
           </li>
-
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="phone-portrait-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Phone</p>
-
               <a href="tel:+12133522795" class="contact-link">+48 732 629 675</a>
             </div>
-
           </li>
-
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="calendar-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Birthday</p>
-
               <time datetime="1982-06-23">Feb 28, 1999</time>
             </div>
-
           </li>
-
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="location-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Location</p>
-
               <address>Quantum Gases Lab, Faculty of Physics, University of Warsaw</address>
             </div>
-
           </li>
-
         </ul>
-
-       <div class="separator"></div>
-
-<ul class="social-list">
-    <li class="social-item">
-        <a href="https://www.facebook.com/navintripathi.t" class="social-link">
-            <ion-icon name="logo-facebook"></ion-icon>
-        </a>
-    </li>
-    <li class="social-item">
-        <a href="https://github.com/tosarveshwarpati" class="social-link">
-            <ion-icon name="logo-github"></ion-icon>
-        </a>
-    </li>
-    <li class="social-item">
-        <a href="https://www.linkedin.com/in/tripathi-om-sarveshwarpati-aa6063103" class="social-link">
-            <ion-icon name="logo-linkedin"></ion-icon>
-        </a>
-    </li>
-</ul>
-
-
+        <div class="separator"></div>
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://www.facebook.com/navintripathi.t" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://github.com/tosarveshwarpati" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/tripathi-om-sarveshwarpati-aa6063103" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+        </ul>
       </div>
-
     </aside>
 
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
+    <!-- Main Content -->
     <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
+      <!-- Navbar -->
       <nav class="navbar">
-
         <ul class="navbar-list">
-
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link active" data-nav-link>About</button>
           </li>
-
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Resume</button>
           </li>
-
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Gallery</button>
           </li>
-
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Blog</button>
           </li>
-
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Contact</button>
           </li>
-
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Fun Stuff</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Genealogy</button>
+          </li>
         </ul>
-
       </nav>
 
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
+      <!-- About -->
+      <article class="about active" data-page="about">
         <header>
           <h2 class="h2 article-title">About me</h2>
         </header>
-
         <section class="about-text">
           <p>
             Physics Scholar with good skills in Quantum Theory, Mathematical Methods and Optical Experiment design at
             graduate level. Interested in both Theoretical and Experimental Physics.
-            
           </p>
-
           <p>
-            I work in laser cooling and spectroscopy 
-            laboratory at Warsaw University for production and 
-            precision spectroscopy of ultracold CsAg molecule. I absolutely love my work. 
+            I work in laser cooling and spectroscopy laboratory at Warsaw University for production and precision spectroscopy of ultracold CsAg molecule. I absolutely love my work.
           </p>
         </section>
-
-
-        <!--
-          - service
-        -->
-
         <section class="service">
-
-          <h3 class="h3 service-title">What i'm doing</h3>
-
+          <h3 class="h3 service-title">What I'm doing</h3>
           <ul class="service-list">
-
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
+                <img src="./assets/images/icon-design.svg" alt="design icon" width="40">
               </div>
-
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Density Matrix based Spectroscopic Calculations</h4>
-
                 <p class="service-item-text">
-                  Optical Bloch Equations offers a precise way to calculate spectroscopic properties of finite(few) dimensional quantum systems. 
+                  Optical Bloch Equations offers a precise way to calculate spectroscopic properties of finite(few) dimensional quantum systems.
                 </p>
               </div>
-
             </li>
-
             <li class="service-item">
-
               <div class="service-icon-box">
                 <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
               </div>
-
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Programming</h4>
-
                 <p class="service-item-text">
                   Junior Physicists do a Lot of Programming. (but senior physicists/supervisors dont!)
                 </p>
               </div>
-
             </li>
-
             <li class="service-item">
-
               <div class="service-icon-box">
                 <img src="./assets/images/ftfolder-yellow.svg" alt="mobile app icon" width="40">
               </div>
-
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Electronics And Control</h4>
-
                 <p class="service-item-text">
-                  A PhD student's life is filled with a myriad of electronics and control system design work.  
+                  A PhD student's life is filled with a myriad of electronics and control system design work.
                 </p>
               </div>
-
             </li>
-
             <li class="service-item">
-
               <div class="service-icon-box">
                 <img src="./assets/images/Atom.svg" alt="camera icon" width="40">
               </div>
-
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Spectroscopy / Imaging</h4>
-
                 <p class="service-item-text">
-                  Ultimately I am performing laser based spectroscopy and imaging experiments, life is over. 
+                  Ultimately I am performing laser based spectroscopy and imaging experiments, life is over.
                 </p>
               </div>
-
             </li>
-
           </ul>
-
         </section>
-
-
-        <!--
-          -  Some Literature
-        -->
-
         <section class="testimonials">
-    <h3 class="h3 testimonials-title">Favourite Literature</h3>
-    <ul class="testimonials-list has-scrollbar">
-        <li class="testimonials-item">
-            <div class="content-card" data-testimonials-item>
+          <h3 class="h3 testimonials-title">Favourite Literature</h3>
+          <ul class="testimonials-list has-scrollbar">
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
                 <figure class="testimonials-avatar-box">
-                    <!-- Modify the width and height attributes to adjust the image size -->
-                    <img src="./assets/images/Pale_Blue_Dot.png" alt="Daniel lewis" width="70" height="70" data-testimonials-avatar>
+                  <img src="./assets/images/Pale_Blue_Dot.png" alt="Pale Blue Dot" width="70" height="70" data-testimonials-avatar>
                 </figure>
                 <h4 class="h4 testimonials-item-title" data-testimonials-title>The Pale Blue Dot</h4>
                 <div class="testimonials-text" data-testimonials-text>
-
-                    <p>
+                  <p>
                     Look again at that dot. That's here. That's home. That's us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives. The aggregate of our joy and suffering, thousands of confident religions, ideologies, and economic doctrines, every hunter and forager, every hero and coward, every creator and destroyer of civilization, every king and peasant, every young couple in love, every mother and father, hopeful child, inventor and explorer, every teacher of morals, every corrupt politician, every "superstar," every "supreme leader," every saint and sinner in the history of our species lived there--on a mote of dust suspended in a sunbeam.
-
-The Earth is a very small stage in a vast cosmic arena. Think of the rivers of blood spilled by all those generals and emperors so that, in glory and triumph, they could become the momentary masters of a fraction of a dot. Think of the endless cruelties visited by the inhabitants of one corner of this pixel on the scarcely distinguishable inhabitants of some other corner, how frequent their misunderstandings, how eager they are to kill one another, how fervent their hatreds.
-
-Our posturings, our imagined self-importance, the delusion that we have some privileged position in the Universe, are challenged by this point of pale light. Our planet is a lonely speck in the great enveloping cosmic dark. In our obscurity, in all this vastness, there is no hint that help will come from elsewhere to save us from ourselves.
-
-The Earth is the only world known so far to harbor life. There is nowhere else, at least in the near future, to which our species could migrate. Visit, yes. Settle, not yet. Like it or not, for the moment the Earth is where we make our stand.
-
-It has been said that astronomy is a humbling and character-building experience. There is perhaps no better demonstration of the folly of human conceits than this distant image of our tiny world. To me, it underscores our responsibility to deal more kindly with one another, and to preserve and cherish the pale blue dot, the only home we've ever known.
-
-— Carl Sagan, Pale Blue Dot, 1994
-
-
+                    The Earth is a very small stage in a vast cosmic arena. Think of the rivers of blood spilled by all those generals and emperors so that, in glory and triumph, they could become the momentary masters of a fraction of a dot. Think of the endless cruelties visited by the inhabitants of one corner of this pixel on the scarcely distinguishable inhabitants of some other corner, how frequent their misunderstandings, how eager they are to kill one another, how fervent their hatreds.
+                    Our posturings, our imagined self-importance, the delusion that we have some privileged position in the Universe, are challenged by this point of pale light. Our planet is a lonely speck in the great enveloping cosmic dark. In our obscurity, in all this vastness, there is no hint that help will come from elsewhere to save us from ourselves.
+                    The Earth is the only world known so far to harbor life. There is nowhere else, at least in the near future, to which our species could migrate. Visit, yes. Settle, not yet. Like it or not, for the moment the Earth is where we make our stand.
+                    It has been said that astronomy is a humbling and character-building experience. There is perhaps no better demonstration of the folly of human conceits than this distant image of our tiny world. To me, it underscores our responsibility to deal more kindly with one another, and to preserve and cherish the pale blue dot, the only home we've ever known.
+                    — Carl Sagan, Pale Blue Dot, 1994
                   </p>
                 </div>
-
               </div>
             </li>
-
-
           </ul>
-
         </section>
-
-
-        <!--
-          - testimonials modal
-        -->
-
         <div class="modal-container" data-modal-container>
-
           <div class="overlay" data-overlay></div>
-
           <section class="testimonials-modal">
-
             <button class="modal-close-btn" data-modal-close-btn>
               <ion-icon name="close-outline"></ion-icon>
             </button>
-
             <div class="modal-img-wrapper">
               <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+                <img src="./assets/images/Pale_Blue_Dot.png" alt="Pale Blue Dot" width="80" data-modal-img>
               </figure>
-
               <img src="./assets/images/icon-quote.svg" alt="quote icon">
             </div>
-
             <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-              <time datetime="2021-06-14">1994</time>
-
+              <h4 class="h3 modal-title" data-modal-title>Pale Blue Dot</h4>
+              <time datetime="1994">1994</time>
               <div data-modal-text>
-
                 <p>
                   Look again at that dot. That's here. That's home. That's us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives. The aggregate of our joy and suffering, thousands of confident religions, ideologies, and economic doctrines, every hunter and forager, every hero and coward, every creator and destroyer of civilization, every king and peasant, every young couple in love, every mother and father, hopeful child, inventor and explorer, every teacher of morals, every corrupt politician, every "superstar," every "supreme leader," every saint and sinner in the history of our species lived there--on a mote of dust suspended in a sunbeam.
-
-The Earth is a very small stage in a vast cosmic arena. Think of the rivers of blood spilled by all those generals and emperors so that, in glory and triumph, they could become the momentary masters of a fraction of a dot. Think of the endless cruelties visited by the inhabitants of one corner of this pixel on the scarcely distinguishable inhabitants of some other corner, how frequent their misunderstandings, how eager they are to kill one another, how fervent their hatreds.
-
-Our posturings, our imagined self-importance, the delusion that we have some privileged position in the Universe, are challenged by this point of pale light. Our planet is a lonely speck in the great enveloping cosmic dark. In our obscurity, in all this vastness, there is no hint that help will come from elsewhere to save us from ourselves.
-
-The Earth is the only world known so far to harbor life. There is nowhere else, at least in the near future, to which our species could migrate. Visit, yes. Settle, not yet. Like it or not, for the moment the Earth is where we make our stand.
-
-It has been said that astronomy is a humbling and character-building experience. There is perhaps no better demonstration of the folly of human conceits than this distant image of our tiny world. To me, it underscores our responsibility to deal more kindly with one another, and to preserve and cherish the pale blue dot, the only home we've ever known.
-
-— Carl Sagan, Pale Blue Dot, 1994
+                  The Earth is a very small stage in a vast cosmic arena. Think of the rivers of blood spilled by all those generals and emperors so that, in glory and triumph, they could become the momentary masters of a fraction of a dot. Think of the endless cruelties visited by the inhabitants of one corner of this pixel on the scarcely distinguishable inhabitants of some other corner, how frequent their misunderstandings, how eager they are to kill one another, how fervent their hatreds.
+                  Our posturings, our imagined self-importance, the delusion that we have some privileged position in the Universe, are challenged by this point of pale light. Our planet is a lonely speck in the great enveloping cosmic dark. In our obscurity, in all this vastness, there is no hint that help will come from elsewhere to save us from ourselves.
+                  The Earth is the only world known so far to harbor life. There is nowhere else, at least in the near future, to which our species could migrate. Visit, yes. Settle, not yet. Like it or not, for the moment the Earth is where we make our stand.
+                  It has been said that astronomy is a humbling and character-building experience. There is perhaps no better demonstration of the folly of human conceits than this distant image of our tiny world. To me, it underscores our responsibility to deal more kindly with one another, and to preserve and cherish the pale blue dot, the only home we've ever known.
+                  — Carl Sagan, Pale Blue Dot, 1994
                 </p>
               </div>
-
             </div>
-
           </section>
-
         </div>
-
-
-
       </article>
 
-
-
-
-
-      <!--
-        - #RESUME
-      -->
-
+      <!-- Resume -->
       <article class="resume" data-page="resume">
-
         <header>
           <h2 class="h2 article-title">Resume</h2>
         </header>
-
         <section class="timeline">
-
           <div class="title-wrapper">
             <div class="icon-box">
               <ion-icon name="book-outline"></ion-icon>
             </div>
-
             <h3 class="h3">Education</h3>
           </div>
-
           <ol class="timeline-list">
-
             <li class="timeline-item">
-
               <h4 class="h4 timeline-item-title">Ultracold Quantum Gases Lab, University of Warsaw</h4>
-
-              <span>PhD in Physics, 2026(Expected)</span>
-
+              <span>PhD in Physics, 2026 (Expected)</span>
               <p class="timeline-text">
-                We create some of the coldest matter in the universe. I learn and work in laser cooling and spectroscopy laboratory in Warsaw University. My Project is about Production and Precision Spectroscopy of ultracold CsAg molecules. 
+                We create some of the coldest matter in the universe. I learn and work in laser cooling and spectroscopy laboratory in Warsaw University. My Project is about Production and Precision Spectroscopy of ultracold CsAg molecules.
               </p>
-
             </li>
-
             <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">University Of Allahabad-hri</h4>
-
+              <h4 class="h4 timeline-item-title">University Of Allahabad-HRI</h4>
               <span>MSc in Physics, Nov 2020</span>
-
               <p class="timeline-text">
-                I studied Optics, Condenseed matter Physics and Electronics. Self learned path Integral methods. Written a thesis on relativistic quantum theory of light diffraction from 2D irregular slit arrays.
+                I studied Optics, Condensed Matter Physics and Electronics. Self learned path Integral methods. Written a thesis on relativistic quantum theory of light diffraction from 2D irregular slit arrays.
               </p>
-
             </li>
-
           </ol>
-
         </section>
-
         <section class="timeline">
-
           <div class="title-wrapper">
             <div class="icon-box">
               <ion-icon name="book-outline"></ion-icon>
             </div>
-
             <h3 class="h3">Experience</h3>
           </div>
-
           <ol class="timeline-list">
-
             <li class="timeline-item">
-
               <h4 class="h4 timeline-item-title">Volunteer Teaching Assistant and Teacher</h4>
-
               <span>TA, Aug 2022 — Present</span>
-
               <p class="timeline-text">
                 I am a teaching assistant to Prof. M. Sivakumar, who regularly conducts Quantum Field Theory (QFT) classes on weekends as part of the PTTS (Physics Training and Talent Search) programme. Additionally, I am teaching a course on undergraduate Quantum Mechanics (QM).
               </p>
-
             </li>
-
-          <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title"> Quantum Electronics and Optics Division, FMFI UK</h4>
-
-              <span>Research Asst., Feb2021 - Oct2022</span>
-
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Quantum Electronics and Optics Division, FMFI UK</h4>
+              <span>Research Asst., Feb 2021 - Oct 2022</span>
               <p class="timeline-text">
-                During Feb2021-Oct2022; one and half year, I was engaged with optical laser induced breakdown spectroscopy spectroscopy and spectral data analysis as well as simulations of atomic spectral lines, electro-mechanical optical components and interfacing them with PC, electronics assignments from ongoing liquid spectroscopy laboratory establishments, writing computer programs etc. I have designed and prepared a spectroscopy chamber with variable axial electric field, to study effects of perturbative electric field on laser induced Plasma. I have also made a control unit, temperature and power monitoring system for Microwave LIBS setup. I have also written programs for iterative calculation of partition function, determination of Stark broadening in atomic spectral lines,calculation of other relevant parameters such as electron density and Temperature(using Boltzmann graph method) etc.
+                During Feb 2021-Oct 2022; one and half year, I was engaged with optical laser induced breakdown spectroscopy and spectral data analysis as well as simulations of atomic spectral lines, electro-mechanical optical components and interfacing them with PC, electronics assignments from ongoing liquid spectroscopy laboratory establishments, writing computer programs etc. I have designed and prepared a spectroscopy chamber with variable axial electric field, to study effects of perturbative electric field on laser induced Plasma. I have also made a control unit, temperature and power monitoring system for Microwave LIBS setup. I have also written programs for iterative calculation of partition function, determination of Stark broadening in atomic spectral lines, calculation of other relevant parameters such as electron density and Temperature (using Boltzmann graph method) etc.
               </p>
-
             </li>
           </ol>
-
         </section>
-
         <section class="skill">
-
           <h3 class="h3 skills-title">My skills</h3>
-
           <ul class="skills-list content-card">
-
             <li class="skills-item">
-
               <div class="title-wrapper">
                 <h5 class="h5">Experiment Design (100% = Wolfgang Ketterle)</h5>
                 <data value="80">1%</data>
               </div>
-
               <div class="skill-progress-bg">
                 <div class="skill-progress-fill" style="width: 1%;"></div>
               </div>
-
             </li>
-
             <li class="skills-item">
-
               <div class="title-wrapper">
-                <h5 class="h5">Theoetical Quantum Optics (100% = Max Born)</h5>
+                <h5 class="h5">Theoretical Quantum Optics (100% = Max Born)</h5>
                 <data value="70">1%</data>
               </div>
-
               <div class="skill-progress-bg">
                 <div class="skill-progress-fill" style="width: 1%;"></div>
               </div>
-
             </li>
-
             <li class="skills-item">
-
               <div class="title-wrapper">
                 <h5 class="h5">Electronics (100% = Anant Agrawal)</h5>
                 <data value="90">2%</data>
               </div>
-
               <div class="skill-progress-bg">
                 <div class="skill-progress-fill" style="width: 2%;"></div>
               </div>
-
             </li>
-
             <li class="skills-item">
-
               <div class="title-wrapper">
                 <h5 class="h5">Programming (100% = Indian Hackers)</h5>
                 <data value="50">0.001%</data>
               </div>
-
               <div class="skill-progress-bg">
                 <div class="skill-progress-fill" style="width: 0.1%;"></div>
               </div>
-
             </li>
-
           </ul>
-
         </section>
-
       </article>
 
-
-
-
-
-      <!--
-        - #Gallery
-      -->
-
+      <!-- Gallery -->
       <article class="gallery" data-page="gallery">
-
         <header>
           <h2 class="h2 article-title">Gallery</h2>
         </header>
-
         <section class="projects">
-
           <ul class="filter-list">
-
             <li class="filter-item">
               <button class="active" data-filter-btn>All</button>
             </li>
-
             <li class="filter-item">
               <button data-filter-btn>Lab</button>
             </li>
-
             <li class="filter-item">
               <button data-filter-btn>Tour</button>
             </li>
-
             <li class="filter-item">
               <button data-filter-btn>etc.</button>
             </li>
-
           </ul>
-
           <div class="filter-select-box">
-
             <button class="filter-select" data-select>
-
               <div class="select-value" data-selecct-value>Select category</div>
-
               <div class="select-icon">
                 <ion-icon name="chevron-down"></ion-icon>
               </div>
-
             </button>
-
             <ul class="select-list">
-
               <li class="select-item">
                 <button data-select-item>All</button>
               </li>
-
               <li class="select-item">
                 <button data-select-item>Lab</button>
               </li>
-
               <li class="select-item">
                 <button data-select-item>Tour</button>
               </li>
-
               <li class="select-item">
                 <button data-select-item>etc.</button>
               </li>
-
             </ul>
-
           </div>
-
           <ul class="project-list">
-
-<li class="project-item active" data-filter-item data-category="etc.">
-  <a href="#">
-    <figure class="project-img">
-      <div class="project-item-icon-box">
-        <ion-icon name="eye-outline"></ion-icon>
-      </div>
-      <img src="./assets/images/Pics%20for%20website%20/lab/085469E5-C7D2-4FF7-8633-B62FDB14BB91.JPG" alt="Laser Table" loading="lazy">
-    </figure>
-    <h3 class="project-title">Laser Table 1</h3>
-    <p class="project-category">Lab</p>
-  </a>
-</li>
-
-
-            <li class="project-item  active" data-filter-item data-category="Lab">
+            <li class="project-item active" data-filter-item data-category="etc.">
               <a href="#">
-
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
+                  <img src="./assets/images/Pics%20for%20website%20/lab/085469E5-C7D2-4FF7-8633-B62FDB14BB91.JPG" alt="Laser Table" loading="lazy">
+                </figure>
+                <h3 class="project-title">Laser Table 1</h3>
+                <p class="project-category">Lab</p>
+              </a>
+            </li>
+            <li class="project-item active" data-filter-item data-category="Lab">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
                   <img src="./assets/images/Pics%20for%20website%20/lab/1923E602-2252-4056-8BE9-5211249288C4.JPG" alt="Laser Table" loading="lazy">
                 </figure>
-
                 <h3 class="project-title">Laser Table</h3>
-
                 <p class="project-category">Lab</p>
-
               </a>
             </li>
-
-
-            <li class="project-item  active" data-filter-item data-category="Lab">
+            <li class="project-item active" data-filter-item data-category="Lab">
               <a href="#">
-
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/Pics%20for%20website%20/lab/1FC4A347-824B-4E09-8BD5-DA7F1E37C5A5.JPG" alt="Laser Table" loading="lazy">
                 </figure>
-
                 <h3 class="project-title">Laser Table</h3>
-
                 <p class="project-category">Lab</p>
-
               </a>
             </li>
-
-
-            <li class="project-item  active" data-filter-item data-category="Lab">
+            <li class="project-item active" data-filter-item data-category="Lab">
               <a href="#">
-
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/Pics%20for%20website%20/lab/327C38DF-1401-4DF3-A13D-9E0CF146FA36.JPG" alt="Laser Table" loading="lazy">
                 </figure>
-
                 <h3 class="project-title">Laser Table</h3>
-
                 <p class="project-category">Lab</p>
-
               </a>
             </li>
-
-
-            <li class="project-item  active" data-filter-item data-category="Lab">
+            <li class="project-item active" data-filter-item data-category="Lab">
               <a href="#">
-
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
-                  <img src="./assets/images/Pics%20for%20website%20/lab/49332572-CFA7-4C61-9F68-339873CBC857.JPG" alt="Laser Table" loading="lazy">
+                  <img src="./assets/images/Pics%20for%20website%20/lab/49332572-CFA7-4C61-9F68-339873CBC857.JPG" alt="Optical Dipole Trap / Tweezer Laser" loading="lazy">
                 </figure>
-
                 <h3 class="project-title">Optical Dipole Trap / Tweezer Laser</h3>
-
                 <p class="project-category">Lab</p>
-
               </a>
             </li>
-
-
-            <li class="project-item  active" data-filter-item data-category="Lab">
+            <li class="project-item active" data-filter-item data-category="Lab">
               <a href="#">
-
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/Pics%20for%20website%20/lab/327C38DF-1401-4DF3-A13D-9E0CF146FA36.JPG" alt="Laser Table" loading="lazy">
                 </figure>
-
                 <h3 class="project-title">Laser Table</h3>
-
                 <p class="project-category">Lab</p>
-
               </a>
             </li>
-
-
-            <li class="project-item  active" data-filter-item data-category="Lab">
+            <li class="project-item active" data-filter-item data-category="Lab">
               <a href="#">
-
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/Pics%20for%20website%20/lab/82B79492-7A5E-40E1-911A-955EB42C1FB3.JPG" alt="Laser Table" loading="lazy">
                 </figure>
-
                 <h3 class="project-title">Laser Table</h3>
-
                 <p class="project-category">Lab</p>
-
               </a>
             </li>
-
-
-            <li class="project-item  active" data-filter-item data-category="Lab">
+            <li class="project-item active" data-filter-item data-category="Lab">
               <a href="#">
-
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
-                  <img src="./assets/images/Pics%20for%20website%20/lab/893FFD5E-E463-4982-AB8E-0CC7DB03E8DE.JPG" alt="Laser Table" loading="lazy">
+                  <img src="./assets/images/Pics%20for%20website%20/lab/893FFD5E-E463-4982-AB8E-0CC7DB03E8DE.JPG" alt="Optical Trapping/ Quantum Information Processing Table" loading="lazy">
                 </figure>
-
                 <h3 class="project-title">Optical Trapping/ Quantum Information Processing Table</h3>
-
                 <p class="project-category">Lab</p>
-
               </a>
             </li>
-
-
-            <li class="project-item  active" data-filter-item data-category="Lab">
+            <li class="project-item active" data-filter-item data-category="Lab">
               <a href="#">
-
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/Pics%20for%20website%20/lab/92808E2E-D235-4738-BFC4-046271961755.JPG" alt="Laser Table" loading="lazy">
                 </figure>
-
                 <h3 class="project-title">Laser Table</h3>
-
                 <p class="project-category">Lab</p>
-
               </a>
             </li>
-
-
-            <li class="project-item  active" data-filter-item data-category="Lab">
+            <li class="project-item active" data-filter-item data-category="Lab">
               <a href="#">
-
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
-                  <img src="./assets/images/Pics%20for%20website%20/lab/E48F42E1-734D-427C-9D70-F26CEA40733F.JPG" alt="Laser Table" loading="lazy">
+                  <img src="./assets/images/Pics%20for%20website%20/lab/E48F42E1-734D-427C-9D70-F26CEA40733F.JPG" alt="Optical Trapping/ Quantum Information Processing Table" loading="lazy">
                 </figure>
-
                 <h3 class="project-title">Optical Trapping/ Quantum Information Processing Table</h3>
-
                 <p class="project-category">Lab</p>
-
               </a>
             </li>
-
-
           </ul>
-
         </section>
-
       </article>
 
-
-
-
-
-      <!--
-        - #BLOG
-      -->
-
+      <!-- Blog -->
       <article class="blog" data-page="blog">
-
         <header>
           <h2 class="h2 article-title">Blog</h2>
         </header>
-
         <section class="blog-posts">
-
           <ul class="blog-posts-list">
-
-<li class="blog-post-item">
-  <a href="https://drive.google.com/file/d/1SzX_4Gp9HuZO5_UDtWMoFMHUehIvCgnq/view?usp=sharing" target="_blank">
-
-    <figure class="blog-banner-box">
-      <img src="./assets/images/Pics%20for%20website/blog_pics/cQED/logo.jpeg" alt="Cavity QED notes" loading="lazy">
-    </figure>
-
-    <div class="blog-content">
-
-      <div class="blog-meta">
-        <p class="blog-category">Optics</p>
-
-        <span class="dot"></span>
-
-        <time datetime="2022-02-23">Fab 23, 2022</time>
-      </div>
-
-      <h3 class="h3 blog-item-title">Experimental cavity-QED</h3>
-
-      <p class="blog-text">
-        Experimental Quantum Optics / Cavity-QED hand-written notes. Logo taken from Taylor and Francis online.
-      </p>
-
-    </div>
-
-  </a>
-</li>
-
-
+            <li class="blog-post-item">
+              <a href="https://drive.google.com/file/d/1SzX_4Gp9HuZO5_UDtWMoFMHUehIvCgnq/view?usp=sharing" target="_blank">
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/Pics%20for%20website/blog_pics/cQED/logo.jpeg" alt="Cavity QED notes" loading="lazy">
+                </figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Optics</p>
+                    <span class="dot"></span>
+                    <time datetime="2022-02-23">Feb 23, 2022</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Experimental cavity-QED</h3>
+                  <p class="blog-text">
+                    Experimental Quantum Optics / Cavity-QED hand-written notes. Logo taken from Taylor and Francis online.
+                  </p>
+                </div>
+              </a>
+            </li>
             <li class="blog-post-item">
               <a href="https://drive.google.com/file/d/1Rmcit75LvoX4jNvbRsdaUoy195BY6ri2/view?usp=sharing">
-
                 <figure class="blog-banner-box">
                   <img src="./assets/images/Pics%20for%20website/blog_pics/path_int/logo.png" alt="Path Integral Methods Notes" loading="lazy">
                 </figure>
-
                 <div class="blog-content">
-
                   <div class="blog-meta">
                     <p class="blog-category">Mat-Fyz</p>
-
                     <span class="dot"></span>
-
                     <time datetime="2020-10-08">Oct 08, 2020</time>
                   </div>
-
                   <h3 class="h3 blog-item-title">Path Integral methods</h3>
-
                   <p class="blog-text">
-                    In these notes, Path integral solutions for few stochastic processes are discussed in detail. 
-                   </p>
-
+                    In these notes, Path integral solutions for few stochastic processes are discussed in detail.
+                  </p>
                 </div>
-
               </a>
             </li>
-
-          
           </ul>
-
         </section>
-
       </article>
 
-
-
-
-      <!--
-        - #CONTACT
-      -->
-
+      <!-- Contact -->
       <article class="contact" data-page="contact">
-
         <header>
           <h2 class="h2 article-title">Contact</h2>
         </header>
-
         <section class="mapbox" data-mapbox>
           <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4889.364906467221!2d20.973826869775408!3d52.212817900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471eccece2d062d9%3A0xeb502e63f53718c9!2sFaculty%20of%20Physics%2C%20University%20of%20Warsaw!5e0!3m2!1sen!2spl!4v1700572850000!5m2!1sen!2spl"
-              width="400" height="300" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4889.364906467221!2d20.973826869775408!3d52.212817900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471eccece2d062d9%3A0xeb502e63f53718c9!2sFaculty%20of%20Physics%2C%20University%20of%20Warsaw!5e0!3m2!1sen!2spl!4v1700572850000!5m2!1sen!2spl" width="400" height="300" loading="lazy"></iframe>
           </figure>
         </section>
-
         <section class="contact-form">
-
           <h3 class="h3 form-title">Contact Form</h3>
-
           <form action="https://formspree.io/f/xrgwvnbl" method="POST" class="form" data-form>
-
             <div class="input-wrapper">
               <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
               <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
             </div>
-
             <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
             <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>
-
           </form>
-
         </section>
-
       </article>
 
-    </div>
-
-  </main>
-
-
-
-
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-</body>
-
-</html><!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tripathi Om Sarveshwarpati - Personal</title>
-
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
-
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        body {
-            margin-left: .2in;
-            margin-right: .2in;
-        }
-        .article-title {
-            font-family: 'Brush Script MT';
-            /* Applying the font to the title */
-        }
-        .about-text {
-            font-family: 'Brush Script MT';
-            text-align: justify;
-            font-size: medium;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h2 class="h2 article-title">Fun Stuff</h2>
-    </header>
-
-    <section class="about-text">
-        <p>
+      <!-- Fun Stuff -->
+      <article class="fun-stuff" data-page="fun stuff">
+        <header>
+          <h2 class="h2 article-title">Fun Stuff</h2>
+        </header>
+        <section class="about-text" style="font-family: 'Brush Script MT'; text-align: justify; font-size: medium;">
+          <p>
             Apart from these research activities, I have also volunteered to popularize/teach some physics courses to the engineering (but also science) students who want to come to higher studies in physics. The courses I have taught during the last two years are Lagrangian Physics, Second Quantization, and Fourier Transforms. I am also a teaching assistant to a currently running online course on quantum field theory, organized by Infosys Science Foundation.
-        </p>
-        <p>
+          </p>
+          <p>
             My secondary interests also involve foundations and representations of QM, basis-dependent units of complex scalar fields elements, Hilbert spaces, Linear Algebra, old quantum theory, design/demonstration of home experiments, extraction of motivational/philosophical concepts from mathematics (Parseval-Plancherel identities, CSCO, Completeness, etc.), Linux bash, electronic circuits...
-        </p>
-    </section>
-</body>
-</html>
+          </p>
+        </section>
+      </article>
 
-
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        body {
-            margin-left: .2in;
-            margin-right: .2in;
-        }
-        .article-title {
-            font-family: 'Brush Script MT';
-        }
-        .about-text {
-            font-family: 'Brush Script MT';
-            text-align: justify;
-            font-size: medium;
-        }
-        
-        /* Quantum Terminal Styles */
-        #quantum-terminal {
-            margin: 20px 0;
-            padding: 20px;
-            background-color: #000;
-            color: #00FF00;
-            font-family: 'Courier New', monospace;
-            line-height: 1.4;
-            border-radius: 5px;
-        }
-        
-        #quantum-terminal #terminal {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        #quantum-terminal .prompt {
-            color: #00FF00;
-        }
-        
-        #quantum-terminal .input-line {
-            display: flex;
-        }
-        
-        #quantum-terminal #command-input {
-            background-color: transparent;
-            border: none;
-            color: #00FF00;
-            font-family: 'Courier New', monospace;
-            width: 80%;
-            outline: none;
-            flex-grow: 1;
-        }
-        
-        #quantum-terminal .output {
-            margin-bottom: 10px;
-            white-space: pre-wrap;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h2 class="h2 article-title">My Academic Genealogy</h2>
-    </header>
-
-    <section class="about-text">
-        <p>
-<ul>
-  <li>Serge Alexander Kroff
-    <ul>
-      <li>Doctoral Advisor of John Alexander Simpson
-        <ul>
-          <li>Doctoral Advisor of Sam Treiman
+      <!-- Genealogy and Quantum Terminal -->
+      <article class="genealogy" data-page="genealogy">
+        <header>
+          <h2 class="h2 article-title">My Academic Genealogy</h2>
+        </header>
+        <section class="about-text" style="font-family: 'Brush Script MT'; text-align: justify; font-size: medium;">
+          <p>
             <ul>
-              <li>Doctoral Advisor of Steven Weinberg (Nobel Laureate)
+              <li>Serge Alexander Kroff
                 <ul>
-                  <li>Doctoral Advisor of Mark G Raizen
+                  <li>Doctoral Advisor of John Alexander Simpson
                     <ul>
-                      <li>Doctoral Advisor of Crik W Madison
+                      <li>Doctoral Advisor of Sam Treiman
                         <ul>
-                          <li>Doctoral Advisor of Mariusz Semczuk
+                          <li>Doctoral Advisor of Steven Weinberg (Nobel Laureate)
                             <ul>
-                              <li>Doctoral Advisor of Tripathi Om Sarveshwarpati (Myself)</li>
+                              <li>Doctoral Advisor of Mark G Raizen
+                                <ul>
+                                  <li>Doctoral Advisor of Crik W Madison
+                                    <ul>
+                                      <li>Doctoral Advisor of Mariusz Semczuk
+                                        <ul>
+                                          <li>Doctoral Advisor of Tripathi Om Sarveshwarpati (Myself)</li>
+                                        </ul>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                </ul>
+                              </li>
                             </ul>
                           </li>
                         </ul>
@@ -1119,48 +635,65 @@ It has been said that astronomy is a humbling and character-building experience.
                 </ul>
               </li>
             </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-        </p>
-    </section>
+          </p>
+        </section>
 
-    <!-- Quantum Terminal Section -->
-    <section id="quantum-terminal">
-        <header>
+        <!-- Quantum Terminal Section -->
+        <section id="quantum-terminal" style="margin: 20px 0; padding: 20px; background-color: #000; color: #00FF00; font-family: 'Courier New', monospace; line-height: 1.4; border-radius: 5px;">
+          <header>
             <h2 class="h2 article-title">Quantum Optics Terminal</h2>
-        </header>
-        
-        <div id="terminal">
+          </header>
+          <div id="terminal" style="width: 100%; max-width: 900px; margin: 0 auto;">
             <div class="output">
-                <pre>
+              <pre style="color:#00FFFF; font-weight:bold;">
 ________                       __                             __  .__ __                 __          __                
 \_____  \  __ _______    _____/  |_              ____ _______/  |_|__|  | __           _/  |_ __ ___/  |_  ___________ 
  /  / \  \|  |  \__  \  /    \   __\   ______   /  _ \\____ \   __\  |  |/ /   ______  \   __\  |  \   __\/  _ \_  __ \
 /   \_/.  \  |  // __ \|   |  \  |    /_____/  (  <_> )  |_> >  | |  |    <   /_____/   |  | |  |  /|  | (  <_> )  | \/
 \_____\ \_/____/(____  /___|  /__|              \____/|   __/|__| |__|__|_ \            |__| |____/ |__|  \____/|__|   
        \__>          \/     \/                        |__|                \/                                           
-                </pre>
-                <p>Welcome to Quantum Terminal.</p>
-                <p>This is the place to learn about quantum optics, experimental and theoretical, optoelectronics, quantum gases, cold atoms, cavities, lasers and much more.</p>
-                <p>Type <span class="prompt">help</span> to begin your quantum optics journey. Search papers with 'arxiv', 'scholar', 'scispace'.</p>
+              </pre>
+              <p style="color: #00FFFF; font-weight: bold; font-size: 1.2em;">🌟 Welcome to <span style="color: #FFFF00; font-weight: bold;">Quantum Terminal</span> - Your Portal to the Quantum Frontier! 🌟</p>
+              <p>Step into the <span style="color: #FFFF00; font-weight: bold;">fascinating world of quantum optics</span>, where <span style="color: #FF00FF;">light and matter</span> interact in extraordinary ways. Explore:</p>
+              <ul>
+                <li><span style="color: #FFFF00; font-weight: bold;">Experimental & theoretical quantum optics</span></li>
+                <li><span style="color: #00FFAA;">Optoelectronics</span> and quantum technologies</li>
+                <li><span style="color: #FFAA00;">Quantum gases</span> and ultracold atoms</li>
+                <li><span style="color: #AA00FF;">Optical cavities</span> and precision lasers</li>
+              </ul>
+              <p><span style="color: #FFFF00; font-weight: bold;">Ready to begin your quantum journey?</span></p>
+              <p>Type <span style="color: #FF00FF; font-weight: bold;">help</span> to see available commands</p>
+              <p>Search research papers with: <span style="color: #FF00FF; font-weight: bold;">arxiv</span>, <span style="color: #FF00FF; font-weight: bold;">scholar</span>, <span style="color: #FF00FF; font-weight: bold;">scispace</span></p>
+              <p>Get latest papers using:</p>
+              <ul>
+                <li><span style="color: #FF00FF; font-weight: bold;">latest_atomic</span> - Atomic Physics</li>
+                <li><span style="color: #FF00FF; font-weight: bold;">latest_optics</span> - Quantum Optics</li>
+                <li><span style="color: #FF00FF; font-weight: bold;">latest_quantum_gases</span> - Quantum Gases</li>
+                <li><span style="color: #FF00FF; font-weight: bold;">latest_molecular</span> - Molecules & Clusters</li>
+              </ul>
+              <p style="color: #00FFFF; font-style: italic;">The quantum universe awaits - dive in and discover!</p>
+              <p style="color: #FFFFFF; font-size: 0.9em;"><span style="display: inline-block; width: 1em; height: 1em; border-radius: 50%; border: 1px solid #FFFFFF; text-align: center; line-height: 1em; font-size: 0.8em; margin-right: 0.2em;">c</span> All rights reserved | Tripathi Om Sarveshwarpati | University of Warsaw</p>
             </div>
-            <div class="input-line">
-                <span class="prompt">user@quantum-terminal:~$ </span>
-                <input type="text" id="command-input" aria-label="Enter terminal command" autofocus>
+            <div class="input-line" style="display: flex; padding: 10px 0; position: sticky; bottom: 0; background: #000; border-top: 1px solid #00FF00;">
+              <span class="prompt">user@quantum-terminal:~$ </span>
+              <input type="text" id="command-input" aria-label="Enter terminal command" style="background-color: transparent; border: none; color: #00FF00; font-family: 'Courier New', monospace; flex: 1; outline: none; padding-left: 5px;" autofocus>
             </div>
-        </div>
-    </section>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
 
-    <!-- Include KaTeX and your JS file -->
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script src="./assets/js/quant-optik.js"></script>
+  <!-- Custom JS -->
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/quant-optik.js"></script>
+
+  <!-- Ionicon -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- KaTeX -->
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
 </body>
-</html>
-
-
 
 </html>
