@@ -28,6 +28,55 @@ const config = {
   maxResults: 50 // Maximum number of papers to show
 };
 
+// Initialize command history
+const commandHistory = {
+  history: [],
+  historyFile: 'history.txt',
+  addCommand: function(command) {
+    if (command.trim().toUpperCase() !== 'HISTORY') { // Don't add HISTORY command to history
+      this.history.push(command);
+      this.saveToFile();
+    }
+  },
+  saveToFile: function() {
+    // In a real Node.js environment, you would use fs.writeFileSync
+    // For browser environment, we'll simulate it with localStorage
+    try {
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem(this.historyFile, JSON.stringify(this.history));
+      }
+      // In a real terminal app, you would use:
+      // const fs = require('fs');
+      // fs.writeFileSync(this.historyFile, this.history.join('\n'));
+    } catch (e) {
+      console.error('Error saving history:', e);
+    }
+  },
+  loadFromFile: function() {
+    try {
+      if (typeof localStorage !== 'undefined') {
+        const savedHistory = localStorage.getItem(this.historyFile);
+        if (savedHistory) {
+          this.history = JSON.parse(savedHistory);
+        }
+      }
+      // In a real terminal app, you would use:
+      // const fs = require('fs');
+      // if (fs.existsSync(this.historyFile)) {
+      //   this.history = fs.readFileSync(this.historyFile, 'utf8').split('\n').filter(cmd => cmd.trim());
+      // }
+    } catch (e) {
+      console.error('Error loading history:', e);
+    }
+  },
+  getHistory: function() {
+    return this.history.join('\n');
+  }
+};
+
+// Load history when script starts
+commandHistory.loadFromFile();
+
 // Helper: Extract number parameter from args
 function extractNumberParam(args) {
   for (let i = args.length - 1; i >= 0; i--) {
@@ -152,11 +201,13 @@ const commands = {
       output += `<span style="color: #00FF00;">Description</span>\n`;
       output += `${'-'.repeat(maxLen + 2)} ${'-'.repeat(50)}\n`;
       
-      // Command list
+      // Command list (excluding HISTORY)
       Object.entries(commands).forEach(([cmd, cmdObj]) => {
-        const description = cmdObj.description || 'No description available';
-        output += `<span style="color: #00BFFF;">${cmd.padEnd(maxLen + 2)}</span>`;
-        output += `<span style="color: #00FF00;">${description}</span>\n`;
+        if (cmd.toUpperCase() !== 'HISTORY') { // Exclude HISTORY from help
+          const description = cmdObj.description || 'No description available';
+          output += `<span style="color: #00BFFF;">${cmd.padEnd(maxLen + 2)}</span>`;
+          output += `<span style="color: #00FF00;">${description}</span>\n`;
+        }
       });
       
       output += '</div></div>';
@@ -164,29 +215,37 @@ const commands = {
     }
   },
 
+  HISTORY: {
+    description: "", // Empty description so it won't show in help
+    execute: () => {
+      const history = commandHistory.getHistory();
+      return history || '<div class="info">No command history yet</div>';
+    }
+  },
+
   ask: {
-    description: "Ask any quantum optics question",
+    description: "Ask any quantum optics question. Example: ~$ ask How to generate an error signal?",
     execute: async (args) => args.length 
       ? handleAICommand(args.join(' '), "Provide detailed technical answer. Use Unicode math symbols (ħ, ψ, â⁺, etc.), dont use latex. ")
       : "<div class='error'>Please enter your question</div>"
   },
 
   explain: {
-    description: "Explain a quantum concept",
+    description: "Explain a quantum concept. Example: ~$ explain Displacement Operator",
     execute: async (args) => args.length
       ? handleAICommand(`Explain: ${args.join(' ')}`, "Include mathematical formalism and practical applications. Use Unicode math symbols (ħ, ψ, â⁺, etc.), dont use latex. ")
       : "<div class='error'>Please specify a concept</div>"
   },
 
   derive: {
-    description: "Derive a quantum formula",
+    description: "Derive a quantum formula.Example: ~$ derive NMR Rabi Frequency",
     execute: async (args) => args.length
       ? handleAICommand(`Derive: ${args.join(' ')}`, "Show step-by-step derivation with explanations. Use Unicode math symbols (ħ, ψ, â⁺, etc.), dont use latex.")
       : "<div class='error'>Please specify a formula</div>"
   },
 
   quiz: {
-    description: "Generate practice questions",
+    description: "Generate practice questions. Example: ~$ quiz Lock-in detection",
     execute: async (args) => handleAICommand(
       `Create 3 multiple choice questions about ${args.join(' ') || "quantum optics"}`,
       "Format with A-D options. Include solutions at the end."
@@ -194,7 +253,7 @@ const commands = {
   },
 
   arxiv: {
-    description: "Search arXiv for papers [query] [number] (max 50)",
+    description: "Search arXiv for papers [query] [number] (max 50). Example: ~$ arxiv 'Optical Frequency comb' 3",
     execute: async (args) => {
       if (!args.length) return "<div class='error'>Please specify a search query (e.g., 'quantum optics')</div>";
       
@@ -206,7 +265,7 @@ const commands = {
   },
 
   latest_atomic: {
-    description: "Show latest arXiv papers in Atomic Physics [number] (max 50)",
+    description: "Show latest arXiv papers in Atomic Physics [number] (max 50). Example: ~$ latest_atomic 9",
     execute: async (args) => {
       const numResults = extractNumberParam(args);
       return fetchLatestArxivByCategory('physics.atom-ph', 'Atomic Physics', numResults);
@@ -214,7 +273,7 @@ const commands = {
   },
 
   latest_optics: {
-    description: "Show latest arXiv papers in Optics [number] (max 50)",
+    description: "Show latest arXiv papers in Optics [number] (max 50). Example: ~$ latest_optics 9",
     execute: async (args) => {
       const numResults = extractNumberParam(args);
       return fetchLatestArxivByCategory('physics.optics', 'Optics', numResults);
@@ -222,7 +281,7 @@ const commands = {
   },
 
   latest_quantum_gases: {
-    description: "Show latest arXiv papers in Quantum Gases [number] (max 50)",
+    description: "Show latest arXiv papers in Quantum Gases [number] (max 50). Example: ~$ latest_quantum_gases 9",
     execute: async (args) => {
       const numResults = extractNumberParam(args);
       return fetchLatestArxivByCategory('cond-mat.quant-gas', 'Quantum Gases', numResults);
@@ -230,7 +289,7 @@ const commands = {
   },
 
   latest_molecular: {
-    description: "Show latest arXiv papers in Atoms, Molecules, and Clusters [number] (max 50)",
+    description: "Show latest arXiv papers in Atoms, Molecules, and Clusters [number] (max 50). Example: ~$ latest_molecular 9",
     execute: async (args) => {
       const numResults = extractNumberParam(args);
       return fetchLatestArxivByCategory('physics.atm-clus', 'Atoms, Molecules, and Clusters', numResults);
@@ -320,9 +379,13 @@ document.getElementById('command-input').addEventListener('keydown', async funct
     const [command, ...args] = input.split(' ');
     addOutput(`<div class="command-line"><span class="prompt">⟩⟩</span> ${input}</div>`);
     
-    if (commands[command]) {
+    // Add command to history (except HISTORY command itself)
+    commandHistory.addCommand(input);
+    
+    if (commands[command] || commands[command.toUpperCase()]) {
       try {
-        const result = await commands[command].execute(args);
+        const cmdObj = commands[command] || commands[command.toUpperCase()];
+        const result = await cmdObj.execute(args);
         if (result) addOutput(result);
       } catch (error) {
         addOutput(`<div class="error">Error: ${error.message}</div>`);
