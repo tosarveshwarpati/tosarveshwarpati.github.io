@@ -7,9 +7,12 @@ const config = {
   aiEndpoint: 'https://api.deepseek.com/v1/chat/completions',
   aiContext: `You are a Quantum Optics Professor teaching through a terminal interface.
 - Format responses for 80-column monospace
-- Use Unicode math symbols (ħ, ψ, â⁺, etc.)
-- Wrap LaTeX equations in $$ (e.g., $$\\hbar\\omega$$)
+- Use Unicode math symbols (ħ, ψ, â⁺, etc.), dont use latex. 
 - Include technical depth with clear explanations
+- Dont do explainations pointwise, but better to do paragraph-by paragraph.
+- Dont ask for follow up for a question. 
+- remember you are writing in a terminal. so do everything so that what you write is clear on terminal. 
+- Strictly never tell what AI are You
 - Break complex concepts into steps`,
   themeColors: {
     green: '#00FF00',
@@ -163,21 +166,21 @@ const commands = {
   ask: {
     description: "Ask any quantum optics question",
     execute: async (args) => args.length 
-      ? handleAICommand(args.join(' '), "Provide detailed technical answer.")
+      ? handleAICommand(args.join(' '), "Provide detailed technical answer. Use Unicode math symbols (ħ, ψ, â⁺, etc.), dont use latex. ")
       : "<div class='error'>Please enter your question</div>"
   },
 
   explain: {
     description: "Explain a quantum concept",
     execute: async (args) => args.length
-      ? handleAICommand(`Explain: ${args.join(' ')}`, "Include mathematical formalism and practical applications.")
+      ? handleAICommand(`Explain: ${args.join(' ')}`, "Include mathematical formalism and practical applications. Use Unicode math symbols (ħ, ψ, â⁺, etc.), dont use latex. ")
       : "<div class='error'>Please specify a concept</div>"
   },
 
   derive: {
     description: "Derive a quantum formula",
     execute: async (args) => args.length
-      ? handleAICommand(`Derive: ${args.join(' ')}`, "Show step-by-step derivation with explanations.")
+      ? handleAICommand(`Derive: ${args.join(' ')}`, "Show step-by-step derivation with explanations. Use Unicode math symbols (ħ, ψ, â⁺, etc.), dont use latex.")
       : "<div class='error'>Please specify a formula</div>"
   },
 
