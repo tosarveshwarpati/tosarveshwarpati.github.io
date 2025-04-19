@@ -307,9 +307,14 @@ const commands = {
   theme: {
     description: "Change color (green/amber/blue/white)",
     execute: (args) => {
-      const color = args[0] in config.themeColors ? args[0] : 'green';
-      document.documentElement.style.setProperty('--primary-color', config.themeColors[color]);
-      return `<div class="success">Theme set to ${color}</div>`;
+      const color = args[0]?.toLowerCase();
+      const validColors = Object.keys(config.themeColors);
+      if (color && validColors.includes(color)) {
+        document.documentElement.style.setProperty('--primary-color', config.themeColors[color]);
+        return `<div class="success">Theme set to ${color}</div>`;
+      } else {
+        return `<div class="error">Invalid color. Available options: ${validColors.join(', ')}</div>`;
+      }
     }
   }
 };
