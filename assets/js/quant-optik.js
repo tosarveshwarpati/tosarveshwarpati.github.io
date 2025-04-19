@@ -206,7 +206,7 @@ const commands = {
         if (cmd.toUpperCase() !== 'HISTORY') { // Exclude HISTORY from help
           const description = cmdObj.description || 'No description available';
           output += `<span style="color: #00BFFF;">${cmd.padEnd(maxLen + 2)}</span>`;
-          output += `<span style="color: #00FF00;">${description}</span>\n`;
+          output += `<span style="color: #FFBF00;">${description}</span>\n`;
         }
       });
       
