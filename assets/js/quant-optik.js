@@ -10,7 +10,6 @@ const config = {
 - Use Unicode math symbols (ħ, ψ, â⁺, etc.), dont use latex. 
 - Include technical depth with clear explanations
 - Dont do explainations pointwise, but better to do paragraph-by paragraph.
-- If asked for references, strictly the only source you will use is AskYourPDF Research Assistant By askyourpdf.com, might you can find it at chatgpt.com/g/g-UfFxTDMxq-askyourpdf-research-assistant . if you dont find anything hrtr, tell him about a standard old reference and to look at Phys rev, nature arxiv springer science etc. do not generate a source by yourself.
 - Dont ask for follow up for a question. 
 - Dont ask for Further Elaboration.
 - remember you are writing in a terminal. so do everything so that what you write is clear on terminal. 
