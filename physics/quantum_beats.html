@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AMO6: Quantum Beats</title>
+    <title>Quantum Beats</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <script>
         window.MathJax = {
@@ -25,8 +25,8 @@
         <header class="site-header">
             <div>
                 <p class="eyebrow">Physics note</p>
-                <h1>Quantum beats</h1>
-                <p class="lead">coherence in excited-state decay</p>
+                <h1>Quantum optics overview</h1>
+                <p class="lead">atom light interaction and spectroscopy</p>
             </div>
             <nav class="site-nav" aria-label="Primary navigation">
                 <a href="../index.html">About</a>
@@ -39,105 +39,304 @@
         </header>
 
         <main class="card">
+
+            <!-- ================================================================================ -->
+            <!-- INTRODUCTION                                                                      -->
+            <!-- ================================================================================ -->
             <h2>Introduction</h2>
             <p>
-                Quantum beats are a simple way to see coherence in action. A short pulse can excite two nearby states at once. Those states then evolve with different phases, and the emitted light shows the interference as a beat.
+                When an atom is prepared in a coherent superposition of two or more excited states, the light it spontaneously emits carries a striking signature: the fluorescence intensity oscillates in time at the exact frequency difference between the superposed levels. These oscillations are <strong>quantum beats</strong>. What makes quantum beats remarkable is not merely that they occur—after all, classical coupled oscillators also produce beats—but <em>why</em> they occur and under what conditions they disappear. The explanation demands a fully quantum electrodynamical treatment of the atom–field interaction. Classical electrodynamics, in which an atom is modeled as a collection of dipole oscillators, fails to predict the fundamental connection between the observability of beats and the availability of which-path information about the emitted photon. This connection, rooted in the quantum principle of complementarity, is one of the most elegant demonstrations that light and matter are fundamentally quantum.
             </p>
             <p>
-                This note keeps the physics clear and the language simple. The goal is to explain the effect without getting lost in extra formalism.
+                In these notes, I develop the quantum theory of beats from first principles. I begin with the simplest model: a V-type three-level atom in which two excited states decay to a common ground state. I show that a straightforward classical treatment of the atomic dipoles correctly predicts oscillations in the radiated field, but fails to account for the fact that these oscillations vanish when the two decay channels are distinguishable—for instance, when the emitted photons have orthogonal polarizations. I then present the quantum electrodynamical treatment, which reveals that the beat signal arises from the interference of indistinguishable quantum pathways. When the photon carries which-path information, the interference is destroyed, and the beats disappear. This analysis not only explains quantum beats but also provides a deep illustration of how quantum electrodynamics (QED) is essential for understanding even relatively simple phenomena in light–matter interaction.
             </p>
 
-            <figure>
-                <img src="notes_images/quantum_beats_levels.svg" alt="Level scheme showing two excited states decaying to a common ground state" />
-                <figcaption>A simple level scheme for quantum beats: two excited states share a lower state, and the emitted amplitudes interfere.</figcaption>
-            </figure>
+            <!-- ================================================================================ -->
+            <!-- SECTION 1: THE V-TYPE THREE-LEVEL ATOM                                             -->
+            <!-- ================================================================================ -->
+            <h2>1. The V-Type Three-Level Atom: Model and Classical Treatment</h2>
 
-            <h2>1. The basic setup</h2>
+            <h3>1.1 The Atomic Level Scheme</h3>
             <p>
-                Imagine an atom with one ground state $|g\rangle$ and two closely spaced excited states $|e_1\rangle$ and $|e_2\rangle$. A short pulse can excite both transitions at once. The atom is then left in a coherent superposition of the two excited states, so the state immediately after the pulse is
-
-                \[
-                |\psi(0)\rangle = c_1 |e_1\rangle + c_2 |e_2\rangle,
-                \]
-
-                up to an overall phase and a small ground-state component. Because the two states have different energies, their phases evolve at different rates. The relative phase grows as
-
-                \[
-                \Delta\phi(t) = (\omega_2 - \omega_1)t,
-                \]
-
-                and that phase drift produces oscillations in the interference term.
+                The prototypical system for quantum beats is the V-type three-level atom, shown in Figure 1. Two excited states $|e_1\rangle$ and $|e_2\rangle$ with energies $E_1 = \hbar\omega_1$ and $E_2 = \hbar\omega_2$ are optically coupled to a common ground state $|g\rangle$ with energy $E_g$. The transition frequencies are $\omega_{1g} = \omega_1 - \omega_g$ and $\omega_{2g} = \omega_2 - \omega_g$. The energy splitting between the excited states is
+                \begin{equation}
+                    \hbar\Delta = \hbar(\omega_2 - \omega_1).
+                \end{equation}
+                Both transitions are assumed to be electric-dipole allowed. The dipole matrix elements are
+                \begin{equation}
+                    \mathbf{d}_1 = \langle e_1 | \hat{\mathbf{d}} | g \rangle, \qquad
+                    \mathbf{d}_2 = \langle e_2 | \hat{\mathbf{d}} | g \rangle.
+                \end{equation}
+                The excited states decay by spontaneous emission to the ground state with rates $\Gamma_1$ and $\Gamma_2$. We assume for simplicity that there is no direct dipole coupling between $|e_1\rangle$ and $|e_2\rangle$ (they may have opposite parity, for instance).
             </p>
 
-            <h2>2. Why the signal wiggles</h2>
+            <!-- PLACEHOLDER FOR FIGURE -->
             <p>
-                The two decay amplitudes do not act independently. They add coherently, so the emitted intensity contains a cross term. In the simplest case, the fluorescence signal can be written as
-
-                \[
-                I(t) \propto e^{-\Gamma t}\left[1 + C\cos(\Delta\omega\, t + \phi)\right],
-                \]
-
-                where $\Delta\omega = \omega_2 - \omega_1$ is the beat frequency, $\Gamma$ is the decay rate, and $C$ is the contrast. The exponential factor gives the overall decay envelope, while the cosine term gives the oscillation. The beat frequency is therefore set directly by the energy splitting between the two excited states.
+                <em>[Figure 1: The V-type three-level atom. Two excited states $|e_1\rangle$ and $|e_2\rangle$ are coupled to the ground state $|g\rangle$ by electric dipole transitions. A short laser pulse prepares a coherent superposition of the two excited states. The emitted fluorescence may exhibit quantum beats at frequency $\Delta = \omega_2 - \omega_1$, depending on whether the two decay channels are distinguishable.]</em>
             </p>
 
-            <h2>3. A simple wavefunction picture</h2>
+            <h3>1.2 Coherent Excitation by a Short Pulse</h3>
             <p>
-                If the excited states evolve freely after excitation, their amplitudes pick up phase factors
-
-                \[
-                c_1 e^{-i\omega_1 t}, \qquad c_2 e^{-i\omega_2 t}.
-                \]
-
-                The total dipole emission is proportional to the sum of the two amplitudes, and the intensity therefore contains a term proportional to
-
-                \[
-                \mathrm{Re}\left(c_1^* c_2 e^{-i(\omega_2 - \omega_1)t}\right).
-                \]
-
-                This is the basic mathematical form of a quantum beat. It is the same kind of interference effect that appears in many other contexts, but here it shows up as a time-dependent modulation of the fluorescence signal.
+                At $t = 0$, a laser pulse with a duration $\tau_p$ much shorter than the beat period $2\pi/\Delta$ excites the atom from $|g\rangle$. Because the pulse is broad in frequency space (its bandwidth $\sim 1/\tau_p$ exceeds $\Delta$), it simultaneously drives both transitions. The interaction Hamiltonian in the rotating-wave approximation is
+                \begin{equation}
+                    \hat{V}(t) = -\frac{1}{2} \mathbf{E}_0 e^{-i\omega_L t} \cdot (\mathbf{d}_1 |e_1\rangle\langle g| + \mathbf{d}_2 |e_2\rangle\langle g|) + \text{H.c.},
+                \end{equation}
+                where $\mathbf{E}_0$ is the pulse amplitude and $\omega_L$ is the laser carrier frequency. In the limit of an impulsive excitation, the state immediately after the pulse is a coherent superposition:
+                \begin{equation}
+                    |\psi(0)\rangle = c_g |g\rangle + c_1 |e_1\rangle + c_2 |e_2\rangle,
+                    \label{eq:initial_state}
+                \end{equation}
+                with $c_i \propto \mathbf{E}_0 \cdot \mathbf{d}_i$. The crucial point is that a <em>single</em> laser pulse excites both states with a definite relative phase, determined by the laser phase and the dipole phases. The density matrix of the excited-state subsystem at $t=0$ contains non-zero off-diagonal elements:
+                \begin{equation}
+                    \rho_{12}(0) = c_1 c_2^*.
+                \end{equation}
+                This is the initial quantum coherence that drives the beats.
             </p>
 
-            <figure>
-                <img src="notes_images/quantum_beats_signal.svg" alt="Damped quantum beats shown as oscillations under an exponential envelope" />
-                <figcaption>The fluorescence signal looks like a decaying envelope with oscillations inside it. The oscillation frequency gives the splitting between the two states.</figcaption>
-            </figure>
-
-            <h2>4. What the experiment measures</h2>
+            <h3>1.3 Classical Treatment: Two Radiating Dipoles</h3>
             <p>
-                In the most common experiment, the atom is excited by a short pulse and the emitted light is recorded as a function of time. The beat pattern appears in the decay curve because the two paths interfere while the atom is still emitting. The beat frequency gives the energy splitting directly through
-
-                \[
-                \Delta E = \hbar \Delta\omega.
-                \]
-
-                That is why quantum beats are so useful. They let us resolve small splittings in time, even when the corresponding spectral lines are not well separated.
+                Before presenting the full QED treatment, it is instructive to see what classical electrodynamics predicts. In a classical picture, the atom is modeled as two independent electric dipole oscillators with frequencies $\omega_1$ and $\omega_2$, both set into motion by the same driving pulse. After the pulse, each dipole oscillates freely and radiates an electric field:
+                \begin{align}
+                    \mathbf{E}_1(t) &= \mathbf{E}_{01} e^{-i\omega_1 t} e^{-\Gamma_1 t/2} + \text{c.c.}, \\
+                    \mathbf{E}_2(t) &= \mathbf{E}_{02} e^{-i\omega_2 t} e^{-\Gamma_2 t/2} + \text{c.c.}.
+                \end{align}
+                The total radiated field is the sum $\mathbf{E}(t) = \mathbf{E}_1(t) + \mathbf{E}_2(t)$, and the detected intensity is proportional to $|\mathbf{E}(t)|^2$. Expanding the square gives
+                \begin{align}
+                    I(t) &\propto |\mathbf{E}_{01}|^2 e^{-\Gamma_1 t} + |\mathbf{E}_{02}|^2 e^{-\Gamma_2 t} \nonumber \\
+                    &\quad + 2 \operatorname{Re}\!\big[ \mathbf{E}_{01} \cdot \mathbf{E}_{02}^* e^{-i\Delta t} \big] e^{-(\Gamma_1 + \Gamma_2)t/2}.
+                    \label{eq:classical_beats}
+                \end{align}
+                This <em>does</em> contain an oscillatory term at frequency $\Delta$—the classical beat note. The two dipoles radiate independently, but because they are driven by the same pulse, their relative phase is fixed, and their fields interfere at the detector. Classical electrodynamics therefore predicts beats whenever two oscillators with a fixed relative phase radiate at slightly different frequencies.
             </p>
-
-            <h2>5. Coherence matters</h2>
             <p>
-                The oscillations survive only while the relative phase between the two excited states stays intact. If collisions, magnetic-field noise, or other dephasing mechanisms scramble the phase, the visibility of the beat drops. That makes quantum beats a sensitive probe of coherence and dephasing in the excited state.
+                This classical prediction is <strong>wrong in an essential way</strong>. Classical electrodynamics predicts that the beats should always be present as long as the two dipoles have a fixed relative phase, regardless of their polarization states. It also predicts that the beats should persist even if the two dipoles have orthogonal polarizations, as long as the detector is not aligned with one dipole axis (the projection of the field onto the detector still contains an interference term). As we will see, the quantum mechanical prediction is fundamentally different, and the difference reveals the role of which-path information in quantum measurement.
             </p>
 
-            <h2>6. A useful density-matrix view</h2>
+            <!-- ================================================================================ -->
+            <!-- SECTION 2: QUANTUM ELECTRODYNAMICAL THEORY OF BEATS                                -->
+            <!-- ================================================================================ -->
+            <h2>2. Quantum Electrodynamical Theory of Quantum Beats</h2>
+
+            <h3>2.1 The Quantum State of the Atom–Field System</h3>
             <p>
-                A slightly more formal description uses the density matrix. The populations of the two excited states decay with the lifetime, while the coherence between them evolves as
-
-                \[
-                \frac{d}{dt}\rho_{e_1 e_2} = -\left(\Gamma + i\Delta\omega\right)\rho_{e_1 e_2}.
-                \]
-
-                Its solution is an oscillating exponential, which is exactly the structure seen in the beat signal. This makes it clear that the beat is not just a curiosity of the wavefunction. It is a direct consequence of coherence between two excited states in an open quantum system.
+                In the quantum description, we must consider the state of the <em>combined</em> system: atom plus electromagnetic field. Initially, the atom is in the excited-state superposition (\ref{eq:initial_state}) and the field is in the vacuum state $|\{0\}\rangle$. The total initial state is
+                \begin{equation}
+                    |\Psi(0)\rangle = \big( c_1 |e_1\rangle + c_2 |e_2\rangle \big) \otimes |\{0\}\rangle.
+                \end{equation}
+                As time evolves, the atom decays, and the field acquires one photon. The interaction Hamiltonian in the Schrödinger picture, under the rotating-wave approximation, is
+                \begin{equation}
+                    \hat{H}_{\text{int}} = -\sum_{j=1,2} \sum_{\mathbf{k},\lambda} \sqrt{\frac{\hbar\omega_k}{2\varepsilon_0 V}} \,
+                    \big[ (\boldsymbol{\epsilon}_{\mathbf{k}\lambda} \cdot \mathbf{d}_j) \, |e_j\rangle\langle g| \, \hat{a}_{\mathbf{k}\lambda}^\dagger + \text{H.c.} \big].
+                \end{equation}
+                At time $t$, the total state is
+                \begin{equation}
+                    |\Psi(t)\rangle = c_1 e^{-i\omega_1 t} e^{-\Gamma_1 t/2} |e_1, \{0\}\rangle
+                    + c_2 e^{-i\omega_2 t} e^{-\Gamma_2 t/2} |e_2, \{0\}\rangle
+                    + \sum_{\mathbf{k},\lambda} \psi_{\mathbf{k}\lambda}(t) |g, 1_{\mathbf{k}\lambda}\rangle.
+                    \label{eq:total_state}
+                \end{equation}
+                The first two terms represent the atom still in the excited states with no photon emitted. The third term represents the atom in the ground state with one photon in mode $(\mathbf{k},\lambda)$. The photon wavefunction $\psi_{\mathbf{k}\lambda}(t)$ is the probability amplitude for detecting a photon in that mode. It is obtained by solving the Schrödinger equation (or, equivalently, the Wigner–Weisskopf problem for two excited states):
+                \begin{equation}
+                    \psi_{\mathbf{k}\lambda}(t) = \sum_{j=1,2} \sqrt{\frac{\omega_k}{2\varepsilon_0 V}} (\boldsymbol{\epsilon}_{\mathbf{k}\lambda}^* \cdot \mathbf{d}_j) \,
+                    \int_0^t \mathrm{d}t' \, c_j e^{-i\omega_j t'} e^{-\Gamma_j t'/2} e^{-i\omega_k(t - t')}.
+                    \label{eq:psi_k}
+                \end{equation}
+                For times long compared to the excited-state lifetime ($t \gg 1/\Gamma_j$), the integral can be extended to infinity, yielding
+                \begin{equation}
+                    \psi_{\mathbf{k}\lambda}(\infty) = \sum_{j=1,2} \sqrt{\frac{\omega_k}{2\varepsilon_0 V}} (\boldsymbol{\epsilon}_{\mathbf{k}\lambda}^* \cdot \mathbf{d}_j) \,
+                    \frac{c_j}{\Gamma_j/2 + i(\omega_k - \omega_j)} e^{-i\omega_k t}.
+                    \label{eq:psi_infinity}
+                \end{equation}
+                This is the central result: the photon wavefunction is a <strong>coherent sum</strong> of two Lorentzian amplitudes, one for each decay channel.
             </p>
 
-            <h2>7. Common examples</h2>
+            <h3>2.2 Detection of the Photon and the Emergence of Beats</h3>
             <p>
-                Quantum beats show up in several familiar settings. Zeeman beats come from magnetic sublevels, and hyperfine beats come from hyperfine splittings in excited states of alkali atoms. In both cases, the beat frequency carries information about the level structure, and that information can be read out from the time-dependent signal.
+                A photodetector placed at position $\mathbf{r}$ in the far field measures the probability of finding a photon at that location. The detection process projects the field onto a one-photon state with a specific polarization and direction. The probability per unit time for detecting a photon with wavevector $\mathbf{k}$ and polarization $\boldsymbol{\epsilon}$ is proportional to $|\psi_{\mathbf{k}\lambda}(\infty)|^2$. Expanding the square of the sum in (\ref{eq:psi_infinity}) gives three terms:
+                \begin{align}
+                    P_{\mathbf{k}\lambda} &\propto |\boldsymbol{\epsilon} \cdot \mathbf{d}_1|^2 \frac{|c_1|^2}{(\omega_k - \omega_1)^2 + (\Gamma_1/2)^2} \\
+                    &\quad + |\boldsymbol{\epsilon} \cdot \mathbf{d}_2|^2 \frac{|c_2|^2}{(\omega_k - \omega_2)^2 + (\Gamma_2/2)^2} \nonumber \\
+                    &\quad + 2 \operatorname{Re}\!\left[ (\boldsymbol{\epsilon} \cdot \mathbf{d}_1)(\boldsymbol{\epsilon}^* \cdot \mathbf{d}_2^*) \,
+                    \frac{c_1 c_2^*}{[\Gamma_1/2 + i(\omega_k - \omega_1)][\Gamma_2/2 - i(\omega_k - \omega_2)]} \right].
+                    \label{eq:detection_prob}
+                \end{align}
+                The first two terms are the independent spectra from $|e_1\rangle$ and $|e_2\rangle$. The third term is the <strong>interference term</strong>. Its presence or absence is what distinguishes classical from quantum predictions.
+            </p>
+            <p>
+                The total fluorescence intensity as a function of time is obtained by summing (or integrating) the detection probability over all modes. If the detector does <em>not</em> resolve the photon frequency—i.e., it collects all photons regardless of their $\omega_k$—and if it is sensitive to a specific polarization $\boldsymbol{\epsilon}$, the total intensity is
+                \begin{equation}
+                    I_{\boldsymbol{\epsilon}}(t) \propto \sum_{\mathbf{k}} |\psi_{\mathbf{k}\lambda}(t)|^2.
+                \end{equation}
+                Carrying out the sum (which becomes an integral in the continuum limit) yields the time-dependent fluorescence signal. The crucial algebra was performed in the Wigner–Weisskopf notes, and the result is
+                \begin{align}
+                    I_{\boldsymbol{\epsilon}}(t) &\propto \Gamma_1 |c_1|^2 |\boldsymbol{\epsilon} \cdot \hat{\mathbf{d}}_1|^2 e^{-\Gamma_1 t}
+                    + \Gamma_2 |c_2|^2 |\boldsymbol{\epsilon} \cdot \hat{\mathbf{d}}_2|^2 e^{-\Gamma_2 t} \nonumber \\
+                    &\quad + 2 \sqrt{\Gamma_1 \Gamma_2} \, \operatorname{Re}\!\big[ (\boldsymbol{\epsilon} \cdot \hat{\mathbf{d}}_1)(\boldsymbol{\epsilon}^* \cdot \hat{\mathbf{d}}_2^*) \, c_1 c_2^* e^{-i\Delta t} \big] e^{-(\Gamma_1 + \Gamma_2)t/2}.
+                    \label{eq:quantum_beats}
+                \end{align}
+                This is the <strong>quantum beat signal</strong>.
             </p>
 
-            <h2>8. Why the effect matters</h2>
+            <!-- ================================================================================ -->
+            <!-- SECTION 3: THE FAILURE OF CLASSICAL ELECTRODYNAMICS                                -->
+            <!-- ================================================================================ -->
+            <h2>3. Why Classical Electrodynamics Fails: Which-Path Information</h2>
+
+            <h3>3.1 The Classical Prediction</h3>
             <p>
-                Quantum beats matter because they connect a simple interference effect to a real spectroscopic tool. They let us measure level splittings, test whether coherence survives in a sample, and study how the environment damps the phase relation between atomic states. In that sense, they are not only a beautiful example of quantum mechanics, but also a practical tool in AMO physics.
+                Compare the quantum result (\ref{eq:quantum_beats}) with the classical result (\ref{eq:classical_beats}). The two expressions look superficially similar: both contain an interference term oscillating at $\Delta$. But there is a crucial difference. In the classical expression, the interference term involves the dot product $\mathbf{E}_{01} \cdot \mathbf{E}_{02}^*$. As long as the two dipole moments are not strictly orthogonal to the detection axis, this dot product is non-zero, and beats are predicted. In particular, if the two dipoles are orthogonal to each other ($\hat{\mathbf{d}}_1 \cdot \hat{\mathbf{d}}_2 = 0$), but the detector polarization $\boldsymbol{\epsilon}$ is at some intermediate angle, the classical expression predicts beats.
             </p>
+
+            <h3>3.2 The Quantum Prediction: The Role of the Detector Polarization</h3>
+            <p>
+                In the quantum expression (\ref{eq:quantum_beats}), the interference term is proportional to the product $(\boldsymbol{\epsilon} \cdot \hat{\mathbf{d}}_1)(\boldsymbol{\epsilon}^* \cdot \hat{\mathbf{d}}_2^*)$. If the two transitions have <strong>orthogonal dipole moments</strong>—for example, $\hat{\mathbf{d}}_1 = \hat{x}$ and $\hat{\mathbf{d}}_2 = \hat{y}$—then for <em>any</em> choice of detector polarization $\boldsymbol{\epsilon}$, one of the two dot products is non-zero. Specifically:
+            </p>
+            <ul>
+                <li>If $\boldsymbol{\epsilon} = \hat{x}$, then $\boldsymbol{\epsilon} \cdot \hat{\mathbf{d}}_1 = 1$ and $\boldsymbol{\epsilon} \cdot \hat{\mathbf{d}}_2 = 0$. The interference term vanishes.</li>
+                <li>If $\boldsymbol{\epsilon} = \hat{y}$, then $\boldsymbol{\epsilon} \cdot \hat{\mathbf{d}}_1 = 0$ and $\boldsymbol{\epsilon} \cdot \hat{\mathbf{d}}_2 = 1$. The interference term vanishes.</li>
+                <li>If $\boldsymbol{\epsilon} = (\hat{x} + \hat{y})/\sqrt{2}$, then both dot products are non-zero, and the interference term <em>is</em> non-zero. The beats are present.</li>
+            </ul>
+            <p>
+                The quantum prediction is therefore: <strong>beats are observed when the detector polarization projects onto both transition dipole moments.</strong> If the detector selects only one of the two possible decay channels, the beats disappear.
+            </p>
+            <p>
+                The classical prediction, by contrast, is that beats should be present for <em>any</em> detector polarization that has a component along both dipole axes. In particular, for $\boldsymbol{\epsilon} = (\hat{x} + \hat{y})/\sqrt{2}$, both theories predict beats. But for $\boldsymbol{\epsilon} = \hat{x}$ or $\boldsymbol{\epsilon} = \hat{y}$, the classical theory predicts no beats only because the field from the orthogonally polarized dipole has no projection onto the detector—this is a trivial geometric effect, not a fundamental quantum one. The deep difference is that the classical theory cannot explain why beats disappear when the two dipoles have the <em>same</em> polarization but the two photons have <em>different frequencies</em>, if the detector resolves the frequency difference. Quantum theory does explain this, as we now see.
+            </p>
+
+            <h3>3.3 Frequency-Resolved Detection: The Decisive Quantum Signature</h3>
+            <p>
+                The truly decisive failure of classical electrodynamics occurs when the two transitions have the <em>same</em> polarization but the photon frequency is measured. In this case, the classical dipole moments are parallel, so $\mathbf{E}_{01} \cdot \mathbf{E}_{02}^*$ is non-zero, and classical theory predicts beats regardless of whether the detector frequency resolution resolves the two spectral lines.
+            </p>
+            <p>
+                In the quantum treatment, however, a frequency-resolved measurement of the photon answers the question: "Did this photon come from $|e_1\rangle$ or from $|e_2\rangle$?" If the detector bandwidth $\Delta\omega_{\text{det}}$ is smaller than the splitting $\Delta$, then a photon detected at frequency $\omega_k \approx \omega_1$ almost certainly came from the decay of $|e_1\rangle$, and a photon at $\omega_k \approx \omega_2$ came from $|e_2\rangle$. The measurement provides <strong>which-path information</strong>. According to the principle of complementarity, when which-path information is available, interference is destroyed. Mathematically, if one integrates the detection probability (\ref{eq:detection_prob}) over a frequency window centered on $\omega_1$ with width $\delta\omega \ll \Delta$, the second Lorentzian denominator $[\Gamma_2/2 - i(\omega_k - \omega_2)]$ is approximately constant and non-resonant, and the interference term becomes negligible compared to the resonant term. The beats disappear.
+            </p>
+            <p>
+                This prediction has no classical analog. In classical electrodynamics, two oscillators with parallel dipole moments and slightly different frequencies always produce beats in the total radiated power, regardless of whether the detector can resolve the individual frequencies. The quantum mechanical prediction—that frequency resolution destroys the beats—has been experimentally confirmed and is a direct manifestation of the quantum nature of light.
+            </p>
+
+            <!-- PLACEHOLDER FOR FIGURE -->
+            <p>
+                <em>[Figure 2: The essential quantum phenomenon. (a) When the two excited states decay via channels with orthogonal polarizations, and the detector is set to one polarization, the which-path information is available, and beats are absent. (b) When the detector polarization projects onto both channels, which-path information is erased, and beats appear. (c) Even with parallel dipoles, if the detector resolves the photon frequency, which-path information is available, and beats disappear. Classical electrodynamics predicts beats in all three cases—the quantum prediction is fundamentally different.]</em>
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 4: THE WIGNER–WEISSKOPF TREATMENT OF TWO COUPLED LEVELS                    -->
+            <!-- ================================================================================ -->
+            <h2>4. The Wigner–Weisskopf Treatment: Beats as Interference in the Photon Wavefunction</h2>
+
+            <h3>4.1 The Photon Wavefunction in the Time Domain</h3>
+            <p>
+                The essence of the quantum beat phenomenon is most clearly seen in the time domain. Consider a detector placed at a fixed position in the far field, with a fixed polarization $\boldsymbol{\epsilon}$. The positive-frequency part of the electric field operator at the detector is
+                \begin{equation}
+                    \hat{\mathbf{E}}^{(+)}(\mathbf{r}, t) \propto \sum_{\mathbf{k}} \sqrt{\omega_k} \, \boldsymbol{\epsilon}_{\mathbf{k}\lambda} \, \hat{a}_{\mathbf{k}\lambda} e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_k t)}.
+                \end{equation}
+                The photon detection probability per unit time is proportional to the first-order correlation function:
+                \begin{equation}
+                    I(t) \propto \langle \Psi(t) | \hat{\mathbf{E}}^{(-)}(\mathbf{r}, t) \cdot \hat{\mathbf{E}}^{(+)}(\mathbf{r}, t) | \Psi(t) \rangle.
+                \end{equation}
+                Using the state (\ref{eq:total_state}) and keeping only the one-photon part (since the excited-state part has no photon and gives zero), one finds
+                \begin{equation}
+                    I(t) \propto \left| \sum_{\mathbf{k}} \sqrt{\omega_k} \, \boldsymbol{\epsilon}_{\mathbf{k}\lambda}^* \cdot \boldsymbol{\epsilon} \, \psi_{\mathbf{k}\lambda}(t) e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_k t)} \right|^2.
+                    \label{eq:I_correlation}
+                \end{equation}
+                Substituting the explicit form (\ref{eq:psi_k}) of the photon wavefunction and performing the sum over modes (which, in the far field, is dominated by a phase-matching condition that selects a single direction $\mathbf{k}$), one obtains an expression proportional to
+                \begin{equation}
+                    I(t) \propto \left| \sqrt{\Gamma_1} (\boldsymbol{\epsilon} \cdot \hat{\mathbf{d}}_1) c_1 e^{-i\omega_1 t} e^{-\Gamma_1 t/2} + \sqrt{\Gamma_2} (\boldsymbol{\epsilon} \cdot \hat{\mathbf{d}}_2) c_2 e^{-i\omega_2 t} e^{-\Gamma_2 t/2} \right|^2.
+                    \label{eq:I_time_domain}
+                \end{equation}
+                This is exactly the expression that leads to the beat signal (\ref{eq:quantum_beats}). The crucial point is that the detected intensity is the squared magnitude of a <strong>sum of probability amplitudes</strong>, not a sum of squared magnitudes. The amplitudes add because the final state $|g, 1_{\mathbf{k}\lambda}\rangle$ does not record which excited state produced the photon. When the which-path information is encoded in the photon state—either in the polarization or in the frequency—the two terms in the sum become orthogonal (in the Hilbert space of the photon), and the cross term vanishes upon taking the squared magnitude. This is the fundamental reason why beats require indistinguishable pathways.
+            </p>
+
+            <h3>4.2 The Role of the Vacuum Modes</h3>
+            <p>
+                It is worth emphasizing that the beats arise from the interference of the <em>photon wavefunctions</em> emitted into the same mode of the radiation field. The vacuum modes of the electromagnetic field provide the continuum of final states. Because both excited states couple to the <em>same</em> set of vacuum modes, the emitted photon amplitudes add coherently. This coherent addition is a direct consequence of the quantized nature of the radiation field. In a classical treatment, each dipole radiates its own independent field, and the fields add at the detector. There is no concept of "which-path information" in the photon state because there is no photon state. The classical theory therefore has no mechanism to account for the disappearance of beats when the two photons are distinguishable. Only QED, with its treatment of the photon as a quantum particle that can carry polarization and frequency labels, provides the correct explanation.
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 5: EXPERIMENTAL CONFIRMATION AND APPLICATIONS                               -->
+            <!-- ================================================================================ -->
+            <h2>5. Experimental Confirmation and Applications</h2>
+
+            <h3>5.1 The Haroche Experiment (1976)</h3>
+            <p>
+                The definitive experimental demonstration that quantum beats are governed by which-path information was performed by Serge Haroche and colleagues in 1976. They excited a beam of calcium atoms with a pulsed dye laser, creating a coherent superposition of two Zeeman sublevels of the $4^1P_1$ state. These sublevels decayed to the ground state with $\Delta m = \pm 1$, emitting photons of opposite circular polarization ($\sigma^+$ and $\sigma^-$). The experimenters measured the time-resolved fluorescence with a detector behind a linear polarizer. When the polarizer was set to transmit only $\sigma^+$ light, the beats disappeared. When the polarizer was set to a linear polarization that projected equally onto both circular components (e.g., horizontal), the beats appeared with high contrast. The beat frequency was the Zeeman splitting, tunable with an applied magnetic field. This experiment provided the first clear evidence that quantum beats are a manifestation of quantum interference and that their observability is controlled by the availability of which-path information.
+            </p>
+
+            <h3>5.2 Applications in Precision Spectroscopy</h3>
+            <p>
+                Quantum beats have become a standard tool for measuring small energy splittings that are below the resolution of conventional spectroscopy. The technique is simple: a short laser pulse creates a coherent superposition, and the beat frequency is extracted from a Fourier transform of the time-resolved fluorescence. The resolution is limited only by the excited-state lifetime (via the natural linewidth) and the signal-to-noise ratio, not by the laser linewidth or Doppler broadening. This has enabled precision measurements of:
+            </p>
+            <ul>
+                <li>Hyperfine splittings in excited states of alkali atoms (e.g., the $5P_{3/2}$ state of $^{87}$Rb).</li>
+                <li>Fine-structure intervals in alkaline-earth atoms.</li>
+                <li>Zeeman and Stark splittings in external fields.</li>
+                <li>Rotational and vibrational energy differences in molecules (femtochemistry).</li>
+            </ul>
+
+            <h3>5.3 Quantum Beats in Solid-State and Biological Systems</h3>
+            <p>
+                Beyond atomic vapors, quantum beats have been observed in semiconductor quantum wells (exciton beats), in nitrogen-vacancy centers in diamond, and in photosynthetic light-harvesting complexes. In the latter, long-lived quantum beats have been interpreted as evidence for the role of quantum coherence in biological energy transport, although the interpretation remains a subject of active debate. In all these systems, the core physics is the same: a coherent superposition of excited states decays by emitting a photon (or a phonon, or undergoing energy transfer), and the interference of the decay amplitudes produces an oscillatory signal.
+            </p>
+
+            <!-- PLACEHOLDER FOR FIGURE -->
+            <p>
+                <em>[Figure 3: (a) The Haroche experiment: calcium atoms excited to a superposition of Zeeman sublevels emit $\sigma^+$ and $\sigma^-$ photons. A linear polarizer before the detector controls the observability of beats. (b) Quantum beats observed in the fluorescence of rubidium after picosecond excitation, revealing hyperfine splittings. (c) Quantum beats in a semiconductor quantum well, showing coherent exciton dynamics.]</em>
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 6: EXTENSIONS: MULTI-LEVEL BEATS AND PHOTON ECHOES                         -->
+            <!-- ================================================================================ -->
+            <h2>6. Extensions: Multi-Level Beats, $\Lambda$-Beats, and Photon Echoes</h2>
+
+            <h3>6.1 $\Lambda$-Type Beats (Raman Beats)</h3>
+            <p>
+                Quantum beats also occur in $\Lambda$-type systems, where two <em>ground</em> states are coupled to a common excited state. Here, a coherent superposition of the two ground states is prepared (for instance, by a two-photon Raman process), and a probe pulse measures the time-dependent absorption or fluorescence. The beat frequency is the ground-state splitting—typically a hyperfine or Zeeman interval in the MHz to GHz range. These beats are often called <strong>Raman beats</strong> or <strong>coherent population trapping beats</strong>, and they are closely related to the EIT and CPT phenomena discussed in earlier notes. The same complementarity principle applies: beats are observed only if the detection scheme does not reveal which ground state was involved in the transition.
+            </p>
+
+            <h3>6.2 Multi-Level Beats and Wave Packets</h3>
+            <p>
+                When a short pulse excites more than two levels, the resulting fluorescence contains beats at all pairwise frequency differences. In the limit of many excited states (e.g., vibrational levels of a molecule), the beat pattern becomes a complex wave packet oscillation. The time-resolved signal directly images the classical motion of the wave packet in the molecular potential, providing a bridge between quantum and classical dynamics.
+            </p>
+
+            <h3>6.3 Photon Echoes: Beating Inhomogeneous Dephasing</h3>
+            <p>
+                In an ensemble of atoms, inhomogeneous broadening causes the beats from different atoms to dephase. However, this dephasing is reversible. A photon echo sequence—a $\pi/2$ pulse to create a coherence, followed by a $\pi$ pulse at time $\tau$ to reverse the time evolution—causes the individual atomic coherences to rephase at time $2\tau$, producing an echo. The echo amplitude as a function of $\tau$ decays with the <em>homogeneous</em> $T_2$ time, allowing one to measure the intrinsic decoherence rate free from inhomogeneous broadening. Photon echoes are the optical analog of spin echoes in NMR and are a central technique in coherent spectroscopy.
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- REFERENCES                                                                         -->
+            <!-- ================================================================================ -->
+            <h2>References</h2>
+            <ol>
+                <li>
+                    S. Haroche, "Quantum beats and time-resolved fluorescence spectroscopy," in <em>High-Resolution Laser Spectroscopy</em>, edited by K. Shimoda (Springer, Berlin, 1976), pp. 253–313. The classic review, written by the pioneer of the field. This is the essential reference for the quantum electrodynamical theory of beats and the role of which-path information.
+                </li>
+                <li>
+                    S. Haroche, J. A. Paisner, and A. L. Schawlow, "Hyperfine quantum beats observed in Cs vapor under pulsed dye-laser excitation," <em>Physical Review Letters</em> <strong>30</strong>, 948–951 (1973). The first experimental observation of quantum beats in an atomic vapor.
+                </li>
+                <li>
+                    W. W. Chow, M. O. Scully, and J. O. Stoner, "Quantum beats in the fluorescence of a V-type three-level atom: A test of quantum electrodynamics," <em>Physical Review A</em> <strong>11</strong>, 1380–1388 (1975). A rigorous theoretical treatment emphasizing the QED origin of beats and the failure of semiclassical theories.
+                </li>
+                <li>
+                    M. O. Scully and M. S. Zubairy, <em>Quantum Optics</em> (Cambridge University Press, Cambridge, 1997). Chapter 8 provides a thorough density-matrix and QED treatment of quantum beats, including the role of the vacuum field and the which-path argument.
+                </li>
+                <li>
+                    C. Cohen-Tannoudji, J. Dupont-Roc, and G. Grynberg, <em>Atom–Photon Interactions: Basic Processes and Applications</em> (Wiley-VCH, Weinheim, 1998). Complement $A_V$ discusses quantum beats and their connection to dressed-state interference.
+                </li>
+                <li>
+                    L. Allen and J. H. Eberly, <em>Optical Resonance and Two-Level Atoms</em> (Dover, New York, 1987). Chapters 3 and 4 provide the optical Bloch equation framework for understanding coherence and beats in driven systems.
+                </li>
+                <li>
+                    W. Demtröder, <em>Laser Spectroscopy: Basic Concepts and Instrumentation</em>, 3rd ed. (Springer, Berlin, 2003). Chapter 7 covers time-resolved spectroscopy, including quantum beats in atoms and molecules, with experimental details.
+                </li>
+                <li>
+                    A. H. Zewail, "Femtochemistry: Atomic-scale dynamics of the chemical bond using ultrafast lasers," <em>Angewandte Chemie International Edition</em> <strong>39</strong>, 2586–2631 (2000). Nobel Lecture on femtosecond spectroscopy, where quantum beats and wave packet dynamics are central tools.
+                </li>
+                <li>
+                    G. S. Engel, T. R. Calhoun, E. L. Read, T.-K. Ahn, T. Mančal, Y.-C. Cheng, R. E. Blankenship, and G. R. Fleming, "Evidence for wavelike energy transfer through quantum coherence in photosynthetic systems," <em>Nature</em> <strong>446</strong>, 782–786 (2007). The observation of long-lived quantum beats in a biological light-harvesting complex, sparking intense interest in quantum biology.
+                </li>
+            </ol>
+
         </main>
     </div>
 </body>
