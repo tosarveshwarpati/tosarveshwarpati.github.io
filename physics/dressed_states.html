@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dressed States</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                tags: 'ams',
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <div>
+                <p class="eyebrow">Physics note</p>
+                <h1>Quantum optics overview</h1>
+                <p class="lead">atom light interaction and spectroscopy</p>
+            </div>
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="../index.html">About</a>
+                <a href="../resume.html">Resume</a>
+                <a href="../gallery.html">Gallery</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../physics.html">Physics</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <main class="card">
+
+            <!-- ================================================================================ -->
+            <!-- INTRODUCTION                                                                      -->
+            <!-- ================================================================================ -->
+            <h2>Introduction</h2>
+            <p>
+                The optical Bloch equations from the previous notes describe many driven-atom effects, but they do not capture the full quantum nature of the field. The dressed-state approach fixes that. It treats the atom and the field together, so the eigenstates of the full atom–field Hamiltonian become the natural starting point. That picture gives a clear way to understand effects such as photon antibunching, squeezing, vacuum Rabi splitting, and the full structure of the atom–field spectrum.
+            </p>
+            <p>
+                These notes develop the dressed-state formalism from the Jaynes–Cummings model. I start with the fully quantized atom–field Hamiltonian, derive the exact dressed states and their energies, and build the dressed-state ladder. Then I connect that picture to the semiclassical limit and to the optical Bloch equations. I use the same framework to explain resonance fluorescence, the Mollow triplet, and the Autler–Townes doublet, and I finish with the cavity-QED version of the same idea.
+            </p>
+            <p>
+                The dressed-state picture is useful because it changes the way we think about atom–field interactions. Instead of treating the atom as a separate system that is perturbed by light, we treat the atom and the photons as one composite system with its own stationary states, selection rules, and allowed transitions.
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 1: THE JAYNES–CUMMINGS MODEL                                               -->
+            <!-- ================================================================================ -->
+            <h2>1. The Jaynes–Cummings Model</h2>
+
+            <h3>1.1 Full Quantum Description of Atom and Field</h3>
+            <p>
+                We consider a single two-level atom coupled to a single mode of the quantized electromagnetic field. The atom has ground state $| g \rangle$ (energy $E_g$) and excited state $| e \rangle$ (energy $E_e$), with transition frequency $\omega_0 = (E_e - E_g)/\hbar$. The field mode has frequency $\omega_c$ and is described by bosonic annihilation and creation operators $\hat{a}$ and $\hat{a}^\dagger$, satisfying $[\hat{a}, \hat{a}^\dagger] = 1$. The free Hamiltonians are
+                \begin{equation}
+                    \hat{H}_A = \frac{1}{2}\hbar\omega_0 \hat{\sigma}_z, \qquad
+                    \hat{H}_F = \hbar\omega_c \left(\hat{a}^\dagger \hat{a} + \frac{1}{2}\right),
+                \end{equation}
+                where we have set the zero of atomic energy midway between $| g \rangle$ and $| e \rangle$, so $E_g = -\hbar\omega_0/2$, $E_e = +\hbar\omega_0/2$, and $\hat{\sigma}_z = | e \rangle\langle e | - | g \rangle\langle g |$. The zero-point energy $\frac{1}{2}\hbar\omega_c$ is often omitted for convenience, as it contributes only a constant shift.
+            </p>
+            <p>
+                The electric dipole interaction Hamiltonian in the Schrödinger picture is $\hat{H}_{\text{int}} = -\hat{\mathbf{d}} \cdot \hat{\mathbf{E}}$. With the field quantized as in the previous notes, and applying the <strong>rotating wave approximation (RWA)</strong>, one obtains the <strong>Jaynes–Cummings Hamiltonian</strong>:
+                \begin{equation}
+                    \boxed{\hat{H}_{\text{JC}} = \frac{1}{2}\hbar\omega_0 \hat{\sigma}_z + \hbar\omega_c \hat{a}^\dagger \hat{a}
+                    + \hbar g \left( \hat{\sigma}_+ \hat{a} + \hat{\sigma}_- \hat{a}^\dagger \right)}.
+                    \label{eq:JC}
+                \end{equation}
+                Here, $\hat{\sigma}_+ = | e \rangle\langle g |$ and $\hat{\sigma}_- = | g \rangle\langle e |$ are the atomic raising and lowering operators, and $g$ is the <strong>single-photon Rabi frequency</strong> (atom–field coupling constant):
+                \begin{equation}
+                    g = -\frac{\mathbf{d}_{eg} \cdot \boldsymbol{\epsilon}}{\hbar} \sqrt{\frac{\hbar\omega_c}{2\varepsilon_0 V}},
+                \end{equation}
+                where $\boldsymbol{\epsilon}$ is the polarization vector of the mode, and $V$ is the quantization volume. Without loss of generality, we take $g$ to be real and positive by absorbing any phase into the definition of the atomic states.
+            </p>
+            <p>
+                The Jaynes–Cummings Hamiltonian (\ref{eq:JC}) is exactly solvable. The interaction term $\hat{\sigma}_+ \hat{a}$ describes a process in which the atom is excited ($| g \rangle \to | e \rangle$) while a photon is absorbed from the mode; its Hermitian conjugate $\hat{\sigma}_- \hat{a}^\dagger$ describes atomic de-excitation with the emission of a photon. The counter-rotating terms $\hat{\sigma}_+ \hat{a}^\dagger$ and $\hat{\sigma}_- \hat{a}$ have been dropped in the RWA, which is valid when $g \ll \omega_0, \omega_c$ and the detuning $|\omega_c - \omega_0|$ is small compared to $\omega_0 + \omega_c$.
+            </p>
+
+            <h3>1.2 The Bare-State Basis and the Block Structure of $\hat{H}_{\text{JC}}$</h3>
+            <p>
+                The <strong>bare states</strong> of the uncoupled system are product states of the atomic eigenstates and the field Fock states (photon-number states):
+                \begin{equation}
+                    | e, n \rangle, \qquad | g, n \rangle, \qquad n = 0, 1, 2, \dots
+                \end{equation}
+                The state $| e, n \rangle$ represents the atom in the excited state with $n$ photons in the mode; $| g, n \rangle$ represents the ground-state atom with $n$ photons. The free Hamiltonian is diagonal in this basis:
+                \begin{equation}
+                    \hat{H}_0 = \hat{H}_A + \hat{H}_F: \qquad
+                    \hat{H}_0 | e, n \rangle = \hbar\left(\frac{\omega_0}{2} + n\omega_c\right) | e, n \rangle, \qquad
+                    \hat{H}_0 | g, n \rangle = \hbar\left(-\frac{\omega_0}{2} + n\omega_c\right) | g, n \rangle.
+                \end{equation}
+            </p>
+            <p>
+                The interaction Hamiltonian $\hat{V} = \hbar g (\hat{\sigma}_+ \hat{a} + \hat{\sigma}_- \hat{a}^\dagger)$ couples only pairs of bare states within the same <strong>excitation manifold</strong>. Specifically,
+                \begin{align}
+                    \hat{\sigma}_+ \hat{a} | e, n \rangle &= 0, \qquad
+                    \hat{\sigma}_+ \hat{a} | g, n \rangle = \sqrt{n} \, | e, n-1 \rangle, \\
+                    \hat{\sigma}_- \hat{a}^\dagger | e, n \rangle &= \sqrt{n+1} \, | g, n+1 \rangle, \qquad
+                    \hat{\sigma}_- \hat{a}^\dagger | g, n \rangle = 0.
+                \end{align}
+                Thus, $\hat{H}_{\text{JC}}$ is block-diagonal in the basis that groups states with the same total number of excitations. For $n \ge 1$, the two-dimensional manifold $\mathcal{E}_n$ is spanned by $\{ | e, n \rangle, | g, n+1 \rangle \}$. The ground manifold $\mathcal{E}_0$ contains only the single state $| g, 0 \rangle$ (zero excitations), which is an eigenstate of the full Hamiltonian with energy $-\hbar\omega_0/2$.
+            </p>
+            <p>
+                For $n \ge 1$, the Hamiltonian within the manifold $\mathcal{E}_n$ is represented by the $2 \times 2$ matrix (in the basis $\{ | e, n \rangle, | g, n+1 \rangle \}$):
+                \begin{equation}
+                    \hat{H}_n = \hbar
+                    \begin{pmatrix}
+                        n\omega_c + \dfrac{\omega_0}{2} & g\sqrt{n+1} \\
+                        g\sqrt{n+1} & (n+1)\omega_c - \dfrac{\omega_0}{2}
+                    \end{pmatrix}.
+                    \label{eq:Hn}
+                \end{equation}
+                It is convenient to subtract a common constant energy $\hbar(n + \frac{1}{2})\omega_c$ so that the diagonal elements become $\pm \hbar\Delta/2$, where
+                \begin{equation}
+                    \Delta \equiv \omega_c - \omega_0
+                \end{equation}
+                is the <strong>cavity–atom detuning</strong>. The reduced Hamiltonian in $\mathcal{E}_n$ is then
+                \begin{equation}
+                    \hat{H}_n' = \frac{\hbar}{2}
+                    \begin{pmatrix}
+                        -\Delta & 2g\sqrt{n+1} \\
+                        2g\sqrt{n+1} & \Delta
+                    \end{pmatrix}.
+                    \label{eq:Hn_prime}
+                \end{equation}
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 2: EXACT DIAGONALIZATION AND DRESSED STATES                                -->
+            <!-- ================================================================================ -->
+            <h2>2. Exact Diagonalization and the Dressed States</h2>
+
+            <h3>2.1 Diagonalization of the $2 \times 2$ Problem</h3>
+            <p>
+                The matrix (\ref{eq:Hn_prime}) is easily diagonalized. Its eigenvalues are
+                \begin{equation}
+                    E_{\pm}^{(n)} = \pm \frac{\hbar}{2} \sqrt{\Delta^2 + 4g^2(n+1)} \equiv \pm \frac{\hbar}{2} \Omega_n(\Delta),
+                    \label{eq:eigenvalues}
+                \end{equation}
+                where we have introduced the <strong>$n$-photon generalized Rabi frequency</strong>
+                \begin{equation}
+                    \Omega_n(\Delta) \equiv \sqrt{\Delta^2 + 4g^2(n+1)}.
+                    \label{eq:Omega_n}
+                \end{equation}
+                At resonance ($\Delta = 0$), this reduces to $\Omega_n(0) = 2g\sqrt{n+1}$. The corresponding normalized eigenvectors are the <strong>dressed states</strong>:
+                \begin{align}
+                    | n, + \rangle &= \sin\theta_n \, | e, n \rangle + \cos\theta_n \, | g, n+1 \rangle, \label{eq:dressed_plus} \\
+                    | n, - \rangle &= \cos\theta_n \, | e, n \rangle - \sin\theta_n \, | g, n+1 \rangle, \label{eq:dressed_minus}
+                \end{align}
+                where the <strong>mixing angle</strong> $\theta_n$ is defined by
+                \begin{equation}
+                    \tan(2\theta_n) = \frac{2g\sqrt{n+1}}{\Delta}, \qquad 0 \le \theta_n \le \frac{\pi}{2}.
+                    \label{eq:mixing_angle}
+                \end{equation}
+                Equivalently,
+                \begin{equation}
+                    \sin\theta_n = \sqrt{\frac{\Omega_n - \Delta}{2\Omega_n}}, \qquad
+                    \cos\theta_n = \sqrt{\frac{\Omega_n + \Delta}{2\Omega_n}}.
+                \end{equation}
+            </p>
+            <p>
+                The dressed states $| n, \pm \rangle$ are the exact, time-independent eigenstates of the fully interacting atom–field system. Restoring the subtracted common energy, the total energy of the state $| n, \pm \rangle$ is
+                \begin{equation}
+                    E_{n,\pm} = \hbar\left(n + \frac{1}{2}\right)\omega_c \pm \frac{\hbar}{2} \Omega_n(\Delta).
+                    \label{eq:dressed_energies}
+                \end{equation}
+                The ground state $| g, 0 \rangle$ can be considered as $| -1, + \rangle$ in a unified notation, with energy $E_g = -\hbar\omega_0/2$.
+            </p>
+
+            <h3>2.2 The Dressed-Atom Ladder</h3>
+            <p>
+                The energy spectrum (\ref{eq:dressed_energies}) forms the <strong>dressed-atom ladder</strong>, shown schematically in Figure 1. For each photon number $n$, the two bare states $| e, n \rangle$ and $| g, n+1 \rangle$ are coupled by the interaction to form a doublet of dressed states $| n, + \rangle$ (upper) and $| n, - \rangle$ (lower), separated by $\hbar\Omega_n(\Delta)$. At resonance ($\Delta = 0$), the splitting is $\hbar\Omega_n(0) = 2\hbar g\sqrt{n+1}$. The ladder is anharmonic: the energy splitting between the two dressed states in manifold $n$ depends on $n$ through the factor $\sqrt{n+1}$. This anharmonicity is a quintessential quantum feature—it arises from the discrete nature of the photon number—and is responsible for phenomena such as the photon blockade.
+            </p>
+
+            <!-- PLACEHOLDER FOR FIGURE -->
+            <p>
+                <em>[Figure 1: The dressed-atom ladder for the Jaynes–Cummings model. (a) Bare-state energy levels: the manifolds $\mathcal{E}_n$ contain $| e, n \rangle$ and $| g, n+1 \rangle$. (b) Dressed-state energy levels: the interaction splits each manifold into $| n, + \rangle$ and $| n, - \rangle$ by $\hbar\Omega_n$. Allowed spontaneous emission transitions between adjacent manifolds are indicated by colored arrows, showing the four spectral components of the Mollow triplet and the additional sidebands.]</em>
+            </p>
+
+            <h3>2.3 The Semiclassical Limit and Connection to Rabi Oscillations</h3>
+            <p>
+                The dressed-state description contains the semiclassical Rabi oscillations as a special case. Consider a strong coherent field with mean photon number $\bar{n} \gg 1$ and photon-number uncertainty $\Delta n \sim \sqrt{\bar{n}}$. The atom then couples to a superposition of many photon-number states, and the relevant generalized Rabi frequency is $\Omega_{\bar{n}}(\Delta) \approx \sqrt{\Delta^2 + 4g^2 \bar{n}}$. Identifying the classical Rabi frequency as $\Omega = 2g\sqrt{\bar{n}}$ (the factor of two arises from the coherent-state amplitude), we recover the familiar semiclassical result. The dressed states for large $\bar{n}$ are approximately
+                \begin{equation}
+                    | \bar{n}, \pm \rangle \approx \frac{1}{\sqrt{2}} \big( | e, \bar{n} \rangle \pm | g, \bar{n}+1 \rangle \big) \quad (\Delta = 0),
+                \end{equation}
+                which are the maximally entangled atom–field states underlying the Rabi oscillations at frequency $\Omega$.
+            </p>
+
+            <h3>2.4 Spontaneous Emission in the Dressed-Atom Picture</h3>
+            <p>
+                The dressed states are stationary states of the <em>coupled</em> atom–field system, but they are not stationary when additional reservoir modes (the electromagnetic vacuum) are included. Spontaneous emission from the atom corresponds to transitions between adjacent manifolds of the dressed-state ladder. The dipole operator $\hat{\mathbf{d}} = \mathbf{d}_{eg} \hat{\sigma}_+ + \mathbf{d}_{ge} \hat{\sigma}_-$ connects dressed states in manifold $\mathcal{E}_n$ to dressed states in manifold $\mathcal{E}_{n-1}$ (emission of a photon into the reservoir reduces the number of excitations in the system by one). The transition matrix elements are
+                \begin{align}
+                    \langle n-1, + | \hat{\sigma}_- | n, + \rangle &= \sin\theta_{n-1} \cos\theta_n, \\
+                    \langle n-1, - | \hat{\sigma}_- | n, + \rangle &= \cos\theta_{n-1} \cos\theta_n, \\
+                    \langle n-1, + | \hat{\sigma}_- | n, - \rangle &= -\sin\theta_{n-1} \sin\theta_n, \\
+                    \langle n-1, - | \hat{\sigma}_- | n, - \rangle &= \cos\theta_{n-1} \sin\theta_n.
+                \end{align}
+                These four matrix elements determine the intensities of the spectral components of resonance fluorescence, as we shall see in Section 3.
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 3: RESONANCE FLUORESCENCE AND THE MOLLOW TRIPLET                           -->
+            <!-- ================================================================================ -->
+            <h2>3. Resonance Fluorescence and the Mollow Triplet</h2>
+
+            <h3>3.1 Spectrum of Spontaneous Emission from a Driven Atom</h3>
+            <p>
+                One of the triumphs of the dressed-state formalism is its elegant explanation of <strong>resonance fluorescence</strong>—the spectrum of light spontaneously emitted by a two-level atom driven by a strong, resonant, monochromatic laser field. Experimentally, this spectrum was measured by Schuda, Stroud, and Hercher in the 1970s and by Mollow in a landmark 1969 theoretical paper. For a weak driving field, the spectrum consists of a single peak at the atomic frequency (the elastic, or Rayleigh, component). As the driving intensity increases, the peak broadens (power broadening) and eventually splits into three distinct peaks: a central peak at the laser frequency and two sidebands displaced by the Rabi frequency. This is the <strong>Mollow triplet</strong> (or AC Stark triplet).
+            </p>
+
+            <h3>3.2 Dressed-State Analysis of the Mollow Triplet</h3>
+            <p>
+                In the dressed-state picture, the driving laser is treated as a quantized mode (the "driving mode") with a large mean photon number $\bar{n} \gg 1$. The dressed states are $| \bar{n}, \pm \rangle$. Spontaneous emission occurs from these dressed states to the dressed states of the adjacent lower manifold, $| \bar{n}-1, \pm \rangle$. The four possible transitions ($+ \to +$, $+ \to -$, $- \to +$, $- \to -$) give rise to four spectral lines. Their frequencies, relative to the laser frequency $\omega_L$, are:
+                \begin{align}
+                    \omega(+,+) &: \quad \omega_L, \\
+                    \omega(-,-) &: \quad \omega_L, \\
+                    \omega(+,-) &: \quad \omega_L + \Omega_{\bar{n}}, \\
+                    \omega(-,+) &: \quad \omega_L - \Omega_{\bar{n}}.
+                \end{align}
+                The transitions $+ \to +$ and $- \to -$ both occur at the laser frequency and together form the <strong>central peak</strong>. The $+ \to -$ transition is at the <strong>blue sideband</strong> ($\omega_L + \Omega$), and the $- \to +$ transition is at the <strong>red sideband</strong> ($\omega_L - \Omega$). The intensities of these lines are proportional to the squared matrix elements given in Section 2.4, weighted by the steady-state populations of the initial dressed states. At resonance ($\Delta = 0$) and in the strong-field limit, the mixing angles satisfy $\theta_{\bar{n}} \approx \theta_{\bar{n}-1} \approx \pi/4$, and one finds that the central peak carries twice the integrated intensity of each sideband. The ratio of the integrated intensities is $1 : 2 : 1$ for the red, central, and blue components, respectively. The linewidths are also determined by the dressed-state level widths (related to the spontaneous emission rate $\Gamma$).
+            </p>
+
+            <p>
+                The Mollow triplet is a direct spectral manifestation of the dressed-atom ladder and provides a clear signature of the quantization of the atom–field interaction. It has been observed in systems ranging from atomic beams to semiconductor quantum dots and superconducting qubits.
+            </p>
+
+            <!-- PLACEHOLDER FOR FIGURE -->
+            <p>
+                <em>[Figure 2: (a) The Mollow triplet in resonance fluorescence: the spectrum consists of a central Rayleigh peak and two sidebands at $\pm\Omega$. (b) Dressed-state level diagram showing the four spontaneous emission transitions responsible for the triplet. (c) Experimental spectrum of resonance fluorescence from a single quantum dot, showing the Mollow triplet.]</em>
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 4: THE AUTLER–TOWNES EFFECT AND ABSORPTION SPECTROSCOPY                    -->
+            <!-- ================================================================================ -->
+            <h2>4. The Autler–Townes Doublet and Dressed-State Absorption</h2>
+
+            <h3>4.1 Absorption Spectrum of a Weak Probe on a Driven Transition</h3>
+            <p>
+                The Autler–Townes effect (also called the AC Stark splitting) is the splitting of an atomic absorption line into a doublet when the atom is subjected to a strong, resonant (or near-resonant) driving field. It was first observed by Autler and Townes in 1955 in radio-frequency spectroscopy of OCS molecules and is a direct consequence of the dressed-state level structure.
+            </p>
+            <p>
+                Consider a three-level system (or a two-level system driven on one transition and probed on another). For a two-level atom driven by a strong field (frequency $\omega_L$, Rabi frequency $\Omega$) and simultaneously probed by a weak field scanning across the transition, the absorption spectrum of the probe exhibits two peaks separated by the generalized Rabi frequency $\Omega' = \sqrt{\Delta^2 + \Omega^2}$. In the dressed-state picture, the probe absorption corresponds to transitions from the ground dressed manifold to the excited dressed manifold. The two peaks arise from the transitions to the two dressed states $| n, + \rangle$ and $| n, - \rangle$, which are split by $\hbar\Omega'$.
+            </p>
+
+            <h3>4.2 Dressed-State Susceptibility and the Mollow Absorption Spectrum</h3>
+            <p>
+                The linear susceptibility for a weak probe field interacting with a driven two-level atom can be calculated from the steady-state density matrix in the dressed-state basis. The absorption spectrum (imaginary part of the susceptibility) is given by
+                \begin{equation}
+                    \chi''(\omega_p) \propto \sum_{i,j = \pm} \frac{|\langle n-1, i | \hat{\sigma}_- | n, j \rangle|^2 (\rho_{jj} - \rho_{ii}) \Gamma_{ij}}{(\omega_p - \omega_{ij})^2 + \Gamma_{ij}^2},
+                \end{equation}
+                where $\omega_{ij}$ are the transition frequencies and $\Gamma_{ij}$ are the corresponding linewidths (related to the spontaneous emission rates from the dressed states). At resonance ($\Delta=0$) and strong driving, the populations of the two dressed states equalize, and the absorption spectrum consists of two identical peaks at $\omega_p = \omega_L \pm \Omega$, each with width $\sim \Gamma$. This is the <strong>Autler–Townes doublet</strong>.
+            </p>
+            <p>
+                It is important to distinguish the Autler–Townes doublet from the Mollow triplet. The Mollow triplet appears in the <em>spontaneous emission</em> (fluorescence) spectrum and contains a central Rayleigh peak at $\omega_L$ due to elastic scattering. The Autler–Townes doublet appears in <em>absorption</em> (or probe transmission) and has no central peak, because the probe cannot drive the $+ \to +$ and $- \to -$ elastic transitions with a different frequency. This distinction is a clear demonstration of the power of the dressed-state formalism to unify and differentiate between different spectroscopic signals.
+            </p>
+
+            <!-- PLACEHOLDER FOR FIGURE -->
+            <p>
+                <em>[Figure 3: (a) The Autler–Townes doublet: probe absorption spectrum of a strongly driven two-level atom, showing two peaks split by the Rabi frequency $\Omega$. (b) Dressed-state transitions probed by a weak field: the probe connects the ground manifold to the two excited dressed states. (c) Comparison of the Mollow triplet (fluorescence) and the Autler–Townes doublet (absorption).]</em>
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 5: DRESSED STATES IN CAVITY QED                                           -->
+            <!-- ================================================================================ -->
+            <h2>5. Dressed States in Cavity QED</h2>
+
+            <h3>5.1 The Vacuum Rabi Splitting</h3>
+            <p>
+                In cavity QED, an atom is placed inside a high-finesse optical or microwave cavity that supports a discrete set of electromagnetic modes. When the atom is resonant with a single cavity mode and the coupling strength $g$ exceeds the dissipation rates (cavity decay rate $\kappa$ and atomic spontaneous emission rate $\Gamma$), the system enters the <strong>strong coupling regime</strong>. The Jaynes–Cummings model is then the appropriate description, with the cavity mode playing the role of the quantized field.
+            </p>
+            <p>
+                The most fundamental signature of strong coupling is the <strong>vacuum Rabi splitting</strong>. For a cavity containing no photons ($n=0$) and an atom initially in its excited state, the relevant dressed states are $| 0, + \rangle$ and $| 0, - \rangle$, which are symmetric and antisymmetric superpositions of $| e, 0 \rangle$ and $| g, 1 \rangle$:
+                \begin{equation}
+                    | 0, \pm \rangle = \frac{1}{\sqrt{2}} \big( | e, 0 \rangle \pm | g, 1 \rangle \big) \quad (\Delta = 0).
+                \end{equation}
+                Their energy splitting is $\hbar\Omega_0(0) = 2\hbar g$. In a transmission or reflection experiment, a weak probe beam resonant with the cavity will reveal two peaks separated by $2g$—the vacuum Rabi splitting. The observation of this splitting is the definitive proof that the system has reached the strong coupling regime, where the coherent atom–field interaction overwhelms the dissipative processes.
+            </p>
+
+            <h3>5.2 The Photon Blockade</h3>
+            <p>
+                The anharmonicity of the dressed-state ladder—the fact that the energy splitting $\hbar\Omega_n = 2\hbar g\sqrt{n+1}$ depends on the photon number $n$—gives rise to the <strong>photon blockade</strong>. If the cavity–atom system is driven by a laser tuned to the $n=0 \to n=1$ dressed-state transition (the vacuum Rabi resonance), the presence of one photon in the cavity blocks the entry of a second photon, because the two-photon transition ($n=1 \to n=2$) is detuned by $\hbar(\Omega_1 - \Omega_0) = 2\hbar g(\sqrt{2} - 1)$. This nonlinearity at the single-photon level enables the generation of non-classical light states—single-photon sources and photon–photon interactions—which are central resources for quantum information processing.
+            </p>
+
+            <!-- PLACEHOLDER FOR FIGURE -->
+            <p>
+                <em>[Figure 4: (a) The vacuum Rabi splitting in cavity QED: the transmission spectrum of a cavity containing a single atom shows two peaks separated by $2g$. (b) The anharmonic dressed-atom ladder illustrating the photon blockade: the $n=1 \to n=2$ transition is detuned from the $n=0 \to n=1$ transition. (c) Second-order correlation function $g^{(2)}(0)$ showing photon antibunching due to the photon blockade.]</em>
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 6: MULTI-MODE AND MULTI-ATOM DRESSED STATES                                -->
+            <!-- ================================================================================ -->
+            <h2>6. Extensions of the Dressed-State Formalism</h2>
+
+            <h3>6.1 Multi-Mode Dressed States and the Wigner–Weisskopf Connection</h3>
+            <p>
+                The Jaynes–Cummings model couples the atom to a single mode. The Wigner–Weisskopf theory, discussed in an earlier notes, treats the opposite limit: the atom coupled to a continuum of infinitely many modes. The dressed-state formalism can be extended to the multi-mode case, where the atom dresses itself with a "cloud" of virtual photons from the entire electromagnetic vacuum. The Lamb shift and the spontaneous emission rate emerge naturally from the multi-mode dressed-state structure. In this sense, the dressed-state picture unifies the discrete and continuous descriptions of the atom–field interaction.
+            </p>
+
+            <h3>6.2 Dressed States of Multi-Atom Systems: Dicke States and Superradiance</h3>
+            <p>
+                When $N$ identical two-level atoms are confined to a volume smaller than a cubic wavelength and interact with a common radiation field, their collective coupling gives rise to <strong>Dicke states</strong>—the dressed states of the $N$-atom system. The symmetric Dicke state $| J, M \rangle$ (with total pseudo-angular momentum $J = N/2$ and projection $M$) couples to the field with an enhanced collective Rabi frequency $\sqrt{N} g$. This collective enhancement is the basis of <strong>superradiance</strong>—the cooperative spontaneous emission of radiation at a rate proportional to $N^2$—and of cavity-mediated spin squeezing for quantum metrology.
+            </p>
+
+            <h3>6.3 Dressed States in Circuit QED</h3>
+            <p>
+                In circuit quantum electrodynamics (circuit QED), superconducting qubits (artificial atoms) are coupled to on-chip microwave resonators. The Jaynes–Cummings Hamiltonian describes this system almost perfectly, and the dressed-state ladder has been mapped out in exquisite detail through spectroscopic measurements. The strong coupling, the photon blockade, and the generation of non-classical microwave fields have all been demonstrated, making circuit QED one of the leading architectures for quantum computing.
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- REFERENCES                                                                         -->
+            <!-- ================================================================================ -->
+            <h2>References</h2>
+            <ol>
+                <li>
+                    C. Cohen-Tannoudji, J. Dupont-Roc, and G. Grynberg, <em>Atom–Photon Interactions: Basic Processes and Applications</em> (Wiley-VCH, Weinheim, 1998). The definitive textbook on the dressed-state formalism. Chapter VI provides a comprehensive treatment of the dressed-atom approach to resonance fluorescence, the Mollow triplet, and the Autler–Townes effect.
+                </li>
+                <li>
+                    C. Cohen-Tannoudji, J. Dupont-Roc, and G. Grynberg, <em>Photons and Atoms: Introduction to Quantum Electrodynamics</em> (Wiley-VCH, Weinheim, 1989). Chapters IV and V develop the Jaynes–Cummings model and the dressed states of the atom–field system with pedagogical clarity.
+                </li>
+                <li>
+                    E. T. Jaynes and F. W. Cummings, "Comparison of quantum and semiclassical radiation theories with application to the beam maser," <em>Proceedings of the IEEE</em> <strong>51</strong>, 89–109 (1963). The original paper introducing the Jaynes–Cummings model.
+                </li>
+                <li>
+                    B. R. Mollow, "Power spectrum of light scattered by two-level systems," <em>Physical Review</em> <strong>188</strong>, 1969–1975 (1969). The theoretical prediction of the Mollow triplet in resonance fluorescence.
+                </li>
+                <li>
+                    F. Schuda, C. R. Stroud Jr., and M. Hercher, "Observation of the resonant Stark effect at optical frequencies," <em>Journal of Physics B: Atomic and Molecular Physics</em> <strong>7</strong>, L198–L202 (1974). The first experimental observation of the Mollow triplet.
+                </li>
+                <li>
+                    S. H. Autler and C. H. Townes, "Stark effect in rapidly varying fields," <em>Physical Review</em> <strong>100</strong>, 703–722 (1955). The original paper on the Autler–Townes splitting.
+                </li>
+                <li>
+                    R. J. Thompson, G. Rempe, and H. J. Kimble, "Observation of normal-mode splitting for an atom in an optical cavity," <em>Physical Review Letters</em> <strong>68</strong>, 1132–1135 (1992). The first observation of vacuum Rabi splitting in an optical cavity QED system.
+                </li>
+                <li>
+                    K. M. Birnbaum, A. Boca, R. Miller, A. D. Boozer, T. E. Northup, and H. J. Kimble, "Photon blockade in an optical cavity with one trapped atom," <em>Nature</em> <strong>436</strong>, 87–90 (2005). Experimental demonstration of the photon blockade effect.
+                </li>
+                <li>
+                    S. Haroche and J.-M. Raimond, <em>Exploring the Quantum: Atoms, Cavities, and Photons</em> (Oxford University Press, Oxford, 2006). A masterful account of cavity QED experiments and the dressed-state perspective by two pioneers of the field.
+                </li>
+                <li>
+                    A. Blais, A. L. Grimsmo, S. M. Girvin, and A. Wallraff, "Circuit quantum electrodynamics," <em>Reviews of Modern Physics</em> <strong>93</strong>, 025005 (2021). A comprehensive review of circuit QED, including the dressed-state description of superconducting qubits coupled to microwave resonators.
+                </li>
+            </ol>
+
+        </main>
+    </div>
+</body>
+</html>

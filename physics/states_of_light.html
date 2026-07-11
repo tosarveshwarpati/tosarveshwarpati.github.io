@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantum States of Light</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                tags: 'ams',
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <div>
+                <p class="eyebrow">Physics note</p>
+                <h1>Quantum optics overview</h1>
+                <p class="lead">atom light interaction and spectroscopy</p>
+            </div>
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="../index.html">About</a>
+                <a href="../resume.html">Resume</a>
+                <a href="../gallery.html">Gallery</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../physics.html">Physics</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <main class="card">
+
+            <!-- ================================================================================ -->
+            <!-- INTRODUCTION                                                                      -->
+            <!-- ================================================================================ -->
+            <h2>Introduction: The Quantum Nature of Light</h2>
+            <p>
+                The quantization of the electromagnetic field leads to a surprisingly rich family of quantum states of light. These states are not just mathematical curiosities; they describe real light sources with different photon statistics, different coherence properties, and different levels of non-classical behavior. That is why they matter so much in quantum optics, metrology, and quantum information.
+            </p>
+            <p>
+                In these notes, I treat the quantum harmonic oscillator as the basic language for describing a single mode of the field. I start with the number-state basis, then move to coherent states, squeezed states, and thermal states. The main point is to see how the same underlying quantum theory gives rise to very different kinds of light, from laser light to single-photon emission and thermal radiation.
+            </p>
+            <p>
+                A useful way to think about the subject is to compare familiar light sources: the thermal light from a hot body, the coherent light from a laser, the single-photon light from a quantum emitter, and the squeezed light from a nonlinear optical process. Each one has a distinct signature, and those signatures show up in the photon distribution, the correlation function, and the phase-space picture.
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 1: THE QUANTUM HARMONIC OSCILLATOR                                         -->
+            <!-- ================================================================================ -->
+            <h2>1. The Quantum Harmonic Oscillator</h2>
+
+            <h3>1.1 The Classical Harmonic Oscillator</h3>
+            <p>
+                Before quantizing the electromagnetic field, we review the classical harmonic oscillator. Consider a particle of mass $m$ moving in a one-dimensional quadratic potential $V(x) = \frac{1}{2} m \omega^2 x^2$, where $\omega$ is the angular frequency. The Hamiltonian is
+                \begin{equation}
+                    H = \frac{p^2}{2m} + \frac{1}{2} m \omega^2 x^2,
+                    \label{eq:classical_HO}
+                \end{equation}
+                where $p = m \dot{x}$ is the canonical momentum. The equations of motion are
+                \begin{equation}
+                    \dot{x} = \frac{\partial H}{\partial p} = \frac{p}{m}, \qquad
+                    \dot{p} = -\frac{\partial H}{\partial x} = -m\omega^2 x,
+                \end{equation}
+                giving the familiar sinusoidal solution $x(t) = x_0 \cos(\omega t + \phi)$. The total energy $E$ is constant and can take any non-negative real value.
+            </p>
+            <p>
+                It is highly advantageous to introduce the dimensionless complex amplitude
+                \begin{equation}
+                    \alpha(t) = \sqrt{\frac{m\omega}{2\hbar}} \, x(t) + i \sqrt{\frac{1}{2\hbar m\omega}} \, p(t).
+                    \label{eq:complex_amplitude}
+                \end{equation}
+                With this definition, the Hamiltonian becomes
+                \begin{equation}
+                    H = \hbar\omega |\alpha|^2,
+                \end{equation}
+                and the equations of motion reduce to the simple form $\dot{\alpha} = -i\omega\alpha$, with solution $\alpha(t) = \alpha(0) e^{-i\omega t}$. The phase-space trajectory is a circle of radius $|\alpha|$ in the complex $\alpha$-plane. The variables $x$ and $p$ are the quadrature components of the oscillator.
+            </p>
+
+            <h3>1.2 Canonical Quantization: The Ladder Operators</h3>
+            <p>
+                Quantization of the harmonic oscillator proceeds by promoting the classical variables $x$ and $p$ to Hermitian operators $\hat{x}$ and $\hat{p}$ satisfying the canonical commutation relation
+                \begin{equation}
+                    [\hat{x}, \hat{p}] = i\hbar \hat{\mathbb{1}}.
+                \end{equation}
+                The quantum Hamiltonian is
+                \begin{equation}
+                    \hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2} m \omega^2 \hat{x}^2.
+                    \label{eq:quantum_HO}
+                \end{equation}
+                Following Dirac, we introduce the non-Hermitian <strong>ladder operators</strong> (also called annihilation and creation operators):
+                \begin{equation}
+                    \boxed{\hat{a} = \sqrt{\frac{m\omega}{2\hbar}} \, \hat{x} + i \sqrt{\frac{1}{2\hbar m\omega}} \, \hat{p}}, \qquad
+                    \boxed{\hat{a}^\dagger = \sqrt{\frac{m\omega}{2\hbar}} \, \hat{x} - i \sqrt{\frac{1}{2\hbar m\omega}} \, \hat{p}}.
+                    \label{eq:ladder_ops}
+                \end{equation}
+                Using the canonical commutation relation, one finds that $\hat{a}$ and $\hat{a}^\dagger$ satisfy the bosonic commutation relation:
+                \begin{equation}
+                    [\hat{a}, \hat{a}^\dagger] = \hat{\mathbb{1}}, \qquad [\hat{a}, \hat{a}] = [\hat{a}^\dagger, \hat{a}^\dagger] = 0.
+                    \label{eq:boson_comm}
+                \end{equation}
+                The position and momentum operators can be expressed in terms of $\hat{a}$ and $\hat{a}^\dagger$:
+                \begin{equation}
+                    \hat{x} = \sqrt{\frac{\hbar}{2m\omega}} (\hat{a} + \hat{a}^\dagger), \qquad
+                    \hat{p} = -i \sqrt{\frac{\hbar m\omega}{2}} (\hat{a} - \hat{a}^\dagger).
+                    \label{eq:x_p_ladder}
+                \end{equation}
+                Substituting (\ref{eq:ladder_ops}) into (\ref{eq:quantum_HO}) and using the commutation relation, we obtain the elegantly simple form
+                \begin{equation}
+                    \boxed{\hat{H} = \hbar\omega \left( \hat{a}^\dagger \hat{a} + \frac{1}{2} \right)}.
+                    \label{eq:H_ladder}
+                \end{equation}
+                The operator $\hat{n} = \hat{a}^\dagger \hat{a}$ is the <strong>number operator</strong>. It is Hermitian and positive semi-definite. The constant term $\frac{1}{2}\hbar\omega$ is the zero-point energy, a direct consequence of the non-commutativity of $\hat{x}$ and $\hat{p}$. While this zero-point energy does not affect transition rates, it has measurable physical consequences: the Casimir effect, the Lamb shift, and spontaneous emission are all manifestations of the quantum vacuum fluctuations.
+            </p>
+
+            <h3>1.3 Quadrature Operators and the Uncertainty Principle</h3>
+            <p>
+                The <strong>quadrature operators</strong> are defined as the dimensionless position and momentum operators:
+                \begin{equation}
+                    \hat{X} = \frac{\hat{a} + \hat{a}^\dagger}{2}, \qquad
+                    \hat{Y} = \frac{\hat{a} - \hat{a}^\dagger}{2i}.
+                    \label{eq:quadratures}
+                \end{equation}
+                These are Hermitian operators corresponding to the real and imaginary parts of the complex amplitude $\hat{a}$. They satisfy the commutation relation
+                \begin{equation}
+                    [\hat{X}, \hat{Y}] = \frac{i}{2}\hat{\mathbb{1}},
+                    \label{eq:XY_comm}
+                \end{equation}
+                which, via the general Heisenberg uncertainty relation $\Delta A \Delta B \ge \frac{1}{2} |\langle [\hat{A}, \hat{B}] \rangle|$, yields the quadrature uncertainty principle:
+                \begin{equation}
+                    \boxed{\Delta X \, \Delta Y \ge \frac{1}{4}}.
+                    \label{eq:quadrature_uncertainty}
+                \end{equation}
+                Here, $\Delta X = \sqrt{\langle \hat{X}^2 \rangle - \langle \hat{X} \rangle^2}$ is the standard deviation (the quantum noise) in the quadrature $\hat{X}$, and similarly for $\hat{Y}$. The equality $\Delta X = \Delta Y = 1/2$ defines the <strong>standard quantum limit</strong> (SQL) or shot-noise limit. States that satisfy this minimum uncertainty with symmetric noise are <strong>coherent states</strong>. States that have $\Delta X < 1/2$ (at the expense of $\Delta Y > 1/2$) are <strong>squeezed states</strong>.
+            </p>
+
+            <!-- PLACEHOLDER FOR FIGURE -->
+            <p>
+                <em>[Figure 1: (a) The classical harmonic oscillator phase space with trajectory of constant energy. (b) The quantum harmonic oscillator energy ladder with equally spaced levels $E_n = \hbar\omega(n + 1/2)$. (c) Phase-space representation of the quadrature operators and the uncertainty ellipse for a coherent state (circle) and a squeezed state (ellipse).]</em>
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 2: FOCK STATES (NUMBER STATES)                                             -->
+            <!-- ================================================================================ -->
+            <h2>2. Fock States: The Photon-Number Basis</h2>
+
+            <h3>2.1 The Number States and Their Properties</h3>
+            <p>
+                The eigenstates of the number operator $\hat{n} = \hat{a}^\dagger \hat{a}$ are the <strong>Fock states</strong> (or <strong>number states</strong>), denoted $| n \rangle$, satisfying
+                \begin{equation}
+                    \hat{n} | n \rangle = n | n \rangle, \qquad n = 0, 1, 2, \dots
+                \end{equation}
+                The ground state $| 0 \rangle$, also called the <strong>vacuum state</strong>, is defined by $\hat{a} | 0 \rangle = 0$. Its energy is $\frac{1}{2}\hbar\omega$, the zero-point energy. The excited Fock states are constructed by repeated application of the creation operator:
+                \begin{equation}
+                    | n \rangle = \frac{(\hat{a}^\dagger)^n}{\sqrt{n!}} | 0 \rangle.
+                    \label{eq:fock_construction}
+                \end{equation}
+                The set $\{ | n \rangle \}$ forms a complete orthonormal basis for the Hilbert space of the oscillator: $\langle n | m \rangle = \delta_{nm}$, $\sum_{n=0}^\infty | n \rangle \langle n | = \hat{\mathbb{1}}$. The action of the ladder operators on the Fock states is
+                \begin{equation}
+                    \hat{a} | n \rangle = \sqrt{n} \, | n-1 \rangle, \qquad
+                    \hat{a}^\dagger | n \rangle = \sqrt{n+1} \, | n+1 \rangle.
+                \end{equation}
+                The energy eigenvalues are $E_n = \hbar\omega (n + 1/2)$, forming an equally spaced ladder of energy levels.
+            </p>
+            <p>
+                The Fock state $| n \rangle$ is a state with exactly $n$ photons in the mode. Its photon-number distribution is a delta function: $P(m) = |\langle m | n \rangle|^2 = \delta_{mn}$. There is absolutely no uncertainty in the photon number. By the number–phase uncertainty relation (a consequence of the commutation relation between the number operator and the phase operator), the phase of a Fock state is completely undefined. The expectation values of the quadrature operators in a Fock state are
+                \begin{equation}
+                    \langle n | \hat{X} | n \rangle = \langle n | \hat{Y} | n \rangle = 0,
+                \end{equation}
+                and the quadrature variances are
+                \begin{equation}
+                    (\Delta X)^2 = (\Delta Y)^2 = \frac{2n + 1}{4}.
+                \end{equation}
+                For the vacuum state ($n=0$), $\Delta X = \Delta Y = 1/2$, which saturates the Heisenberg bound (\ref{eq:quadrature_uncertainty}). For $n > 0$, the quadrature noise exceeds the SQL: Fock states are <strong>not minimum-uncertainty states</strong> (except the vacuum). The noise grows linearly with $n$. This reflects the fact that a Fock state has a completely random phase.
+            </p>
+
+            <h3>2.2 The Wigner Function of a Fock State</h3>
+            <p>
+                The Wigner quasi-probability distribution $W(x, p)$ provides a phase-space representation of a quantum state. For a Fock state $| n \rangle$, the Wigner function is
+                \begin{equation}
+                    W_n(\alpha) = \frac{2}{\pi} (-1)^n L_n(4|\alpha|^2) e^{-2|\alpha|^2},
+                \end{equation}
+                where $\alpha = x + ip$ (in dimensionless phase-space coordinates) and $L_n$ is the Laguerre polynomial of order $n$. The Wigner function of the vacuum state ($n=0$) is a Gaussian centered at the origin. For $n > 0$, the Wigner function becomes negative in regions of phase space, taking values as low as $-2/\pi$. This <strong>negativity</strong> is a hallmark of non-classicality: a classical probability distribution over phase space cannot be negative. Fock states are thus profoundly non-classical states of light.
+            </p>
+
+            <h3>2.3 Physical Realization of Fock States</h3>
+            <p>
+                True single-photon Fock states $| 1 \rangle$ are generated by quantum emitters: a single atom, ion, quantum dot, or color center in a solid, when excited by a short laser pulse, emits exactly one photon via spontaneous emission. The photon anti-bunching observed in the second-order correlation function $g^{(2)}(\tau)$, with $g^{(2)}(0) = 0$, is the definitive experimental signature of a single-photon source. In cavity QED, the photon blockade mechanism (discussed in the dressed-state notes) can also produce single photons on demand. Higher-number Fock states ($n \ge 2$) are significantly more challenging to produce, but have been demonstrated using Rydberg blockade in atomic ensembles and in superconducting circuit QED systems.
+            </p>
+
+            <!-- PLACEHOLDER FOR FIGURE -->
+            <p>
+                <em>[Figure 2: (a) The photon-number distribution of a Fock state $| 3 \rangle$: a single peak at $n=3$. (b) The Wigner function of the vacuum state $| 0 \rangle$ (positive Gaussian) and the one-photon Fock state $| 1 \rangle$ (with negative regions). (c) Experimental Hanbury Brown–Twiss measurement of a single-photon source, showing $g^{(2)}(0) < 0.5$, proving the non-classical nature of the emitted light.]</em>
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 3: COHERENT STATES                                                         -->
+            <!-- ================================================================================ -->
+            <h2>3. Coherent States</h2>
+
+            <h3>3.1 Definition as Eigenstates of the Annihilation Operator</h3>
+            <p>
+                A <strong>coherent state</strong> $| \alpha \rangle$, with $\alpha \in \mathbb{C}$, is defined as the right eigenstate of the annihilation operator:
+                \begin{equation}
+                    \boxed{\hat{a} | \alpha \rangle = \alpha | \alpha \rangle}.
+                    \label{eq:coherent_def}
+                \end{equation}
+                Since $\hat{a}$ is non-Hermitian, its eigenvalues $\alpha$ are complex numbers, and its eigenstates are not orthogonal. Coherent states were first introduced by Schrödinger in 1926 as "minimum-uncertainty wave packets" for the harmonic oscillator, and were later championed by Glauber, Sudarshan, and Klauder in the 1960s as the correct quantum description of laser light.
+            </p>
+
+            <h3>3.2 Expansion in the Fock Basis and Photon Statistics</h3>
+            <p>
+                Using the completeness of the Fock basis, we expand $| \alpha \rangle = \sum_{n=0}^\infty c_n | n \rangle$. The eigenvalue equation (\ref{eq:coherent_def}) gives the recursion relation $c_{n+1} = (\alpha / \sqrt{n+1}) c_n$, which is solved by
+                \begin{equation}
+                    c_n = \frac{\alpha^n}{\sqrt{n!}} c_0.
+                \end{equation}
+                The normalization constant is $c_0 = e^{-|\alpha|^2/2}$ (up to a global phase). Thus,
+                \begin{equation}
+                    \boxed{| \alpha \rangle = e^{-|\alpha|^2/2} \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}} | n \rangle}.
+                    \label{eq:coherent_fock}
+                \end{equation}
+                The photon-number distribution of a coherent state is therefore a <strong>Poisson distribution</strong>:
+                \begin{equation}
+                    P(n) = |\langle n | \alpha \rangle|^2 = e^{-|\alpha|^2} \frac{|\alpha|^{2n}}{n!}.
+                    \label{eq:poisson}
+                \end{equation}
+                The mean photon number is $\langle \hat{n} \rangle = \langle \alpha | \hat{a}^\dagger \hat{a} | \alpha \rangle = |\alpha|^2 \equiv \bar{n}$. The variance is $\langle \Delta \hat{n}^2 \rangle = \langle \hat{n}^2 \rangle - \langle \hat{n} \rangle^2 = |\alpha|^2 = \bar{n}$. The standard deviation is $\Delta n = \sqrt{\bar{n}}$, which is the familiar $\sqrt{N}$ shot noise. The relative uncertainty decreases with increasing intensity: $\Delta n / \bar{n} = 1/\sqrt{\bar{n}}$.
+            </p>
+
+            <h3>3.3 Minimum Uncertainty and Quadrature Noise</h3>
+            <p>
+                The expectation values of the quadrature operators in a coherent state are
+                \begin{equation}
+                    \langle \alpha | \hat{X} | \alpha \rangle = \operatorname{Re}(\alpha), \qquad
+                    \langle \alpha | \hat{Y} | \alpha \rangle = \operatorname{Im}(\alpha).
+                \end{equation}
+                The quadrature variances are independent of $\alpha$:
+                \begin{equation}
+                    (\Delta X)^2 = \langle \hat{X}^2 \rangle - \langle \hat{X} \rangle^2 = \frac{1}{4}, \qquad
+                    (\Delta Y)^2 = \frac{1}{4}.
+                \end{equation}
+                Thus, $\Delta X \Delta Y = 1/4$, saturating the Heisenberg bound (\ref{eq:quadrature_uncertainty}). The coherent state is a <strong>minimum-uncertainty state</strong> with symmetric noise. The uncertainty is exactly the vacuum noise: adding photons to a mode in a coherent state does not increase the quadrature noise. In this precise sense, the coherent state is the quantum state that most closely resembles a classical, noiseless, monochromatic wave. The noise in a coherent state is entirely due to the vacuum fluctuations.
+            </p>
+
+            <h3>3.4 The Displacement Operator</h3>
+            <p>
+                The coherent state can be generated from the vacuum by the unitary <strong>displacement operator</strong>:
+                \begin{equation}
+                    \boxed{| \alpha \rangle = \hat{D}(\alpha) | 0 \rangle}, \qquad
+                    \hat{D}(\alpha) = e^{\alpha \hat{a}^\dagger - \alpha^* \hat{a}}.
+                    \label{eq:displacement}
+                \end{equation}
+                Using the Baker–Campbell–Hausdorff formula, $\hat{D}(\alpha)$ can be written in the normally ordered form
+                \begin{equation}
+                    \hat{D}(\alpha) = e^{-|\alpha|^2/2} e^{\alpha \hat{a}^\dagger} e^{-\alpha^* \hat{a}}.
+                \end{equation}
+                The displacement operator "displaces" the vacuum state in phase space by the complex amplitude $\alpha$. Its effect on the annihilation operator is
+                \begin{equation}
+                    \hat{D}^\dagger(\alpha) \hat{a} \hat{D}(\alpha) = \hat{a} + \alpha,
+                \end{equation}
+                which adds a classical coherent amplitude to the quantum field. Coherent states are not orthogonal:
+                \begin{equation}
+                    |\langle \alpha | \beta \rangle|^2 = e^{-|\alpha - \beta|^2},
+                \end{equation}
+                but they form an <strong>overcomplete basis</strong>:
+                \begin{equation}
+                    \frac{1}{\pi} \int \mathrm{d}^2\alpha \, | \alpha \rangle\langle \alpha | = \hat{\mathbb{1}}.
+                \end{equation}
+            </p>
+
+            <h3>3.5 Time Evolution and Classical Correspondence</h3>
+            <p>
+                Under free evolution with $\hat{H} = \hbar\omega \hat{a}^\dagger \hat{a}$, a coherent state remains coherent:
+                \begin{equation}
+                    e^{-i\hat{H}t/\hbar} | \alpha \rangle = e^{-i\omega t/2} | \alpha e^{-i\omega t} \rangle.
+                \end{equation}
+                The complex amplitude rotates in phase space at the optical frequency, but the state never spreads, and the uncertainty remains at the vacuum level. The expectation value of the electric field operator in a coherent state is
+                \begin{equation}
+                    \langle \alpha | \hat{\mathbf{E}}(\mathbf{r}, t) | \alpha \rangle = \mathbf{E}_{\text{classical}}(\mathbf{r}, t),
+                \end{equation}
+                where $\mathbf{E}_{\text{classical}}$ is exactly the classical monochromatic field with amplitude $|\alpha|$ and phase $\arg(\alpha)$. This correspondence—quantum expectation values following classical trajectories—is the defining property of coherent states and is why they are considered the "most classical" quantum states.
+            </p>
+
+            <h3>3.6 Coherent States and Lasers</h3>
+            <p>
+                An ideal single-mode laser operating well above threshold produces light in a coherent state. This was established by Glauber in his Nobel Prize-winning work on optical coherence. The laser cavity defines the mode, and the gain medium (an inverted atomic population) amplifies the field via stimulated emission. Above threshold, the gain saturation stabilizes the intensity, but the phase diffuses freely due to spontaneous emission events. The resulting state is a statistical mixture of coherent states with fixed amplitude $|\alpha|$ but a randomly diffusing phase. Over short timescales (much less than the phase diffusion time), the laser field is well approximated by a pure coherent state. The Poissonian photon statistics of laser light, with $\Delta n = \sqrt{\bar{n}}$, have been verified in countless experiments. This shot noise is the standard quantum limit for intensity measurements.
+            </p>
+            <p>
+                It is important to emphasize that laser light is <strong>not</strong> a Fock state. A laser does not produce a definite number of photons; the photon number fluctuates with Poisson statistics. The phase of a laser is well defined (up to diffusion), whereas the phase of a Fock state is completely random. This complementarity between photon number and phase is a fundamental quantum-mechanical trade-off.
+            </p>
+
+            <!-- PLACEHOLDER FOR FIGURE -->
+            <p>
+                <em>[Figure 3: (a) Photon-number distribution of a coherent state with $\bar{n} = 25$, showing the Poissonian distribution with $\Delta n = 5$. (b) Phase-space representation (Wigner function) of a coherent state: a Gaussian displaced from the origin by $\alpha$, with isotropic vacuum noise. (c) Experimental photon statistics of a semiconductor laser, showing the transition from thermal (below threshold) to Poissonian (above threshold) statistics.]</em>
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 4: SQUEEZED STATES                                                         -->
+            <!-- ================================================================================ -->
+            <h2>4. Squeezed States of Light</h2>
+
+            <h3>4.1 Definition and Motivation</h3>
+            <p>
+                A coherent state has equal uncertainty in both quadratures: $\Delta X = \Delta Y = 1/2$. However, the Heisenberg uncertainty principle (\ref{eq:quadrature_uncertainty}) only constrains the <em>product</em> $\Delta X \Delta Y$, not the individual variances. A <strong>squeezed state</strong> is a minimum-uncertainty state in which the quantum noise in one quadrature is reduced below the standard quantum limit ($\Delta X < 1/2$), while the noise in the conjugate quadrature is correspondingly increased ($\Delta Y > 1/2$), such that $\Delta X \Delta Y = 1/4$. Such states have no classical analog, and their existence is a purely quantum-mechanical phenomenon.
+            </p>
+            <p>
+                Squeezed light has profound applications. In precision interferometry (such as gravitational wave detection with LIGO), the measurement sensitivity is limited by shot noise—the quantum noise of the coherent vacuum field entering the dark port of the interferometer. By injecting squeezed vacuum into the dark port, one can reduce the noise in the measured quadrature below the SQL, enhancing the sensitivity. This quantum-enhancement has been routinely employed in Advanced LIGO since 2019.
+            </p>
+
+            <h3>4.2 The Squeeze Operator</h3>
+            <p>
+                Squeezed states are generated from the vacuum (or from a coherent state) by the unitary <strong>squeeze operator</strong>:
+                \begin{equation}
+                    \boxed{\hat{S}(\xi) = e^{\frac{1}{2}(\xi^* \hat{a}^2 - \xi \hat{a}^{\dagger 2})}},
+                    \label{eq:squeeze_op}
+                \end{equation}
+                where $\xi = r e^{i\theta}$ is the complex squeeze parameter. The magnitude $r \ge 0$ is the <strong>squeezing parameter</strong>, and $\theta$ determines the quadrature angle of the squeezing. The squeeze operator creates or destroys photons in pairs, a process that occurs in nonlinear optical media with a $\chi^{(2)}$ nonlinearity (parametric down-conversion) or a $\chi^{(3)}$ nonlinearity (four-wave mixing).
+            </p>
+            <p>
+                The transformation of the annihilation operator under squeezing is given by the Bogoliubov transformation:
+                \begin{equation}
+                    \hat{S}^\dagger(\xi) \hat{a} \hat{S}(\xi) = \hat{a} \cosh r - \hat{a}^\dagger e^{i\theta} \sinh r,
+                    \label{eq:bogoliubov}
+                \end{equation}
+                and the Hermitian conjugate for $\hat{a}^\dagger$. This linear mixing of annihilation and creation operators is characteristic of squeezing.
+            </p>
+
+            <h3>4.3 The Squeezed Vacuum State</h3>
+            <p>
+                The <strong>squeezed vacuum state</strong> is obtained by applying the squeeze operator to the vacuum:
+                \begin{equation}
+                    | \xi \rangle = \hat{S}(\xi) | 0 \rangle.
+                    \label{eq:squeezed_vacuum}
+                \end{equation}
+                Its photon-number distribution (in the Fock basis) has support only on even photon numbers:
+                \begin{equation}
+                    | \xi \rangle = \frac{1}{\sqrt{\cosh r}} \sum_{n=0}^\infty \frac{\sqrt{(2n)!}}{2^n n!} (-e^{i\theta} \tanh r)^n | 2n \rangle.
+                    \label{eq:squeezed_vacuum_fock}
+                \end{equation}
+                The mean photon number is $\langle \hat{n} \rangle = \sinh^2 r$, which grows quadratically with $r$ for small squeezing ($\langle \hat{n} \rangle \approx r^2$) and exponentially for large squeezing. The photons always appear in pairs, reflecting the fact that the squeeze operator creates photons two at a time.
+            </p>
+            <p>
+                The quadrature variances of the squeezed vacuum are
+                \begin{equation}
+                    (\Delta X_\theta)^2 = \frac{1}{4} e^{-2r}, \qquad (\Delta Y_\theta)^2 = \frac{1}{4} e^{2r},
+                \end{equation}
+                where $X_\theta$ and $Y_\theta$ are quadratures rotated by the angle $\theta/2$ relative to the original quadratures. The noise in the squeezed quadrature $X_\theta$ is reduced by a factor $e^{-2r}$ below the vacuum level, while the noise in the anti-squeezed quadrature $Y_\theta$ is increased by $e^{2r}$. The product remains $1/4$.
+            </p>
+
+            <h3>4.4 The Squeezed Coherent State and the "Cigar" in Phase Space</h3>
+            <p>
+                Applying the squeeze operator to a coherent state produces a <strong>squeezed coherent state</strong>:
+                \begin{equation}
+                    | \alpha, \xi \rangle = \hat{D}(\alpha) \hat{S}(\xi) | 0 \rangle.
+                \end{equation}
+                The Wigner function of a squeezed state is a Gaussian whose equal-probability contours are ellipses rather than circles. The "squeezed" direction has reduced noise, and the "anti-squeezed" direction has enhanced noise. This characteristic "cigar-shaped" uncertainty ellipse rotates in phase space at the optical frequency.
+            </p>
+
+            <h3>4.5 Generation of Squeezed Light: Optical Parametric Oscillation</h3>
+            <p>
+                Squeezed light is most commonly generated by <strong>spontaneous parametric down-conversion (SPDC)</strong> or <strong>optical parametric oscillation (OPO)</strong> in a nonlinear crystal with a $\chi^{(2)}$ susceptibility. In an OPO, a pump photon of frequency $2\omega$ is converted into two signal photons of frequency $\omega$ inside a resonant cavity. The effective Hamiltonian for this process is
+                \begin{equation}
+                    \hat{H}_{\text{OPO}} = i\hbar \frac{\varepsilon}{2} (\hat{a}^{\dagger 2} - \hat{a}^2),
+                \end{equation}
+                where $\varepsilon$ is proportional to the pump amplitude and the nonlinear susceptibility. The unitary evolution generated by this Hamiltonian is exactly the squeeze operator $\hat{S}(\xi)$ with $\xi = \varepsilon t$ and $\theta = 0$. The cavity enhances the interaction and selects a single spatial and frequency mode.
+            </p>
+            <p>
+                The first experimental observation of squeezed light was reported by Slusher et al. in 1985 using four-wave mixing in sodium vapor. Shortly thereafter, Wu et al. (1986) generated strongly squeezed light (approximately 3 dB of squeezing) using an OPO with a MgO:LiNbO$_3$ crystal. Today, squeezing levels exceeding 15 dB have been achieved in tabletop OPO experiments, and the GEO600 and LIGO gravitational wave detectors routinely operate with squeezed-light injection.
+            </p>
+
+            <!-- PLACEHOLDER FOR FIGURE -->
+            <p>
+                <em>[Figure 4: (a) Phase-space uncertainty ellipse for a squeezed vacuum state: the noise in $X_\theta$ is squeezed below the SQL, while the noise in $Y_\theta$ is anti-squeezed. (b) Photon-number distribution of a squeezed vacuum state, showing the characteristic even–odd oscillations (zero probability for odd photon numbers). (c) Schematic of an optical parametric oscillator (OPO) for generating squeezed light. (d) Experimental homodyne measurement of squeezed light, showing the noise power as a function of the local oscillator phase.]</em>
+            </p>
+
+            <h3>4.6 Homodyne Detection and Quantum Tomography</h3>
+            <p>
+                The quadrature noise of a squeezed state is measured using <strong>balanced homodyne detection</strong>. The signal field is combined on a 50:50 beam splitter with a strong local oscillator (LO) in a coherent state $| \alpha_{\text{LO}} \rangle$, with $|\alpha_{\text{LO}}| \gg |\alpha_{\text{sig}}|$. The difference photocurrent from two detectors is proportional to the quadrature $\hat{X}_\phi$ of the signal field, where $\phi$ is the relative phase between the LO and the signal. By varying $\phi$, one measures the noise in all quadratures. From a complete set of such measurements, the full Wigner function of the state can be reconstructed via <strong>quantum state tomography</strong>. The observation of a quadrature variance below $1/4$ is the definitive signature of squeezing.
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 5: THERMAL LIGHT                                                           -->
+            <!-- ================================================================================ -->
+            <h2>5. Thermal Light</h2>
+
+            <h3>5.1 The Thermal State: Definition and Density Operator</h3>
+            <p>
+                <strong>Thermal light</strong> is the electromagnetic radiation emitted by a body in thermal equilibrium at temperature $T$. Unlike a laser or a single-photon source, thermal light is not a pure quantum state but a statistical mixture of Fock states. For a single mode of frequency $\omega$, the density operator in the canonical ensemble is
+                \begin{equation}
+                    \hat{\rho}_{\text{th}} = \frac{e^{-\beta \hbar\omega \hat{a}^\dagger \hat{a}}}{\operatorname{Tr}\left[ e^{-\beta \hbar\omega \hat{a}^\dagger \hat{a}} \right]},
+                    \label{eq:thermal_rho}
+                \end{equation}
+                where $\beta = 1/(k_{\mathrm{B}} T)$. Since $\hat{H} = \hbar\omega(\hat{n} + 1/2)$, and the zero-point energy cancels in the normalization, we can write                \begin{equation}
+                    \hat{\rho}_{\text{th}} = (1 - e^{-\beta\hbar\omega}) \sum_{n=0}^\infty e^{-n\beta\hbar\omega} | n \rangle\langle n |.
+                    \label{eq:thermal_rho_fock}
+                \end{equation}
+                The photon-number distribution is the <strong>Bose–Einstein distribution</strong>:
+                \begin{equation}
+                    \boxed{P(n) = \langle n | \hat{\rho}_{\text{th}} | n \rangle = \frac{\bar{n}^n}{(1 + \bar{n})^{n+1}}},
+                    \label{eq:bose_einstein}
+                \end{equation}
+                where the mean photon number is given by the Planck formula:
+                \begin{equation}
+                    \bar{n} = \langle \hat{n} \rangle = \operatorname{Tr}[\hat{\rho}_{\text{th}} \hat{n}] = \frac{1}{e^{\hbar\omega/k_{\mathrm{B}} T} - 1}.
+                    \label{eq:planck_nbar}
+                \end{equation}
+                The variance of the photon number for a single thermal mode is
+                \begin{equation}
+                    \langle \Delta \hat{n}^2 \rangle = \bar{n} + \bar{n}^2.
+                    \label{eq:thermal_variance}
+                \end{equation}
+                The first term, $\bar{n}$, is the shot-noise contribution (familiar from the Poisson distribution of coherent light). The second term, $\bar{n}^2$, is the <strong>excess noise</strong> (or wave noise) due to the chaotic nature of thermal radiation. For $\bar{n} \gg 1$, $\Delta n \approx \bar{n}$; the fluctuations are of the same order as the mean. This is dramatically larger than the Poissonian fluctuations of a coherent state with the same mean intensity ($\Delta n_{\text{coh}} = \sqrt{\bar{n}}$).
+            </p>
+
+            <h3>5.2 Second-Order Correlation Function and the Hanbury Brown–Twiss Effect</h3>
+            <p>
+                The statistical properties of thermal light are quantified by the normalized second-order (intensity) correlation function:
+                \begin{equation}
+                    g^{(2)}(\tau) = \frac{\langle \hat{a}^\dagger(t) \hat{a}^\dagger(t+\tau) \hat{a}(t+\tau) \hat{a}(t) \rangle}{\langle \hat{a}^\dagger \hat{a} \rangle^2}.
+                \end{equation}
+                For a single-mode thermal state at zero time delay ($\tau = 0$),
+                \begin{equation}
+                    g^{(2)}(0) = \frac{\langle \hat{n}(\hat{n} - 1) \rangle}{\langle \hat{n} \rangle^2} = \frac{2\bar{n}^2}{\bar{n}^2} = 2.
+                    \label{eq:g2_thermal}
+                \end{equation}
+                This value $g^{(2)}(0) = 2$ is the hallmark of thermal (chaotic) light. It indicates <strong>photon bunching</strong>: photons tend to arrive in pairs (or groups). This was first observed by Hanbury Brown and Twiss in 1956, in an experiment that sparked intense debate about the nature of light and ultimately confirmed the quantum description of electromagnetic radiation. For a coherent state, $g^{(2)}(0) = 1$, indicating that photons arrive independently (no bunching or anti-bunching). For a single-photon Fock state, $g^{(2)}(0) = 0$, indicating perfect photon anti-bunching.
+            </p>
+            <p>
+                A simple way to classify light is through the value of $g^{(2)}(0)$. <strong>Thermal light</strong> has $g^{(2)}(0) = 2$, which signals photon bunching and super-Poissonian statistics. <strong>Coherent laser light</strong> has $g^{(2)}(0) = 1$, corresponding to the familiar Poissonian statistics of an ideal classical-like source. <strong>Non-classical light</strong>, such as single-photon states, has $g^{(2)}(0) < 1$, which signals sub-Poissonian statistics and photon anti-bunching.
+            </p>
+            <p>
+                The boundary at $g^{(2)}(0) = 1$ is the classical limit: any state with $g^{(2)}(0) < 1$ cannot be described by a classical stochastic electromagnetic field and is therefore genuinely quantum.
+            </p>
+
+            <h3>5.3 The Wigner Function of a Thermal State</h3>
+            <p>
+                Unlike the Fock state, whose Wigner function can be negative, the Wigner function of a thermal state is a positive Gaussian centered at the origin of phase space:
+                \begin{equation}
+                    W_{\text{th}}(\alpha) = \frac{2}{\pi(2\bar{n}+1)} \exp\left( -\frac{2|\alpha|^2}{2\bar{n}+1} \right).
+                \end{equation}
+                The width of the Gaussian is larger than that of the vacuum by the factor $\sqrt{2\bar{n}+1}$. Despite being a mixed state with no phase coherence, the thermal state has a positive Wigner function, which does not directly reveal its non-classical photon bunching (which is instead captured by the $g^{(2)}$ function). This underscores the subtlety of defining "classicality" in quantum optics.
+            </p>
+
+            <h3>5.4 Coherence Time and Spatial Coherence</h3>
+            <p>
+                Thermal light from an incandescent source (sun, light bulb, flame) is characterized not only by its photon statistics but also by its <strong>coherence time</strong> $\tau_c$ and <strong>coherence length</strong> $\ell_c = c \tau_c$. The coherence time is inversely proportional to the bandwidth $\Delta \nu$: $\tau_c \sim 1/\Delta \nu$. For a blackbody source filtered by a narrowband optical filter, the coherence time can be nanoseconds to microseconds. For unfiltered sunlight, the bandwidth is enormous ($\sim 10^{14}$ Hz), and the coherence time is on the order of femtoseconds. The coherence length of sunlight is only a few microns. In contrast, a well-stabilized single-frequency laser can have a coherence length of kilometers.
+            </p>
+            <p>
+                Spatial coherence is another critical distinction. A thermal source consists of many independent emitters (atoms, molecules) radiating randomly. The resulting field at any two spatially separated points is uncorrelated if the separation exceeds the coherence area $A_c \sim \lambda^2 / \Delta\Omega$, where $\Delta\Omega$ is the solid angle subtended by the source. Lasers, by virtue of their stimulated emission into a single spatial mode, produce highly spatially coherent beams that can be focused to diffraction-limited spots.
+            </p>
+
+            <!-- PLACEHOLDER FOR FIGURE -->
+            <p>
+                <em>[Figure 5: (a) Photon-number distributions for thermal (Bose–Einstein, red), coherent (Poisson, blue), and Fock (delta-function, green) states, all with the same mean photon number $\bar{n}=10$. (b) The second-order correlation function $g^{(2)}(0)$ for the three types of states: thermal ($2$), coherent ($1$), and Fock ($0$). (c) The Hanbury Brown–Twiss experiment: schematic of the intensity interferometer that first measured photon bunching from a thermal source.]</em>
+            </p>
+
+            <!-- ================================================================================ -->
+            <!-- SECTION 6: COMPARATIVE SUMMARY AND THE CLASSICAL–QUANTUM BOUNDARY                  -->
+            <!-- ================================================================================ -->
+            <h2>6. How Lasers, Thermal Sources, and Single-Photon Sources Differ</h2>
+
+            <h3>6.1 The Laser: A Classical Coherent Source</h3>
+            <p>
+                A laser operating well above threshold produces light that is, to an excellent approximation, in a <strong>coherent state</strong> (or a mixture of such states with slow phase diffusion). Its photon statistics are Poissonian, so the number fluctuations scale as $\sqrt{\bar{n}}$. The phase is fairly well defined, the quadrature noise is symmetric at the standard quantum limit, and the beam is usually highly coherent in both time and space. That is why laser light is often treated as the closest quantum analogue to a classical monochromatic wave.
+            </p>
+
+            <h3>6.2 Single-Photon Sources: Non-Classical Light</h3>
+            <p>
+                A single-photon source produces light in a <strong>Fock state</strong> $| 1 \rangle$ or in a stream of such pulses. Its photon statistics are sub-Poissonian, and the second-order correlation function satisfies $g^{(2)}(0) = 0$, which is the signature of perfect photon anti-bunching. The phase is undefined, and the Wigner function develops negative regions, so this kind of light cannot be described by any classical stochastic field.
+            </p>
+
+            <h3>6.3 Thermal Light: Chaotic, Classical Light</h3>
+            <p>
+                Thermal light from an incandescent source or a star is described by a <strong>thermal state</strong>. It has Bose–Einstein photon statistics, strong photon bunching, and a very short coherence time. The phase is effectively random, and the field is made of many independent modes. Even though it is quantum in origin, its Wigner function is positive and its behavior is often treated as effectively classical in many practical settings.
+            </p>
+
+            <h3>6.4 Squeezed Light: Non-Classical Light with Reduced Quadrature Noise</h3>
+            <p>
+                Squeezed light sits between the ordinary classical-like states and the most strongly non-classical ones. Its defining feature is reduced noise in one quadrature at the expense of increased noise in the conjugate quadrature. This cannot be mimicked by a classical field, and it is one of the clearest signs that the underlying light field is genuinely quantum. Squeezed light is produced in nonlinear optical processes such as parametric down-conversion or four-wave mixing.
+            </p>
+
+
+            <!-- ================================================================================ -->
+            <!-- REFERENCES                                                                         -->
+            <!-- ================================================================================ -->
+            <h2>References</h2>
+            <ol>
+                <li>
+                    R. J. Glauber, "The quantum theory of optical coherence," <em>Physical Review</em> <strong>130</strong>, 2529–2539 (1963); "Coherent and incoherent states of the radiation field," <em>Physical Review</em> <strong>131</strong>, 2766–2788 (1963). The foundational papers establishing the coherent-state representation and the quantum theory of optical coherence. Glauber's Nobel Prize (2005) was awarded for this work.
+                </li>
+                <li>
+                    E. C. G. Sudarshan, "Equivalence of semiclassical and quantum mechanical descriptions of statistical light beams," <em>Physical Review Letters</em> <strong>10</strong>, 277–279 (1963). The independent introduction of the $P$-representation and the definition of classical versus non-classical light.
+                </li>
+                <li>
+                    L. Mandel and E. Wolf, <em>Optical Coherence and Quantum Optics</em> (Cambridge University Press, Cambridge, 1995). The encyclopedic reference on classical and quantum coherence theory, including exhaustive treatments of coherent states, Fock states, thermal light, and squeezed states.
+                </li>
+                <li>
+                    C. C. Gerry and P. L. Knight, <em>Introductory Quantum Optics</em> (Cambridge University Press, Cambridge, 2005). A pedagogical textbook with clear derivations of the properties of coherent states, squeezed states, and photon statistics. Chapters 3–7 are particularly relevant.
+                </li>
+                <li>
+                    D. F. Walls and G. J. Milburn, <em>Quantum Optics</em>, 2nd ed. (Springer, Berlin, 2008). An advanced treatment emphasizing the quantum statistical properties of light, phase-space methods, and non-classical light generation.
+                </li>
+                <li>
+                    R. Loudon, <em>The Quantum Theory of Light</em>, 3rd ed. (Oxford University Press, Oxford, 2000). A classic text with detailed treatments of the harmonic oscillator quantization, Fock states, coherent states, and the Hanbury Brown–Twiss effect.
+                </li>
+                <li>
+                    R. E. Slusher, L. W. Hollberg, B. Yurke, J. C. Mertz, and J. F. Valley, "Observation of squeezed states generated by four-wave mixing in an optical cavity," <em>Physical Review Letters</em> <strong>55</strong>, 2409–2412 (1985). The first experimental observation of squeezed light.
+                </li>
+                <li>
+                    L.-A. Wu, H. J. Kimble, J. L. Hall, and H. Wu, "Generation of squeezed states by parametric down conversion," <em>Physical Review Letters</em> <strong>57</strong>, 2520–2523 (1986). The first strongly squeezed light source using an optical parametric oscillator.
+                </li>
+                <li>
+                    R. Hanbury Brown and R. Q. Twiss, "A test of a new type of stellar interferometer on Sirius," <em>Nature</em> <strong>178</strong>, 1046–1048 (1956). The classic experiment demonstrating photon bunching from a thermal source and opening the field of intensity interferometry.
+                </li>
+                <li>
+                    J. Aasi et al. (LIGO Scientific Collaboration), "Enhanced sensitivity of the LIGO gravitational wave detector by using squeezed states of light," <em>Nature Photonics</em> <strong>7</strong>, 613–619 (2013). The first application of squeezed light to gravitational wave detection.
+                </li>
+                <li>
+                    M. O. Scully and M. S. Zubairy, <em>Quantum Optics</em> (Cambridge University Press, Cambridge, 1997). Chapters 2 and 8 provide detailed derivations of the photon statistics and correlation functions of coherent, thermal, and non-classical states.
+                </li>
+                <li>
+                    A. I. Lvovsky, "Squeezed light," in <em>Photonics: Scientific Foundations, Technology and Applications</em>, Vol. 1, pp. 121–163 (Wiley, 2015). A comprehensive review of squeezed light generation, detection, and applications, available on the arXiv.
+                </li>
+            </ol>
+
+        </main>
+    </div>
+</body>
+</html>

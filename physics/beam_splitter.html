@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beam Splitters: Classical and Quantum</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                tags: 'ams',
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <div>
+                <p class="eyebrow">Physics note</p>
+                <h1>Beam splitters</h1>
+                <p class="lead">classical and quantum optics</p>
+            </div>
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="../index.html">About</a>
+                <a href="../resume.html">Resume</a>
+                <a href="../gallery.html">Gallery</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../physics.html">Physics</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <main class="card">
+            <h2>Introduction</h2>
+            <p>
+                A beam splitter is one of the simplest and most important optical elements. It takes one beam and divides it into two parts, and it does this in a way that is easy to describe classically and deeply revealing quantum mechanically. In classical optics, the device is described by reflection and transmission coefficients. In quantum optics, it becomes a unitary mixer of modes, and the vacuum that enters the unused port matters just as much as the light that enters the used one.
+            </p>
+            <p>
+                This note keeps the same physics as the longer version but presents it in a simpler, more direct style. The main ideas are the same: energy conservation, the unitary scattering matrix, vacuum noise, coherent states, loss, polarization routing, and Hong–Ou–Mandel interference.
+            </p>
+
+            <h2>1. The classical beam splitter</h2>
+            <p>
+                Consider a lossless beam splitter with two input ports and two output ports. Let the input field amplitudes be $E_1$ and $E_2$, and the output amplitudes be $E_3$ and $E_4$. The transformation is
+                \[
+                \begin{pmatrix} E_3 \\ E_4 \end{pmatrix} = \begin{pmatrix} t & r \\ r' & t' \end{pmatrix} \begin{pmatrix} E_1 \\ E_2 \end{pmatrix},
+                \]
+                where $t,t'$ are transmission amplitudes and $r,r'$ are reflection amplitudes.
+            </p>
+            <p>
+                For a lossless device, the total output intensity must equal the total input intensity. That means
+                \[
+                |E_3|^2 + |E_4|^2 = |E_1|^2 + |E_2|^2,
+                \]
+                for every input. In matrix language, the scattering matrix must be unitary:
+                \[
+                \begin{pmatrix} t & r \\ r' & t' \end{pmatrix}^{\dagger}
+                \begin{pmatrix} t & r \\ r' & t' \end{pmatrix} = \mathbf{1}.
+                \]
+                This gives the conditions
+                \[
+                |t|^2 + |r'|^2 = 1,
+                \quad
+                |r|^2 + |t'|^2 = 1,
+                \quad
+                t^*r + r'^*t' = 0.
+                \]
+            </p>
+            <p>
+                A common and very useful choice is the symmetric beam splitter, for which the two input ports are equivalent. Then $t=t'$ and $r=r'$, and the unitarity conditions reduce to $|t|^2 + |r|^2 = 1$ with a phase difference of $\,\pm\,\pi/2$ between $t$ and $r$. A standard convention is
+                \[
+                t = \sqrt{T}, \qquad r = i\sqrt{R},
+                \]
+                where $T$ and $R$ are the power transmission and reflection coefficients and $T+R=1$. The scattering matrix is then
+                \[
+                \mathbf{S}_{\text{BS}} = \begin{pmatrix} \sqrt{T} & i\sqrt{R} \\ i\sqrt{R} & \sqrt{T} \end{pmatrix}.
+                \]
+            </p>
+            <p>
+                The most important special case is the 50:50 beam splitter, for which $R=T=1/2$. Its matrix is
+                \[
+                \mathbf{S}_{50:50} = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & i \\ i & 1 \end{pmatrix}.
+                \]
+                This is the workhorse of interferometry and quantum optics.
+            </p>
+
+            <h2>2. The quantum beam splitter</h2>
+            <p>
+                In the quantum picture, the classical field amplitudes are replaced by field operators. The beam splitter acts on annihilation operators for the input modes, so it becomes a unitary transformation of the field modes. The natural quantum version of the classical scattering matrix is
+                \[
+                \begin{pmatrix} \hat{a}_3 \\ \hat{a}_4 \end{pmatrix}
+                = \mathbf{S}_{\text{BS}} \begin{pmatrix} \hat{a}_1 \\ \hat{a}_2 \end{pmatrix}
+                = \begin{pmatrix} \sqrt{T} & i\sqrt{R} \\ i\sqrt{R} & \sqrt{T} \end{pmatrix}
+                \begin{pmatrix} \hat{a}_1 \\ \hat{a}_2 \end{pmatrix}.
+                \]
+            </p>
+            <p>
+                Because the matrix is unitary, the bosonic commutators are preserved:
+                \[
+                [\hat{a}_3,\hat{a}_3^\dagger] = [\hat{a}_4,\hat{a}_4^\dagger] = 1,
+                \qquad
+                [\hat{a}_3,\hat{a}_4^\dagger] = 0.
+                \]
+                This is the fundamental quantum statement that the beam splitter is a passive linear optical device.
+            </p>
+            <p>
+                The same transformation can be written as a unitary evolution operator
+                \[
+                \hat{U}_{\text{BS}} = \exp\left[i\theta(\hat{a}_1^\dagger \hat{a}_2 + \hat{a}_2^\dagger \hat{a}_1)\right],
+                \]
+                where $\cos\theta = \sqrt{T}$ and $\sin\theta = \sqrt{R}$. For a 50:50 splitter, $\theta=\pi/4$. The beam splitter is therefore an SU(2) rotation in the two-mode field space.
+            </p>
+
+            <h2>3. Vacuum input and shot noise</h2>
+            <p>
+                A key difference between classical and quantum optics is that the unused port is never truly empty. Even if no light is sent in, the mode is occupied by the vacuum state. This matters because the vacuum fluctuations contribute to the output noise.
+            </p>
+            <p>
+                If a coherent state $|\alpha\rangle$ enters port 1 and vacuum enters port 2, the mean transmitted photon number is
+                \[
+                \langle \hat{a}_3^\dagger \hat{a}_3 \rangle = T |\alpha|^2,
+                \]
+                which matches the classical result. But the photon-number variance is not just the Poisson noise of the input; there is also vacuum contribution from the unused port. The result is
+                \[
+                \langle \Delta \hat{n}_3^2 \rangle = T|\alpha|^2,
+                \]
+                and the extra vacuum-induced fluctuations are the origin of shot noise. This is why the quantum description is essential even when the classical prediction for the mean intensity is correct.
+            </p>
+
+            <h2>4. Coherent states through a beam splitter</h2>
+            <p>
+                Coherent states are special because they behave in a very simple way under linear optics. If the input is
+                \[
+                |\psi_{\text{in}}\rangle = |\alpha\rangle_1 \otimes |\beta\rangle_2,
+                \]
+                then the beam splitter sends it to
+                \[
+                \hat{U}_{\text{BS}} |\alpha\rangle_1 |\beta\rangle_2
+                = |\alpha\sqrt{T} + i\beta\sqrt{R}\rangle_3 \otimes
+                |i\alpha\sqrt{R} + \beta\sqrt{T}\rangle_4.
+                \]
+            </p>
+            <p>
+                The output is still a product of coherent states, with amplitudes that follow the same classical scattering rules. This is why the classical and quantum descriptions agree for coherent light. The agreement does not extend to non-classical states, where the beam splitter can generate entanglement and interference effects that have no classical analog.
+            </p>
+
+            <h2>5. Lossy beam splitters</h2>
+            <p>
+                Real beam splitters are not perfectly lossless. Some light is absorbed or scattered into unwanted channels. In quantum optics, loss is modeled by coupling the mode of interest to a reservoir mode through an extra beam splitter. If the transmission efficiency is $\eta$, the system mode is mixed with a vacuum mode according to
+                \[
+                \hat{a}_{\text{out}} = \sqrt{\eta}\,\hat{a}_{\text{in}} + i\sqrt{1-\eta}\,\hat{a}_{\text{loss}}.
+                \]
+            </p>
+            <p>
+                The transmitted part is the observed output, while the reflected part is lost. This model preserves the commutation relations and correctly describes the added vacuum noise. For a coherent state, the output remains coherent but with reduced amplitude. For a single photon, the state becomes a mixture of transmitted and lost photon,
+                \[
+                \hat{\rho}_{\text{out}} = \eta |1\rangle\langle 1| + (1-\eta)|0\rangle\langle 0|,
+                \]
+                which shows how loss degrades quantum states and introduces decoherence.
+            </p>
+
+            <h2>6. The polarizing beam splitter</h2>
+            <p>
+                A polarizing beam splitter separates the two polarization components of light. In the ideal case, it transmits horizontally polarized light and reflects vertically polarized light. In operator form, for two input ports $A$ and $B$,
+                \[
+                \hat{a}_{H,\text{out}} = \hat{a}_{H,\text{in}}^A,
+                \qquad
+                \hat{a}_{V,\text{out}} = \hat{a}_{V,\text{in}}^B,
+                \]
+                \[
+                \hat{b}_{H,\text{out}} = \hat{a}_{H,\text{in}}^B,
+                \qquad
+                \hat{b}_{V,\text{out}} = \hat{a}_{V,\text{in}}^A.
+                \]
+            </p>
+            <p>
+                In classical Jones language, the PBS acts as a projection onto the horizontal and vertical polarization components. So a beam with arbitrary polarization is split into spatially separated beams carrying the two polarization components. This is the basic reason a PBS is so useful: it converts polarization information into path information.
+            </p>
+            <p>
+                For a coherent state entering one port with arbitrary polarization, the transmitted beam carries the $H$ component and the reflected beam carries the $V$ component. That makes a PBS a simple way to measure polarization and to route quantum states into different paths.
+            </p>
+
+            <h2>7. Beam splitter plus half-wave plate</h2>
+            <p>
+                A beam splitter can be combined with a waveplate to make a more flexible interferometric element. Suppose a beam is split into two paths, and a half-wave plate is placed in one output path. The beam splitter mixes spatial modes, while the waveplate rotates the polarization of the light in one path.
+            </p>
+            <p>
+                Classically, if the input Jones vector is
+                \[
+                |J_{\text{in}}\rangle = \begin{pmatrix} E_H \\ E_V \end{pmatrix},
+                \]
+                then after a 50:50 beam splitter the fields in the two output paths are
+                \[
+                |J_3\rangle = \frac{1}{\sqrt{2}}\begin{pmatrix} E_H \\ E_V \end{pmatrix},
+                \qquad
+                |J_4\rangle = \frac{i}{\sqrt{2}}\begin{pmatrix} E_H \\ E_V \end{pmatrix}.
+                \]
+                A half-wave plate in path 4 changes the polarization according to the Jones matrix
+                \[
+                \mathbf{W}_{\text{HWP}}(\phi)=
+                \begin{pmatrix}
+                \cos(2\phi) & \sin(2\phi) \\
+                \sin(2\phi) & -\cos(2\phi)
+                \end{pmatrix}.
+                \]
+            </p>
+            <p>
+                Quantum mechanically, the same transformation acts on coherent-state amplitudes in the two spatial modes. The beam splitter creates two coherent beams, and the HWP rotates the polarization in one of them. For coherent inputs, the classical and quantum calculations agree because coherent states remain coherent under linear optical transformations.
+            </p>
+
+            <h2>8. Hong–Ou–Mandel interference</h2>
+            <p>
+                The most famous quantum effect involving a beam splitter is Hong–Ou–Mandel interference. If two identical single photons enter the two input ports of a 50:50 splitter at the same time, the output state is
+                \[
+                \hat{U}_{\text{BS}} |1\rangle_1 |1\rangle_2
+                = \frac{i}{\sqrt{2}}\left( |2\rangle_3 |0\rangle_4 + |0\rangle_3 |2\rangle_4 \right).
+                \]
+            </p>
+            <p>
+                The two photons never come out separately. They always emerge together in the same output port. The reason is that there are two indistinguishable ways to get one photon in each output port, and their amplitudes cancel. The phase from two reflections gives a minus sign, so the two paths interfere destructively. This is the HOM effect, and it is a pure quantum interference effect with no classical analog.
+            </p>
+            <p>
+                If the photons are distinguishable, the interference is reduced. The coincidence probability then depends on the overlap of the two photon wavepackets. The HOM dip is therefore a direct measurement of indistinguishability and a central tool in single-photon sources and linear optical quantum information.
+            </p>
+
+            <h2>9. Why the beam splitter matters</h2>
+            <p>
+                The beam splitter is simple, but it is one of the most powerful tools in optics. It explains how light is split, how interferometers work, how polarization can be converted into path information, and how quantum states can become entangled. It is also a bridge between the classical and quantum pictures: coherent states follow the classical equations of motion, while vacuum fluctuations, loss, and non-classical states reveal the deeper quantum structure.
+            </p>
+        </main>
+    </div>
+</body>
+</html>

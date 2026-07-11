@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMO6: Quantum Beats</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                tags: 'ams',
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <div>
+                <p class="eyebrow">Physics note</p>
+                <h1>Quantum beats</h1>
+                <p class="lead">coherence in excited-state decay</p>
+            </div>
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="../index.html">About</a>
+                <a href="../resume.html">Resume</a>
+                <a href="../gallery.html">Gallery</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../physics.html">Physics</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <main class="card">
+            <h2>Introduction</h2>
+            <p>
+                Quantum beats are a simple way to see coherence in action. A short pulse can excite two nearby states at once. Those states then evolve with different phases, and the emitted light shows the interference as a beat.
+            </p>
+            <p>
+                This note keeps the physics clear and the language simple. The goal is to explain the effect without getting lost in extra formalism.
+            </p>
+
+            <figure>
+                <img src="notes_images/quantum_beats_levels.svg" alt="Level scheme showing two excited states decaying to a common ground state" />
+                <figcaption>A simple level scheme for quantum beats: two excited states share a lower state, and the emitted amplitudes interfere.</figcaption>
+            </figure>
+
+            <h2>1. The basic setup</h2>
+            <p>
+                Imagine an atom with one ground state $|g\rangle$ and two closely spaced excited states $|e_1\rangle$ and $|e_2\rangle$. A short pulse can excite both transitions at once. The atom is then left in a coherent superposition of the two excited states, so the state immediately after the pulse is
+
+                \[
+                |\psi(0)\rangle = c_1 |e_1\rangle + c_2 |e_2\rangle,
+                \]
+
+                up to an overall phase and a small ground-state component. Because the two states have different energies, their phases evolve at different rates. The relative phase grows as
+
+                \[
+                \Delta\phi(t) = (\omega_2 - \omega_1)t,
+                \]
+
+                and that phase drift produces oscillations in the interference term.
+            </p>
+
+            <h2>2. Why the signal wiggles</h2>
+            <p>
+                The two decay amplitudes do not act independently. They add coherently, so the emitted intensity contains a cross term. In the simplest case, the fluorescence signal can be written as
+
+                \[
+                I(t) \propto e^{-\Gamma t}\left[1 + C\cos(\Delta\omega\, t + \phi)\right],
+                \]
+
+                where $\Delta\omega = \omega_2 - \omega_1$ is the beat frequency, $\Gamma$ is the decay rate, and $C$ is the contrast. The exponential factor gives the overall decay envelope, while the cosine term gives the oscillation. The beat frequency is therefore set directly by the energy splitting between the two excited states.
+            </p>
+
+            <h2>3. A simple wavefunction picture</h2>
+            <p>
+                If the excited states evolve freely after excitation, their amplitudes pick up phase factors
+
+                \[
+                c_1 e^{-i\omega_1 t}, \qquad c_2 e^{-i\omega_2 t}.
+                \]
+
+                The total dipole emission is proportional to the sum of the two amplitudes, and the intensity therefore contains a term proportional to
+
+                \[
+                \mathrm{Re}\left(c_1^* c_2 e^{-i(\omega_2 - \omega_1)t}\right).
+                \]
+
+                This is the basic mathematical form of a quantum beat. It is the same kind of interference effect that appears in many other contexts, but here it shows up as a time-dependent modulation of the fluorescence signal.
+            </p>
+
+            <figure>
+                <img src="notes_images/quantum_beats_signal.svg" alt="Damped quantum beats shown as oscillations under an exponential envelope" />
+                <figcaption>The fluorescence signal looks like a decaying envelope with oscillations inside it. The oscillation frequency gives the splitting between the two states.</figcaption>
+            </figure>
+
+            <h2>4. What the experiment measures</h2>
+            <p>
+                In the most common experiment, the atom is excited by a short pulse and the emitted light is recorded as a function of time. The beat pattern appears in the decay curve because the two paths interfere while the atom is still emitting. The beat frequency gives the energy splitting directly through
+
+                \[
+                \Delta E = \hbar \Delta\omega.
+                \]
+
+                That is why quantum beats are so useful. They let us resolve small splittings in time, even when the corresponding spectral lines are not well separated.
+            </p>
+
+            <h2>5. Coherence matters</h2>
+            <p>
+                The oscillations survive only while the relative phase between the two excited states stays intact. If collisions, magnetic-field noise, or other dephasing mechanisms scramble the phase, the visibility of the beat drops. That makes quantum beats a sensitive probe of coherence and dephasing in the excited state.
+            </p>
+
+            <h2>6. A useful density-matrix view</h2>
+            <p>
+                A slightly more formal description uses the density matrix. The populations of the two excited states decay with the lifetime, while the coherence between them evolves as
+
+                \[
+                \frac{d}{dt}\rho_{e_1 e_2} = -\left(\Gamma + i\Delta\omega\right)\rho_{e_1 e_2}.
+                \]
+
+                Its solution is an oscillating exponential, which is exactly the structure seen in the beat signal. This makes it clear that the beat is not just a curiosity of the wavefunction. It is a direct consequence of coherence between two excited states in an open quantum system.
+            </p>
+
+            <h2>7. Common examples</h2>
+            <p>
+                Quantum beats show up in several familiar settings. Zeeman beats come from magnetic sublevels, and hyperfine beats come from hyperfine splittings in excited states of alkali atoms. In both cases, the beat frequency carries information about the level structure, and that information can be read out from the time-dependent signal.
+            </p>
+
+            <h2>8. Why the effect matters</h2>
+            <p>
+                Quantum beats matter because they connect a simple interference effect to a real spectroscopic tool. They let us measure level splittings, test whether coherence survives in a sample, and study how the environment damps the phase relation between atomic states. In that sense, they are not only a beautiful example of quantum mechanics, but also a practical tool in AMO physics.
+            </p>
+        </main>
+    </div>
+</body>
+</html>
