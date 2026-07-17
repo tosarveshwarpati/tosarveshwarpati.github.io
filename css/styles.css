@@ -1,7 +1,7 @@
 :root {
-  --bg: #dff2ff;
-  --text: #000000;
-  --muted: #004719;
+  --bg: #ffffff;
+  --text: #245a00;
+  --muted: #00065c;
   --line: #000000;
 }
 
@@ -229,4 +229,20 @@ textarea {
 
 .boxed-item img {
   flex-shrink: 1;
+}
+
+.bw {
+  filter: grayscale(100%);
+}
+
+.pop-out {
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+.pop-out:hover {
+  transform: scale(1.15) rotate(-2deg);
+  box-shadow: 0 10px 40px rgba(255, 0, 0, 0.7);
+  filter: grayscale(0%);
 }
