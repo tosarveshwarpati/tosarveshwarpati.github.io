@@ -1,8 +1,8 @@
 :root {
-  --bg: #000000;
-  --text: #4cff8c;
-  --muted: #86e6a7;
-  --line: #1d5f35;
+  --bg: #ffffff;
+  --text: #000000;
+  --muted: #0b913a;
+  --line: #000000;
 }
 
 * {
@@ -203,4 +203,19 @@ textarea {
   .site-header {
     flex-direction: column;
   }
+}
+
+.boxed-item {
+  border: 2px solid #000;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.boxed-item img {
+  flex-shrink: 1;
 }
