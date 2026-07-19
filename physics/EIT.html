@@ -40,9 +40,7 @@
 
         <main class="card">
 
-            <!-- ================================================================================ -->
-            <!-- INTRODUCTION                                                                      -->
-            <!-- ================================================================================ -->
+            <!-- introduction -->
             <h2>Introduction</h2>
             <p>
                 The interaction of coherent laser fields with multi-level atomic systems gives rise to some of the most striking effects in quantum optics: <strong>dark states</strong>, <strong>coherent population trapping (CPT)</strong>, and <strong>electromagnetically induced transparency (EIT)</strong>. These effects rely on quantum interference between different excitation paths. They let us control light–matter interactions in ways that ordinary atoms do not allow, and they also open the door to new laser-cooling methods.
@@ -51,9 +49,7 @@
                 These notes explain the theory of dark states, CPT, and EIT from the ground up, using the three-level optical Bloch equations from the previous notes. I start with the dark state as a zero-eigenvalue eigenstate of the interaction Hamiltonian and show how it leads to CPT. Then I derive the linear susceptibility of a three-level $\Lambda$-system in the presence of a strong control field and a weak probe, which reveals the EIT window. I end by connecting these ideas to laser cooling, including ground-state cooling of trapped ions and velocity-selective dark-state cooling in neutral atoms.
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 1: THE THREE-LEVEL Λ-SYSTEM AND THE DARK STATE                             -->
-            <!-- ================================================================================ -->
+            <!-- section-1-three-level-system -->
             <h2>1. The Three-Level $\Lambda$-System and the Dark State</h2>
 
             <h3>1.1 The Interaction Hamiltonian</h3>
@@ -139,9 +135,7 @@
                 <em>[Figure 1: (a) The three-level $\Lambda$-system with probe $\Omega_p$ and control $\Omega_c$ fields. (b) The dark state $| D \rangle$ and bright state $| B \rangle$ in the ground-state subspace. The bright state couples to $| 3 \rangle$ with effective Rabi frequency $\Omega_{\text{eff}}$; the dark state is completely decoupled. (c) The dressed-state picture in the $\{ | B \rangle, | 3 \rangle \}$ subspace, showing the Autler–Townes doublet and the location of the dark state at zero energy.]</em>
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 2: COHERENT POPULATION TRAPPING (CPT)                                       -->
-            <!-- ================================================================================ -->
+            <!-- section-2-cpt -->
             <h2>2. Coherent Population Trapping (CPT)</h2>
 
             <h3>2.1 The CPT Phenomenon</h3>
@@ -185,9 +179,7 @@
                 <em>[Figure 2: (a) The CPT resonance: fluorescence from a $\Lambda$-system as a function of the two-photon detuning $\delta$, showing a sharp dip at $\delta = 0$. (b) Energy-level diagram indicating the two-photon resonance condition. (c) Experimental CPT spectrum in $^{87}$Rb vapor, showing the narrow transparency window.]</em>
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 3: ELECTROMAGNETICALLY INDUCED TRANSPARENCY (EIT)                           -->
-            <!-- ================================================================================ -->
+            <!-- section-3-eit -->
             <h2>3. Electromagnetically Induced Transparency (EIT)</h2>
 
             <h3>3.1 From CPT to EIT: The Weak-Probe Limit</h3>
@@ -266,9 +258,7 @@
                 An alternative and deeply physical interpretation of EIT invokes the concept of <strong>which-path information</strong>. The probe absorption amplitude is the sum of two indistinguishable quantum paths: direct excitation $| 1 \rangle \xrightarrow{\Omega_p} | 3 \rangle$, and indirect excitation $| 1 \rangle \xrightarrow{\Omega_p} | 3 \rangle \xrightarrow{\Omega_c^*} | 2 \rangle \xrightarrow{\Omega_c} | 3 \rangle$. When the control field is strong, the indirect path becomes equally probable as the direct path, but with a relative phase of $\pi$. The two paths interfere destructively, canceling the total absorption. In the language of measurement theory, the strong control field "which-path" information by correlating the atomic state with the photon number; on Raman resonance, this information is erased, and the interference is restored. EIT is thus a beautiful example of complementarity in quantum mechanics.
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 4: APPLICATIONS OF EIT AND CPT                                             -->
-            <!-- ================================================================================ -->
+            <!-- section-4-applications -->
             <h2>4. Applications of EIT and CPT</h2>
 
             <h3>4.1 Slow Light and Stored Light</h3>
@@ -296,9 +286,7 @@
                 <em>[Figure 4: (a) The slow-light experiment: a probe pulse is delayed by the EIT medium, while the control field is kept on. (b) Stored light: the control field is turned off while the probe pulse is inside the medium, mapping the photonic state onto a collective atomic spin wave; the control is turned back on to retrieve the pulse. (c) STIRAP pulse sequence: the control field ($\Omega_c$) is applied before the probe field ($\Omega_p$), adiabatically rotating the dark state from $| 1 \rangle$ to $| 2 \rangle$.]</em>
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 5: EIT-BASED LASER COOLING                                                  -->
-            <!-- ================================================================================ -->
+            <!-- section-5-eit-cooling -->
             <h2>5. EIT-Based Laser Cooling</h2>
 
             <h3>5.1 Beyond Doppler and Sisyphus: The Quest for Sub-Recoil Cooling</h3>
@@ -339,9 +327,7 @@
                 <em>[Figure 5: (a) The VSCPT mechanism: counter-propagating beams create a velocity-selective dark state. Atoms with the correct velocity are trapped in the dark state and stop scattering; others continue to scatter and diffuse in momentum space until they reach the dark velocity. (b) D$_1$ gray molasses energy-level scheme for $^{40}$K: the $\Lambda$-system formed by the two ground hyperfine states and the D$_1$ excited state. (c) Temperature of a $^{40}$K cloud after gray molasses cooling as a function of cooling time, showing temperatures well below the Doppler limit.]</em>
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 6: THEORETICAL FRAMEWORK FOR EIT COOLING                                    -->
-            <!-- ================================================================================ -->
+            <!-- section-6-theoretical-framework -->
             <h2>6. Theoretical Framework for EIT Cooling</h2>
 
             <h3>6.1 The Cooling Force in the Weak-Probe Limit</h3>
@@ -365,9 +351,7 @@
                 For quantitative predictions, the full three-dimensional, multi-level optical Bloch equations including the atomic motion are typically solved using quantum Monte-Carlo wavefunction (QMCWF) simulations. In this approach, the atomic wavefunction evolves under an effective non-Hermitian Hamiltonian (accounting for the coherent dynamics and the non-Hermitian decay terms), punctuated by random quantum jumps that simulate spontaneous emission events with their associated momentum recoil. Statistical averaging over many trajectories yields the momentum distribution and the cooling dynamics. QMCWF simulations have been essential for optimizing gray molasses parameters and predicting the performance of EIT cooling schemes.
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 7: SUMMARY AND OUTLOOK                                                    -->
-            <!-- ================================================================================ -->
+            <!-- section-7-summary -->
             <h2>7. Summary and Outlook</h2>
             <p>
                 Dark states, coherent population trapping, and electromagnetically induced transparency represent a coherent, deeply interconnected body of phenomena that arise from quantum interference in multi-level atomic systems. The existence of the dark state—a coherent superposition of ground states that is perfectly decoupled from the radiation field—is the unifying concept. CPT demonstrates that this dark state can be a stable steady state of the driven, dissipative atom. EIT extends this to the regime of a weak probe and a strong control, revealing a transparency window with vanishing absorption and steep dispersion. These effects have been harnessed for slow and stored light, nonlinear optics at the single-photon level, precision metrology, and quantum state engineering.
@@ -376,9 +360,7 @@
                 In the realm of laser cooling, dark-state-based mechanisms have pushed the frontier to sub-recoil temperatures. VSCPT and gray molasses exploit the velocity selectivity of the dark state to cool atoms without the fundamental momentum diffusion limit of photon scattering. EIT cooling of trapped ions achieves ground-state occupation with high fidelity, and D$_1$ gray molasses has become an indispensable tool for all-optical production of quantum degenerate gases. The interplay between coherent quantum control and dissipative dynamics, so elegantly embodied in the physics of dark states, continues to drive advances in quantum optics, atomic physics, and quantum technology.
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- REFERENCES                                                                         -->
-            <!-- ================================================================================ -->
+            <!-- references -->
             <h2>References</h2>
             <ol>
                 <li>

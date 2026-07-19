@@ -40,9 +40,7 @@
 
         <main class="card">
 
-            <!-- ================================================================================ -->
-            <!-- INTRODUCTION                                                                      -->
-            <!-- ================================================================================ -->
+            <!-- introduction -->
             <h2>Introduction</h2>
             <p>
                 In the previous note, we saw how the Wigner–Weisskopf theory explains spontaneous emission for a two-level atom coupled to the vacuum field. That picture gives the basic decay law, but it assumes the field is in a simple pure state. In many real experiments, the atom interacts with a larger environment, and the field is better described as a mixed state. In that case, the atom is an open quantum system, and its state is described by a density operator.
@@ -54,9 +52,7 @@
                 I assume the reader already knows the basics of density operators and the Wigner–Weisskopf theory. The goal is to make the jump from the simple two-level picture to the more realistic open-system picture as clear as possible.
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 1: DENSITY OPERATOR AND OPEN QUANTUM SYSTEMS                               -->
-            <!-- ================================================================================ -->
+            <!-- section-1-density-operator -->
             <h2>1. The Density Operator and Open Quantum Systems</h2>
 
             <h3>1.1 Pure States, Mixed States, and the Density Matrix</h3>
@@ -100,9 +96,7 @@
                 The central goal of the theory of open quantum systems is to derive a closed, autonomous equation of motion for $\hat{\rho}_S(t)$—a <strong>master equation</strong>—by eliminating the reservoir degrees of freedom under suitable approximations. The resulting equation is, in general, non-unitary: it describes dissipation, decoherence, and the approach to thermal equilibrium.
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 2: THE BORN–MARKOV MASTER EQUATION                                          -->
-            <!-- ================================================================================ -->
+            <!-- section-2-born-markov -->
             <h2>2. The Born–Markov Master Equation</h2>
 
             <h3>2.1 Interaction Picture and Formal Perturbation Theory</h3>
@@ -184,9 +178,7 @@
                 The Lindblad form is the cornerstone of quantum optics and open quantum systems theory. It guarantees that $\hat{\rho}_S(t)$ remains a valid density operator for all times. The terms $\hat{L}_k \hat{\rho}_S \hat{L}_k^\dagger$ represent "quantum jumps"—the probabilistic, discontinuous change of the system state upon emission or absorption of a quantum of energy—while the anti-commutator term $-\frac{1}{2}\{\hat{L}_k^\dagger\hat{L}_k,\hat{\rho}_S\}$ ensures probability conservation and gives rise to the damping of coherences.
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 3: TWO-LEVEL ATOM AND SPONTANEOUS EMISSION MASTER EQUATION                 -->
-            <!-- ================================================================================ -->
+            <!-- section-3-two-level-atom -->
             <h2>3. Master Equation for a Two-Level Atom</h2>
 
             <h3>3.1 Derivation from the Wigner–Weisskopf Model</h3>
@@ -240,9 +232,7 @@
                 <em>[Figure 1: (a) A two-level system coupled to the electromagnetic vacuum reservoir. (b) The quantum jump process: the system makes a transition from $| e \rangle$ to $| g \rangle$ with rate $\Gamma$, emitting a photon. (c) Exponential decay of the excited state population $\rho_{ee}(t)$ and the coherence $|\rho_{eg}(t)|$.]</em>
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 4: THREE-LEVEL ATOMIC SYSTEM AND DERIVATION OF OPTICAL BLOCH EQUATIONS      -->
-            <!-- ================================================================================ -->
+            <!-- section-4-three-level-system -->
             <h2>4. Three-Level Atomic System: Optical Bloch Equations</h2>
 
             <h3>4.1 The Three-Level Model and Its Configurations</h3>
@@ -463,9 +453,7 @@
                 <em>[Figure 3: Flow diagram of the three-level Bloch equations. The populations $\rho_{11}, \rho_{22}, \rho_{33}$ are coupled to the optical coherences $\rho_{13}, \rho_{23}$, which in turn drive the ground-state coherence $\rho_{12}$. The decay rates $\Gamma_{31}, \Gamma_{32}, \gamma_{12}$ and the Rabi frequencies $\Omega_p, \Omega_c$ are shown on the corresponding arrows.]</em>
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 5: STEADY-STATE SOLUTION AND APPLICATIONS                                   -->
-            <!-- ================================================================================ -->
+            <!-- section-5-steady-state -->
             <h2>5. Steady-State Solution and Key Phenomena</h2>
 
             <h3>5.1 The Steady-State Equations</h3>
@@ -522,9 +510,7 @@
                 <em>[Figure 4: (a) The EIT transmission spectrum: probe absorption (Im$[\chi]$) vanishes on two-photon resonance, accompanied by steep normal dispersion (Re$[\chi]$). (b) The STIRAP pulse sequence: control ($\Omega_c$) precedes probe ($\Omega_p$). (c) The dressed-state picture showing the dark state $|D\rangle$ decoupled from the excited state.]</em>
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 6: NUMERICAL IMPLEMENTATION AND FURTHER EXTENSIONS                         -->
-            <!-- ================================================================================ -->
+            <!-- section-6-numerical -->
             <h2>6. Numerical Considerations and Extensions</h2>
 
             <h3>6.1 Solving the Bloch Equations Numerically</h3>
@@ -546,9 +532,7 @@
                 The formalism developed here for three levels generalizes directly to systems with $N$ levels. The Hamiltonian and Lindblad operators are constructed from the atomic transition operators, and the resulting $N^2 - 1$ independent Bloch equations describe the complete open-system dynamics. This framework is the workhorse for modeling laser spectroscopy, quantum control, and quantum information processing in atomic and molecular systems.
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- REFERENCES                                                                         -->
-            <!-- ================================================================================ -->
+            <!-- references -->
             <h2>References</h2>
             <ol>
                 <li>

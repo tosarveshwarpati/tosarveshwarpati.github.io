@@ -40,9 +40,7 @@
 
         <main class="card">
 
-            <!-- ================================================================================ -->
-            <!-- INTRODUCTION                                                                      -->
-            <!-- ================================================================================ -->
+            <!-- introduction -->
             <h2>Introduction</h2>
             <p>
                 The beam splitter is arguably the one of the most important passive optical element after the 
@@ -58,9 +56,7 @@
                 interference.
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 1: THE CLASSICAL LOSSLESS BEAM SPLITTER                                    -->
-            <!-- ================================================================================ -->
+            <!-- section-1-classical-beam-splitter -->
             <h2>1. The Classical Lossless Beam Splitter</h2>
 
             <h3>1.1 Geometry, Ports, and Field Amplitudes</h3>
@@ -167,9 +163,7 @@
                 The interference term $\operatorname{Im}(E_1 E_2^*)$ depends on the relative phase of the two input fields. For inputs that are in phase ($E_1$ and $E_2$ real and positive), there is no interference in the intensities (the $\operatorname{Im}$ term vanishes). For inputs with a $\pi/2$ phase difference, the interference is maximal. This phase sensitivity is the basis of homodyne detection: by mixing a weak signal with a strong local oscillator, one can measure the signal's quadrature amplitudes with quantum-limited sensitivity.
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 2: THE QUANTUM BEAM SPLITTER                                               -->
-            <!-- ================================================================================ -->
+            <!-- section-2-quantum-beam-splitter -->
             <h2>2. The Quantum Beam Splitter</h2>
 
             <h3>2.1 Field Operators and Unitary Transformation</h3>
@@ -255,9 +249,7 @@
                 The variance equals the mean, which is the Poissonian shot noise of a coherent state. But note: if we had followed the classical prescription and simply multiplied the amplitude by $\sqrt{T}$, we would have obtained the <em>same</em> mean but would have had no way to calculate the noise. The quantum treatment reveals that the noise floor is set by the vacuum fluctuations entering through the unused port. This is the <strong>standard quantum limit (SQL)</strong> for intensity measurements. To beat the SQL, one must inject squeezed vacuum into the unused port—a technique now routinely used in gravitational wave detectors.
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 3: COHERENT STATES THROUGH A BEAM SPLITTER                                 -->
-            <!-- ================================================================================ -->
+            <!-- section-3-coherent-states -->
             <h2>3. Coherent States Through a Beam Splitter</h2>
 
             <h3>3.1 The Coherent State Transformation Rule</h3>
@@ -301,9 +293,7 @@
                 <li><strong>Loss and decoherence:</strong> The quantum treatment of loss via virtual beam splitters correctly describes the degradation of non-classical states.</li>
             </ul>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 4: THE LOSSY BEAM SPLITTER                                                 -->
-            <!-- ================================================================================ -->
+            <!-- section-4-lossy-beam-splitter -->
             <h2>4. The Lossy Beam Splitter</h2>
 
             <h3>4.1 Why a Simple Attenuation Factor Fails</h3>
@@ -361,9 +351,7 @@
                 The virtual beam splitter model generalizes to any linear optical network with loss. Each lossy element is replaced by an ideal unitary element plus a virtual beam splitter that couples to an environmental mode. The overall network remains unitary on the extended Hilbert space (system + environment). When the environment is traced out, the system evolves according to a completely positive, trace-preserving (CPTP) map—a quantum channel. This is the conceptual foundation for treating decoherence in quantum optical systems.
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 5: THE POLARIZING BEAM SPLITTER (PBS)                                      -->
-            <!-- ================================================================================ -->
+            <!-- section-5-polarizing-beam-splitter -->
             <h2>5. The Polarizing Beam Splitter (PBS)</h2>
 
             <h3>5.1 Principle of Operation and Classical Description</h3>
@@ -561,9 +549,7 @@
             </ul>
 
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 7: HONG–OU–MANDEL INTERFERENCE                                             -->
-            <!-- ================================================================================ -->
+            <!-- section-7-hong-ou-mandel -->
             <h2>7. Hong–Ou–Mandel Interference</h2>
 
             <h3>7.1 The Input State and the Beam Splitter Transformation</h3>
@@ -629,17 +615,13 @@
                 It is instructive to consider why the HOM effect cannot be explained classically. In a classical treatment, two pulses with random relative phase enter the beam splitter. The output intensities are given by (\ref{eq:I3_classical})–(\ref{eq:I4_classical}). If the two pulses have random relative phase, the interference term averages to zero, and the output intensities are simply $I_1/2 + I_2/2$ at each port. There is no classical mechanism that would force both photons to emerge from the same port. The HOM effect is a manifestation of two-photon quantum interference—an interference of probability amplitudes, not of classical fields. It requires the quantum description of the field in terms of Fock states and the beam splitter as a unitary operator on the multi-mode Hilbert space. The HOM effect is thus one of the cleanest demonstrations of the quantum nature of light.
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- SECTION 8: SUMMARY                                                                 -->
-            <!-- ================================================================================ -->
+            <!-- section-8-summary -->
             <h2>8. Summary</h2>
             <p>
                 The beam splitter, in its various forms, is a central element of classical and quantum optics. The classical lossless beam splitter is described by a unitary scattering matrix that encodes energy conservation and the $\pi/2$ phase shift upon reflection. The quantum beam splitter promotes this scattering matrix to a unitary transformation on field operators, with the beam splitter unitary $\hat{U}_{\text{BS}} = \exp[i\theta(\hat{a}_1^\dagger \hat{a}_2 + \hat{a}_2^\dagger \hat{a}_1)]$ generating an SU(2) rotation in the two-mode Hilbert space. The vacuum input to the unused port contributes quantum fluctuations that set the standard quantum limit for intensity measurements. Coherent states transform under the beam splitter exactly as classical fields, preserving their coherence and Poissonian statistics. The lossy beam splitter is modeled by coupling to a reservoir mode via a virtual beam splitter, a construction that preserves commutation relations while introducing decoherence for non-classical states. The polarizing beam splitter separates orthogonal polarization components, converting polarization information into path information. The combination of a PBS with a half-wave plate in one output port provides a flexible platform for polarization-to-path conversion followed by controlled polarization rotation, with the classical Jones calculus and quantum coherent-state formalism giving identical predictions for field amplitudes. Finally, the Hong–Ou–Mandel effect—the cancellation of coincidences when two indistinguishable photons meet at a 50:50 beam splitter—is a purely quantum interference phenomenon that vividly illustrates the non-classical nature of light and the fundamental role of the beam splitter in quantum optics.
             </p>
 
-            <!-- ================================================================================ -->
-            <!-- REFERENCES                                                                         -->
-            <!-- ================================================================================ -->
+            <!-- references -->
             <h2>References</h2>
             <ol>
                 <li>
