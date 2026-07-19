@@ -225,6 +225,8 @@ textarea {
   display: flex;
   align-items: center;
   gap: 15px;
+  background: #000;
+  color: #fff;
 }
 
 .boxed-item img {
@@ -322,4 +324,8 @@ textarea {
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.dark-yellow {
+  filter: none;
 }
