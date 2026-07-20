@@ -43,10 +43,7 @@
             <!-- introduction -->
             <h2>Introduction</h2>
             <p>
-                The interaction of coherent laser fields with multi-level atomic systems gives rise to some of the most striking effects in quantum optics: <strong>dark states</strong>, <strong>coherent population trapping (CPT)</strong>, and <strong>electromagnetically induced transparency (EIT)</strong>. These effects rely on quantum interference between different excitation paths. They let us control light–matter interactions in ways that ordinary atoms do not allow, and they also open the door to new laser-cooling methods.
-            </p>
-            <p>
-                These notes explain the theory of dark states, CPT, and EIT from the ground up, using the three-level optical Bloch equations from the previous notes. I start with the dark state as a zero-eigenvalue eigenstate of the interaction Hamiltonian and show how it leads to CPT. Then I derive the linear susceptibility of a three-level $\Lambda$-system in the presence of a strong control field and a weak probe, which reveals the EIT window. I end by connecting these ideas to laser cooling, including ground-state cooling of trapped ions and velocity-selective dark-state cooling in neutral atoms.
+                When coherent laser fields drive a multi-level atom, quantum interference between different excitation pathways produces remarkable effects: dark states, coherent population trapping, and electromagnetically induced transparency. These phenomena arise from the same quantum mechanical principles but manifest in different regimes, and they demonstrate how the light-matter interaction can be controlled with precise temporal and spatial shaping of the driving fields.
             </p>
 
             <!-- section-1-three-level-system -->
@@ -351,53 +348,44 @@
                 For quantitative predictions, the full three-dimensional, multi-level optical Bloch equations including the atomic motion are typically solved using quantum Monte-Carlo wavefunction (QMCWF) simulations. In this approach, the atomic wavefunction evolves under an effective non-Hermitian Hamiltonian (accounting for the coherent dynamics and the non-Hermitian decay terms), punctuated by random quantum jumps that simulate spontaneous emission events with their associated momentum recoil. Statistical averaging over many trajectories yields the momentum distribution and the cooling dynamics. QMCWF simulations have been essential for optimizing gray molasses parameters and predicting the performance of EIT cooling schemes.
             </p>
 
-            <!-- section-7-summary -->
-            <h2>7. Summary and Outlook</h2>
-            <p>
-                Dark states, coherent population trapping, and electromagnetically induced transparency represent a coherent, deeply interconnected body of phenomena that arise from quantum interference in multi-level atomic systems. The existence of the dark state—a coherent superposition of ground states that is perfectly decoupled from the radiation field—is the unifying concept. CPT demonstrates that this dark state can be a stable steady state of the driven, dissipative atom. EIT extends this to the regime of a weak probe and a strong control, revealing a transparency window with vanishing absorption and steep dispersion. These effects have been harnessed for slow and stored light, nonlinear optics at the single-photon level, precision metrology, and quantum state engineering.
-            </p>
-            <p>
-                In the realm of laser cooling, dark-state-based mechanisms have pushed the frontier to sub-recoil temperatures. VSCPT and gray molasses exploit the velocity selectivity of the dark state to cool atoms without the fundamental momentum diffusion limit of photon scattering. EIT cooling of trapped ions achieves ground-state occupation with high fidelity, and D$_1$ gray molasses has become an indispensable tool for all-optical production of quantum degenerate gases. The interplay between coherent quantum control and dissipative dynamics, so elegantly embodied in the physics of dark states, continues to drive advances in quantum optics, atomic physics, and quantum technology.
-            </p>
-
             <!-- references -->
             <h2>References</h2>
             <ol>
                 <li>
-                    M. Fleischhauer, A. Imamoglu, and J. P. Marangos, "Electromagnetically induced transparency: Optics in coherent media," <em>Reviews of Modern Physics</em> <strong>77</strong>, 633–673 (2005). The definitive review of EIT theory, experiments, and applications.
+                    M. Fleischhauer, A. Imamoglu, and J. P. Marangos, "<a href="https://doi.org/10.1103/RevModPhys.77.633" target="_blank">Electromagnetically induced transparency: Optics in coherent media</a>," <em>Reviews of Modern Physics</em> <strong>77</strong>, 633–673 (2005). The definitive review of EIT theory, experiments, and applications.
                 </li>
                 <li>
                     E. Arimondo, "Coherent population trapping in laser spectroscopy," <em>Progress in Optics</em> <strong>35</strong>, 257–354 (1996). A comprehensive review of CPT, its theoretical foundations, and its early experimental realizations.
                 </li>
                 <li>
-                    G. Alzetta, A. Gozzini, L. Moi, and G. Orriols, "An experimental method for the observation of r.f. transitions and laser beat resonances in oriented Na vapour," <em>Il Nuovo Cimento B</em> <strong>36</strong>, 5–20 (1976). The original experimental observation of coherent population trapping.
+                    G. Alzetta, A. Gozzini, L. Moi, and G. Orriols, "<a href="https://doi.org/10.1007/BF02748049" target="_blank">An experimental method for the observation of r.f. transitions and laser beat resonances in oriented Na vapour</a>," <em>Il Nuovo Cimento B</em> <strong>36</strong>, 5–20 (1976). The original experimental observation of coherent population trapping.
                 </li>
                 <li>
                     S. E. Harris, "Electromagnetically induced transparency," <em>Physics Today</em> <strong>50</strong>(7), 36–42 (1997). An accessible overview of EIT and its physical interpretation.
                 </li>
                 <li>
-                    L. V. Hau, S. E. Harris, Z. Dutton, and C. H. Behroozi, "Light speed reduction to 17 metres per second in an ultracold atomic gas," <em>Nature</em> <strong>397</strong>, 594–598 (1999). The landmark slow-light experiment.
+                    L. V. Hau, S. E. Harris, Z. Dutton, and C. H. Behroozi, "<a href="https://doi.org/10.1038/18872" target="_blank">Light speed reduction to 17 metres per second in an ultracold atomic gas</a>," <em>Nature</em> <strong>397</strong>, 594–598 (1999). The landmark slow-light experiment.
                 </li>
                 <li>
-                    C. Liu, Z. Dutton, C. H. Behroozi, and L. V. Hau, "Observation of coherent optical information storage in an atomic medium using halted light pulses," <em>Nature</em> <strong>409</strong>, 490–493 (2001). The first demonstration of stored light.
+                    C. Liu, Z. Dutton, C. H. Behroozi, and L. V. Hau, "<a href="https://doi.org/10.1038/409490a0" target="_blank">Observation of coherent optical information storage in an atomic medium using halted light pulses</a>," <em>Nature</em> <strong>409</strong>, 490–493 (2001). The first demonstration of stored light.
                 </li>
                 <li>
-                    A. Aspect, E. Arimondo, R. Kaiser, N. Vansteenkiste, and C. Cohen-Tannoudji, "Laser cooling below the one-photon recoil energy by velocity-selective coherent population trapping," <em>Physical Review Letters</em> <strong>61</strong>, 826–829 (1988). The first demonstration of VSCPT sub-recoil cooling.
+                    A. Aspect, E. Arimondo, R. Kaiser, N. Vansteenkiste, and C. Cohen-Tannoudji, "<a href="https://doi.org/10.1103/PhysRevLett.61.826" target="_blank">Laser cooling below the one-photon recoil energy by velocity-selective coherent population trapping</a>," <em>Physical Review Letters</em> <strong>61</strong>, 826–829 (1988). The first demonstration of VSCPT sub-recoil cooling.
                 </li>
                 <li>
-                    D. Rio Fernandes, F. Sievers, N. Kretzschmar, S. Wu, C. Salomon, and F. Chevy, "Sub-Doppler laser cooling of fermionic $^{40}$K atoms in three-dimensional gray optical molasses," <em>Europhysics Letters</em> <strong>100</strong>, 63001 (2012). Demonstration of D$_1$ gray molasses for $^{40}$K, a key technique for all-optical Fermi gas production.
+                    D. Rio Fernandes, F. Sievers, N. Kretzschmar, S. Wu, C. Salomon, and F. Chevy, "<a href="https://doi.org/10.1209/0295-5075/100/63001" target="_blank">Sub-Doppler laser cooling of fermionic $^{40}$K atoms in three-dimensional gray optical molasses</a>," <em>Europhysics Letters</em> <strong>100</strong>, 63001 (2012). Demonstration of D$_1$ gray molasses for $^{40}$K, a key technique for all-optical Fermi gas production.
                 </li>
                 <li>
-                    A. T. Grier, I. Ferrier-Barbut, B. S. Rem, M. Delehaye, L. Khaykovich, F. Chevy, and C. Salomon, "$\Lambda$-enhanced sub-Doppler cooling of lithium atoms in D$_1$ gray molasses," <em>Physical Review A</em> <strong>87</strong>, 063411 (2013). Gray molasses cooling of $^{6}$Li and $^{7}$Li to sub-Doppler temperatures.
+                    A. T. Grier, I. Ferrier-Barbut, B. S. Rem, M. Delehaye, L. Khaykovich, F. Chevy, and C. Salomon, "<a href="https://doi.org/10.1103/PhysRevA.87.063411" target="_blank">$\Lambda$-enhanced sub-Doppler cooling of lithium atoms in D$_1$ gray molasses</a>," <em>Physical Review A</em> <strong>87</strong>, 063411 (2013). Gray molasses cooling of $^{6}$Li and $^{7}$Li to sub-Doppler temperatures.
                 </li>
                 <li>
-                    G. Morigi, J. Eschner, and C. H. Keitel, "Ground state laser cooling using electromagnetically induced transparency," <em>Physical Review Letters</em> <strong>85</strong>, 4458–4461 (2000). The theoretical proposal for EIT ground-state cooling of trapped ions.
+                    G. Morigi, J. Eschner, and C. H. Keitel, "<a href="https://doi.org/10.1103/PhysRevLett.85.4458" target="_blank">Ground state laser cooling using electromagnetically induced transparency</a>," <em>Physical Review Letters</em> <strong>85</strong>, 4458–4461 (2000). The theoretical proposal for EIT ground-state cooling of trapped ions.
                 </li>
                 <li>
-                    C. F. Roos, D. Leibfried, A. Mundt, F. Schmidt-Kaler, J. Eschner, and R. Blatt, "Experimental demonstration of ground state laser cooling with electromagnetically induced transparency," <em>Physical Review Letters</em> <strong>85</strong>, 5547–5550 (2000). The first experimental realization of EIT cooling of a trapped ion.
+                    C. F. Roos, D. Leibfried, A. Mundt, F. Schmidt-Kaler, J. Eschner, and R. Blatt, "<a href="https://doi.org/10.1103/PhysRevLett.85.5547" target="_blank">Experimental demonstration of ground state laser cooling with electromagnetically induced transparency</a>," <em>Physical Review Letters</em> <strong>85</strong>, 5547–5550 (2000). The first experimental realization of EIT cooling of a trapped ion.
                 </li>
                 <li>
-                    K. Bergmann, H. Theuer, and B. W. Shore, "Coherent population transfer among quantum states of atoms and molecules," <em>Reviews of Modern Physics</em> <strong>70</strong>, 1003–1025 (1998). The comprehensive review of STIRAP.
+                    K. Bergmann, H. Theuer, and B. W. Shore, "<a href="https://doi.org/10.1103/RevModPhys.70.1003" target="_blank">Coherent population transfer among quantum states of atoms and molecules</a>," <em>Reviews of Modern Physics</em> <strong>70</strong>, 1003–1025 (1998). The comprehensive review of STIRAP.
                 </li>
             </ol>
 

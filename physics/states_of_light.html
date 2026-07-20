@@ -43,13 +43,7 @@
             <!-- introduction -->
             <h2>Introduction: The Quantum Nature of Light</h2>
             <p>
-                The quantization of the electromagnetic field leads to a surprisingly rich family of quantum states of light. These states are not just mathematical curiosities; they describe real light sources with different photon statistics, different coherence properties, and different levels of non-classical behavior. That is why they matter so much in quantum optics, metrology, and quantum information.
-            </p>
-            <p>
-                In these notes, I treat the quantum harmonic oscillator as the basic language for describing a single mode of the field. I start with the number-state basis, then move to coherent states, squeezed states, and thermal states. The main point is to see how the same underlying quantum theory gives rise to very different kinds of light, from laser light to single-photon emission and thermal radiation.
-            </p>
-            <p>
-                A useful way to think about the subject is to compare familiar light sources: the thermal light from a hot body, the coherent light from a laser, the single-photon light from a quantum emitter, and the squeezed light from a nonlinear optical process. Each one has a distinct signature, and those signatures show up in the photon distribution, the correlation function, and the phase-space picture.
+                The quantization of the electromagnetic field reveals a rich family of quantum states, each characterized by distinct photon statistics, coherence properties, and noise structure. Laser light, single-photon emission, thermal radiation, and squeezed light are all quantum states of the electromagnetic field, and they represent different regimes of the same underlying quantum theory. Understanding these states is essential for quantum optics, quantum information, and precision measurement.
             </p>
 
             <!-- section-1-harmonic-oscillator -->
@@ -451,65 +445,41 @@
                 <em>[Figure 5: (a) Photon-number distributions for thermal (Bose–Einstein, red), coherent (Poisson, blue), and Fock (delta-function, green) states, all with the same mean photon number $\bar{n}=10$. (b) The second-order correlation function $g^{(2)}(0)$ for the three types of states: thermal ($2$), coherent ($1$), and Fock ($0$). (c) The Hanbury Brown–Twiss experiment: schematic of the intensity interferometer that first measured photon bunching from a thermal source.]</em>
             </p>
 
-            <!-- section-6-summary -->
-            <h2>6. How Lasers, Thermal Sources, and Single-Photon Sources Differ</h2>
-
-            <h3>6.1 The Laser: A Classical Coherent Source</h3>
-            <p>
-                A laser operating well above threshold produces light that is, to an excellent approximation, in a <strong>coherent state</strong> (or a mixture of such states with slow phase diffusion). Its photon statistics are Poissonian, so the number fluctuations scale as $\sqrt{\bar{n}}$. The phase is fairly well defined, the quadrature noise is symmetric at the standard quantum limit, and the beam is usually highly coherent in both time and space. That is why laser light is often treated as the closest quantum analogue to a classical monochromatic wave.
-            </p>
-
-            <h3>6.2 Single-Photon Sources: Non-Classical Light</h3>
-            <p>
-                A single-photon source produces light in a <strong>Fock state</strong> $| 1 \rangle$ or in a stream of such pulses. Its photon statistics are sub-Poissonian, and the second-order correlation function satisfies $g^{(2)}(0) = 0$, which is the signature of perfect photon anti-bunching. The phase is undefined, and the Wigner function develops negative regions, so this kind of light cannot be described by any classical stochastic field.
-            </p>
-
-            <h3>6.3 Thermal Light: Chaotic, Classical Light</h3>
-            <p>
-                Thermal light from an incandescent source or a star is described by a <strong>thermal state</strong>. It has Bose–Einstein photon statistics, strong photon bunching, and a very short coherence time. The phase is effectively random, and the field is made of many independent modes. Even though it is quantum in origin, its Wigner function is positive and its behavior is often treated as effectively classical in many practical settings.
-            </p>
-
-            <h3>6.4 Squeezed Light: Non-Classical Light with Reduced Quadrature Noise</h3>
-            <p>
-                Squeezed light sits between the ordinary classical-like states and the most strongly non-classical ones. Its defining feature is reduced noise in one quadrature at the expense of increased noise in the conjugate quadrature. This cannot be mimicked by a classical field, and it is one of the clearest signs that the underlying light field is genuinely quantum. Squeezed light is produced in nonlinear optical processes such as parametric down-conversion or four-wave mixing.
-            </p>
-
-
             <!-- references -->
             <h2>References</h2>
             <ol>
                 <li>
-                    R. J. Glauber, "The quantum theory of optical coherence," <em>Physical Review</em> <strong>130</strong>, 2529–2539 (1963); "Coherent and incoherent states of the radiation field," <em>Physical Review</em> <strong>131</strong>, 2766–2788 (1963). The foundational papers establishing the coherent-state representation and the quantum theory of optical coherence. Glauber's Nobel Prize (2005) was awarded for this work.
+                    R. J. Glauber, "<a href="https://doi.org/10.1103/PhysRev.130.2529" target="_blank">The quantum theory of optical coherence</a>," <em>Physical Review</em> <strong>130</strong>, 2529–2539 (1963); "<a href="https://doi.org/10.1103/PhysRev.131.2766" target="_blank">Coherent and incoherent states of the radiation field</a>," <em>Physical Review</em> <strong>131</strong>, 2766–2788 (1963). The foundational papers establishing the coherent-state representation and the quantum theory of optical coherence. Glauber's Nobel Prize (2005) was awarded for this work.
                 </li>
                 <li>
-                    E. C. G. Sudarshan, "Equivalence of semiclassical and quantum mechanical descriptions of statistical light beams," <em>Physical Review Letters</em> <strong>10</strong>, 277–279 (1963). The independent introduction of the $P$-representation and the definition of classical versus non-classical light.
+                    E. C. G. Sudarshan, "<a href="https://doi.org/10.1103/PhysRevLett.10.277" target="_blank">Equivalence of semiclassical and quantum mechanical descriptions of statistical light beams</a>," <em>Physical Review Letters</em> <strong>10</strong>, 277–279 (1963). The independent introduction of the $P$-representation and the definition of classical versus non-classical light.
                 </li>
                 <li>
-                    L. Mandel and E. Wolf, <em>Optical Coherence and Quantum Optics</em> (Cambridge University Press, Cambridge, 1995). The encyclopedic reference on classical and quantum coherence theory, including exhaustive treatments of coherent states, Fock states, thermal light, and squeezed states.
+                    L. Mandel and E. Wolf, <em><a href="https://books.google.com/books?isbn=978-0521417112" target="_blank">Optical Coherence and Quantum Optics</a></em> (Cambridge University Press, Cambridge, 1995). The encyclopedic reference on classical and quantum coherence theory, including exhaustive treatments of coherent states, Fock states, thermal light, and squeezed states.
                 </li>
                 <li>
-                    C. C. Gerry and P. L. Knight, <em>Introductory Quantum Optics</em> (Cambridge University Press, Cambridge, 2005). A pedagogical textbook with clear derivations of the properties of coherent states, squeezed states, and photon statistics. Chapters 3–7 are particularly relevant.
+                    C. C. Gerry and P. L. Knight, <em><a href="https://books.google.com/books?isbn=978-0521527354" target="_blank">Introductory Quantum Optics</a></em> (Cambridge University Press, Cambridge, 2005). A pedagogical textbook with clear derivations of the properties of coherent states, squeezed states, and photon statistics. Chapters 3–7 are particularly relevant.
                 </li>
                 <li>
-                    D. F. Walls and G. J. Milburn, <em>Quantum Optics</em>, 2nd ed. (Springer, Berlin, 2008). An advanced treatment emphasizing the quantum statistical properties of light, phase-space methods, and non-classical light generation.
+                    D. F. Walls and G. J. Milburn, <em><a href="https://books.google.com/books?isbn=978-3540287742" target="_blank">Quantum Optics</a></em>, 2nd ed. (Springer, Berlin, 2008). An advanced treatment emphasizing the quantum statistical properties of light, phase-space methods, and non-classical light generation.
                 </li>
                 <li>
-                    R. Loudon, <em>The Quantum Theory of Light</em>, 3rd ed. (Oxford University Press, Oxford, 2000). A classic text with detailed treatments of the harmonic oscillator quantization, Fock states, coherent states, and the Hanbury Brown–Twiss effect.
+                    R. Loudon, <em><a href="https://books.google.com/books?isbn=978-0198501770" target="_blank">The Quantum Theory of Light</a></em>, 3rd ed. (Oxford University Press, Oxford, 2000). A classic text with detailed treatments of the harmonic oscillator quantization, Fock states, coherent states, and the Hanbury Brown–Twiss effect.
                 </li>
                 <li>
-                    R. E. Slusher, L. W. Hollberg, B. Yurke, J. C. Mertz, and J. F. Valley, "Observation of squeezed states generated by four-wave mixing in an optical cavity," <em>Physical Review Letters</em> <strong>55</strong>, 2409–2412 (1985). The first experimental observation of squeezed light.
+                    R. E. Slusher, L. W. Hollberg, B. Yurke, J. C. Mertz, and J. F. Valley, "<a href="https://doi.org/10.1103/PhysRevLett.55.2409" target="_blank">Observation of squeezed states generated by four-wave mixing in an optical cavity</a>," <em>Physical Review Letters</em> <strong>55</strong>, 2409–2412 (1985). The first experimental observation of squeezed light.
                 </li>
                 <li>
-                    L.-A. Wu, H. J. Kimble, J. L. Hall, and H. Wu, "Generation of squeezed states by parametric down conversion," <em>Physical Review Letters</em> <strong>57</strong>, 2520–2523 (1986). The first strongly squeezed light source using an optical parametric oscillator.
+                    L.-A. Wu, H. J. Kimble, J. L. Hall, and H. Wu, "<a href="https://doi.org/10.1103/PhysRevLett.57.2520" target="_blank">Generation of squeezed states by parametric down conversion</a>," <em>Physical Review Letters</em> <strong>57</strong>, 2520–2523 (1986). The first strongly squeezed light source using an optical parametric oscillator.
                 </li>
                 <li>
-                    R. Hanbury Brown and R. Q. Twiss, "A test of a new type of stellar interferometer on Sirius," <em>Nature</em> <strong>178</strong>, 1046–1048 (1956). The classic experiment demonstrating photon bunching from a thermal source and opening the field of intensity interferometry.
+                    R. Hanbury Brown and R. Q. Twiss, "<a href="https://doi.org/10.1038/1781046a0" target="_blank">A test of a new type of stellar interferometer on Sirius</a>," <em>Nature</em> <strong>178</strong>, 1046–1048 (1956). The classic experiment demonstrating photon bunching from a thermal source and opening the field of intensity interferometry.
                 </li>
                 <li>
-                    J. Aasi et al. (LIGO Scientific Collaboration), "Enhanced sensitivity of the LIGO gravitational wave detector by using squeezed states of light," <em>Nature Photonics</em> <strong>7</strong>, 613–619 (2013). The first application of squeezed light to gravitational wave detection.
+                    J. Aasi et al. (LIGO Scientific Collaboration), "<a href="https://doi.org/10.1038/nphoton.2013.177" target="_blank">Enhanced sensitivity of the LIGO gravitational wave detector by using squeezed states of light</a>," <em>Nature Photonics</em> <strong>7</strong>, 613–619 (2013). The first application of squeezed light to gravitational wave detection.
                 </li>
                 <li>
-                    M. O. Scully and M. S. Zubairy, <em>Quantum Optics</em> (Cambridge University Press, Cambridge, 1997). Chapters 2 and 8 provide detailed derivations of the photon statistics and correlation functions of coherent, thermal, and non-classical states.
+                    M. O. Scully and M. S. Zubairy, <em><a href="https://books.google.com/books?isbn=978-0521435955" target="_blank">Quantum Optics</a></em> (Cambridge University Press, Cambridge, 1997). Chapters 2 and 8 provide detailed derivations of the photon statistics and correlation functions of coherent, thermal, and non-classical states.
                 </li>
                 <li>
                     A. I. Lvovsky, "Squeezed light," in <em>Photonics: Scientific Foundations, Technology and Applications</em>, Vol. 1, pp. 121–163 (Wiley, 2015). A comprehensive review of squeezed light generation, detection, and applications, available on the arXiv.

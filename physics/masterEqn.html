@@ -43,13 +43,7 @@
             <!-- introduction -->
             <h2>Introduction</h2>
             <p>
-                In the previous note, we saw how the Wigner–Weisskopf theory explains spontaneous emission for a two-level atom coupled to the vacuum field. That picture gives the basic decay law, but it assumes the field is in a simple pure state. In many real experiments, the atom interacts with a larger environment, and the field is better described as a mixed state. In that case, the atom is an open quantum system, and its state is described by a density operator.
-            </p>
-            <p>
-                These notes build the master-equation description from the ground up. I begin with the density operator and the idea of an open system, then I derive the Born–Markov master equation for a system weakly coupled to a reservoir. I specialize the result to a two-level atom and recover the Lindblad form for spontaneous emission. I then extend the same framework to a three-level atom and derive the optical Bloch equations used in many quantum optics problems.
-            </p>
-            <p>
-                I assume the reader already knows the basics of density operators and the Wigner–Weisskopf theory. The goal is to make the jump from the simple two-level picture to the more realistic open-system picture as clear as possible.
+                An atom coupled to the electromagnetic field is an open quantum system: its state becomes mixed as it interacts with the environment. The density operator provides the appropriate formalism for describing such open systems, and the master equation governs their dynamics. These tools are essential for understanding spontaneous emission, decoherence, and the collective behavior of driven, dissipative atomic systems.
             </p>
 
             <!-- section-1-density-operator -->
@@ -536,19 +530,19 @@
             <h2>References</h2>
             <ol>
                 <li>
-                    H.-P. Breuer and F. Petruccione, <em>The Theory of Open Quantum Systems</em> (Oxford University Press, Oxford, 2002). The definitive monograph on master equations, the Born–Markov approximation, and the Lindblad form. Essential reading for any serious student of open quantum systems.
+                    H.-P. Breuer and F. Petruccione, <em><a href="https://books.google.com/books?isbn=978-0199213900" target="_blank">The Theory of Open Quantum Systems</a></em> (Oxford University Press, Oxford, 2002). The definitive monograph on master equations, the Born–Markov approximation, and the Lindblad form. Essential reading for any serious student of open quantum systems.
                 </li>
                 <li>
-                    C. W. Gardiner and P. Zoller, <em>Quantum Noise</em>, 3rd ed. (Springer, Berlin, 2004). A comprehensive treatment of quantum stochastic processes and the input–output formalism, with detailed derivations of master equations for quantum optical systems.
+                    C. W. Gardiner and P. Zoller, <em><a href="https://books.google.com/books?isbn=978-3540223016" target="_blank">Quantum Noise</a></em>, 3rd ed. (Springer, Berlin, 2004). A comprehensive treatment of quantum stochastic processes and the input–output formalism, with detailed derivations of master equations for quantum optical systems.
                 </li>
                 <li>
-                    M. O. Scully and M. S. Zubairy, <em>Quantum Optics</em> (Cambridge University Press, Cambridge, 1997). Chapters 5 and 7 provide a pedagogical derivation of the master equation and its application to three-level systems, EIT, and correlated emission lasers.
+                    M. O. Scully and M. S. Zubairy, <em><a href="https://books.google.com/books?isbn=978-0521435955" target="_blank">Quantum Optics</a></em> (Cambridge University Press, Cambridge, 1997). Chapters 5 and 7 provide a pedagogical derivation of the master equation and its application to three-level systems, EIT, and correlated emission lasers.
                 </li>
                 <li>
-                    M. Fleischhauer, A. Imamoglu, and J. P. Marangos, "Electromagnetically induced transparency: Optics in coherent media," <em>Reviews of Modern Physics</em> <strong>77</strong>, 633–673 (2005). An authoritative review of EIT and its applications.
+                    M. Fleischhauer, A. Imamoglu, and J. P. Marangos, "<a href="https://doi.org/10.1103/RevModPhys.77.633" target="_blank">Electromagnetically induced transparency: Optics in coherent media</a>," <em>Reviews of Modern Physics</em> <strong>77</strong>, 633–673 (2005). An authoritative review of EIT and its applications.
                 </li>
                 <li>
-                    K. Bergmann, H. Theuer, and B. W. Shore, "Coherent population transfer among quantum states of atoms and molecules," <em>Reviews of Modern Physics</em> <strong>70</strong>, 1003–1025 (1998). The classic review of STIRAP and adiabatic passage techniques.
+                    K. Bergmann, H. Theuer, and B. W. Shore, "<a href="https://doi.org/10.1103/RevModPhys.70.1003" target="_blank">Coherent population transfer among quantum states of atoms and molecules</a>," <em>Reviews of Modern Physics</em> <strong>70</strong>, 1003–1025 (1998). The classic review of STIRAP and adiabatic passage techniques.
                 </li>
                 <li>
                     G. Lindblad, "On the generators of quantum dynamical semigroups," <em>Communications in Mathematical Physics</em> <strong>48</strong>, 119–130 (1976). The original mathematical paper establishing the general form of completely positive Markovian master equations.
@@ -557,13 +551,13 @@
                     V. Gorini, A. Kossakowski, and E. C. G. Sudarshan, "Completely positive dynamical semigroups of N-level systems," <em>Journal of Mathematical Physics</em> <strong>17</strong>, 821–825 (1976). The independent derivation of the Lindblad form.
                 </li>
                 <li>
-                    C. Cohen-Tannoudji, J. Dupont-Roc, and G. Grynberg, <em>Atom–Photon Interactions: Basic Processes and Applications</em> (Wiley-VCH, Weinheim, 1998). Supplementary material on master equations and the optical Bloch equations for multi-level atoms.
+                    C. Cohen-Tannoudji, J. Dupont-Roc, and G. Grynberg, <em><a href="https://books.google.com/books?isbn=978-3527294077" target="_blank">Atom–Photon Interactions: Basic Processes and Applications</a></em> (Wiley-VCH, Weinheim, 1998). Supplementary material on master equations and the optical Bloch equations for multi-level atoms.
                 </li>
                 <li>
-                    D. A. Steck, "Quantum and Atom Optics," available online at http://steck.us/teaching (revision 0.14.5, 2023). Comprehensive lecture notes with detailed derivations of the three-level Bloch equations and numerical solution methods.
+                    D. A. Steck, "Quantum and Atom Optics," available online at <a href="http://steck.us/teaching" target="_blank">http://steck.us/teaching</a> (revision 0.14.5, 2023). Comprehensive lecture notes with detailed derivations of the three-level Bloch equations and numerical solution methods.
                 </li>
                 <li>
-                    R. Loudon, <em>The Quantum Theory of Light</em>, 3rd ed. (Oxford University Press, Oxford, 2000). A classic text covering reservoir theory and the master equation approach to spontaneous emission.
+                    R. Loudon, <em><a href="https://books.google.com/books?isbn=978-0198501770" target="_blank">The Quantum Theory of Light</a></em>, 3rd ed. (Oxford University Press, Oxford, 2000). A classic text covering reservoir theory and the master equation approach to spontaneous emission.
                 </li>
             </ol>
 
