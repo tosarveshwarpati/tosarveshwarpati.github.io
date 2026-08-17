@@ -1,4 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Dark mode toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  
+  if (savedTheme === 'dark') {
+    document.documentElement.classList.add('dark-mode');
+    if (themeToggle) themeToggle.textContent = '☀️';
+  }
+  
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      document.documentElement.classList.toggle('dark-mode');
+      const isDark = document.documentElement.classList.contains('dark-mode');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      themeToggle.textContent = isDark ? '☀️' : '🌙';
+    });
+  }
+
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   const links = document.querySelectorAll('.site-nav a');
 
