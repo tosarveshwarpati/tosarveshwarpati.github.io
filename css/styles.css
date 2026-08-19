@@ -165,15 +165,10 @@ p {
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  padding: 0 20px;
-  margin-left: -20px;
-  margin-right: -20px;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  position: static;
 }
 
 .check-list,
@@ -261,11 +256,6 @@ textarea {
   color: var(--muted);
 }
 
-@media (max-width: 700px) {
-  .site-header {
-    flex-direction: column;
-  }
-}
 
 .boxed-item {
   border: 2px solid #fdcf00;
